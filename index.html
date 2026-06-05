@@ -1,0 +1,2064 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blackbird PPC Design System v2.1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ===== PRIMITIVES ===== */
+  :root{
+    /* Teal (brand accent) — anchored on Blackbird Teal #008C95 at 500 */
+    --teal-50:  #ecf7f8;
+    --teal-100: #cfeef0;
+    --teal-200: #a0dce0;
+    --teal-300: #6ec6cb;
+    --teal-400: #36aab1;
+    --teal-500: #008c95;   /* BRAND ACCENT — Blackbird Teal */
+    --teal-600: #007078;
+    --teal-700: #00565d;
+    --teal-800: #003e43;
+    --teal-900: #00282c;
+    --teal-950: #001316;
+
+    /* Red (signal) — anchored on Blackbird Red #862633 at 500 */
+    --red-50:  #f8e9ec;
+    --red-100: #efc9cf;
+    --red-200: #dd9aa3;
+    --red-300: #c96872;
+    --red-400: #b14250;
+    --red-500: #862633;    /* SIGNAL — Blackbird Red */
+    --red-600: #6e1f2a;
+    --red-700: #561821;
+    --red-800: #3e1118;
+    --red-900: #260a0f;
+    --red-950: #160508;
+
+    /* Neutrals — cool slate. Harmonizes with brand teal. */
+    --neutral-50:  #f8fafc;
+    --neutral-100: #f1f5f9;
+    --neutral-200: #e2e8f0;
+    --neutral-300: #cbd5e1;
+    --neutral-400: #94a3b8;
+    --neutral-500: #64748b;
+    --neutral-600: #475569;
+    --neutral-700: #334155;
+    --neutral-800: #1e293b;
+    --neutral-900: #0f172a;
+    --neutral-950: #000000;   /* Black — brand anchor */
+
+    /* Dark slide surfaces */
+    --dark-bg:    #0d0d0d;    /* Off-black — the dark SECTION ground (pure black #000000 is text/UI only, never a surface) */
+    --dark-card1: #1c1c1c;    /* Neutral card on off-black */
+    --dark-card2: #222222;    /* Neutral card on off-black (alt) */
+    --dark-card-cool: #1e293b; /* slate-800 — sanctioned cool dark-card (v1.9). White text, slate-500 @40% border. Never a section ground. */
+    --dark-row:   #2a2a2a;    /* Alternating rows */
+    --dark-line:  #333333;    /* Internal dividers */
+
+    /* ===== SEMANTIC ROLES (the active system) ===== */
+    --color-brand-accent:        var(--teal-500);
+    --color-brand-accent-hover:  var(--teal-600);
+    --color-brand-accent-active: var(--teal-700);
+    --color-brand-accent-subtle: var(--teal-50);
+    --color-brand-deep:          var(--teal-900);
+    --color-signal:              var(--red-500);
+    --color-signal-subtle:       var(--red-50);
+    --color-brand-slate:         var(--neutral-500);  /* structural spine (not a brand color); cool neutral, a peer in weight not identity */
+    --color-brand-slate-deep:    var(--neutral-700);
+
+    --color-text-default:        var(--neutral-950);
+    --color-text-body:           var(--neutral-800);
+    --color-text-secondary:      var(--neutral-700);
+    --color-text-muted:          var(--neutral-500);
+    --color-text-faint:          var(--neutral-400);
+    --color-text-inverse:        #ffffff;
+
+    --color-surface:             #fafafa;             /* off-white, matches live site */
+    --color-surface-pure:        #ffffff;             /* true white for cards-on-bg, popovers */
+    --color-surface-soft:        var(--neutral-50);
+    --color-surface-muted:       var(--neutral-100);
+    --color-surface-structural:  var(--neutral-200);
+    --color-surface-deep:        var(--dark-bg);            /* DEFAULT DARK — Core dark-surface anchor #0D0D0D */
+    --color-surface-slate-dark:  var(--neutral-500);         /* slate emphasis surface — slate-500 anchor; medium cool gray, not "dark" */
+    --color-surface-card-dark:   var(--dark-card1);
+    --color-surface-card-dark-cool: var(--dark-card-cool);   /* cool dark-card — slate-800, matches the live-site .bb-card */
+
+    --color-border:              var(--neutral-200);
+    --color-border-strong:       var(--neutral-300);
+    --color-border-dark:         var(--dark-line);
+
+    /* Spacing — 4px base, tight at the small end, generous at the large */
+    --space-1:  4px;
+    --space-2:  8px;
+    --space-3:  12px;
+    --space-4:  16px;
+    --space-5:  24px;
+    --space-6:  32px;
+    --space-7:  48px;
+    --space-8:  64px;
+    --space-9:  96px;
+
+    /* Radii — small for buttons/pills, modest for cards. No big rounded corners. */
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 10px;
+    --radius-pill: 999px;
+
+    /* Shadows — restrained. Mostly hairlines, not big drops. */
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-2: 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-3: 0 12px 32px rgba(0,0,0,0.10);
+
+    /* Type stacks — only Futura and Avenir per brand spec. No mono. */
+    --font-headline: "Futura", "futura-pt", "Jost", "Trebuchet MS", system-ui, sans-serif;
+    --font-body:     "Avenir", "europa", "Nunito Sans", "Calibri", system-ui, sans-serif;
+    --font-mono:     var(--font-body);   /* alias for legacy CSS — all "mono" usage now Avenir */
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--color-surface);   /* #fafafa */
+    color:var(--color-text-body);
+    font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  .mono{font-family:var(--font-mono);font-feature-settings:"tnum"}
+  .container{max-width:1200px;margin:0 auto;padding:0 32px}
+
+  /* HEADER */
+  header.doc-head{
+    border-bottom:1px solid var(--color-border);
+    background:rgba(255,255,255,0.88);
+    padding:24px 0;
+    position:sticky;top:0;z-index:10;backdrop-filter:saturate(140%) blur(8px);
+  }
+  .head-inner{display:flex;align-items:center;justify-content:space-between;gap:32px}
+  .doc-brand{display:flex;align-items:center;gap:14px}
+  .doc-brand-mark{
+    width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  }
+  .doc-brand-mark img{height:38px;width:auto;display:block}
+  .doc-brand h1{
+    font-family:var(--font-headline);font-size:18px;font-weight:700;
+    letter-spacing:-0.005em;margin:0;text-transform:uppercase;
+  }
+  .doc-brand .v{color:var(--color-text-muted);font-size:13px;margin-left:10px;font-family:var(--font-mono);font-weight:500;text-transform:none;letter-spacing:0}
+  .doc-nav{display:flex;gap:22px;font-size:13px;color:var(--color-text-secondary);font-weight:600;font-family:var(--font-headline)}
+  .doc-nav a{color:inherit;text-decoration:none}
+  .doc-nav a:hover{color:var(--color-brand-accent)}
+
+  /* signature teal bar + red dot, positioned under header on hero */
+  .bar-dot{display:inline-flex;align-items:center;gap:9px;margin:18px 0 8px}
+  .bar-dot .bar{width:96px;height:4px;background:var(--color-brand-accent);display:block}
+  .bar-dot .dot{width:10px;height:10px;border-radius:50%;background:var(--color-signal);display:block}
+
+  /* HERO */
+  .doc-hero{padding:80px 0 64px;border-bottom:1px solid var(--color-border)}
+  .eyebrow{
+    font-family:var(--font-headline);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--color-brand-accent);font-weight:700;margin-bottom:18px;
+  }
+  h2.doc-h{
+    font-family:var(--font-headline);
+    font-size:clamp(38px, 4.6vw, 60px);line-height:1.05;letter-spacing:-0.025em;
+    font-weight:700;margin:0 0 18px;color:var(--color-text-default);
+    text-transform:uppercase;
+  }
+  .doc-sub{color:var(--color-text-secondary);font-size:18px;max-width:720px;margin:0;line-height:1.55}
+
+  /* SECTION */
+  section.block{padding:88px 0;border-bottom:1px solid var(--color-border)}
+  .section-num{
+    display:inline-block;font-family:var(--font-headline);font-size:14px;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--color-brand-accent);margin-bottom:12px;font-weight:700;
+  }
+  h3.section-title{
+    font-family:var(--font-headline);font-size:32px;font-weight:700;letter-spacing:-0.02em;
+    margin:0 0 12px;color:var(--color-text-default);text-transform:uppercase;
+  }
+  .section-desc{color:var(--color-text-secondary);font-size:16px;max-width:720px;margin:0 0 48px;line-height:1.6}
+  .h4-accent{
+    font-family:var(--font-headline);font-size:18px;font-weight:700;
+    letter-spacing:-0.005em;margin:32px 0 6px;text-transform:uppercase;
+    color:var(--color-text-default);
+  }
+  .h4-accent + .h4-underline{
+    width:48px;height:2px;background:var(--color-brand-accent);margin:0 0 18px;
+  }
+  .section-end-mark{
+    display:flex;justify-content:flex-start;margin-top:48px;
+  }
+  .section-end-mark .bar{width:64px;height:4px;background:var(--color-brand-accent)}
+  .section-end-mark .dot{width:10px;height:10px;border-radius:50%;background:var(--color-signal);margin-left:9px;align-self:center}
+
+  /* CORE 6 — the six hex values that carry the brand */
+  .core-5{
+    display:grid;grid-template-columns:repeat(6, 1fr);gap:2px;
+    border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;
+    margin-bottom:24px;
+  }
+  @media (max-width:760px){ .core-5{grid-template-columns:repeat(2, 1fr)} }
+  .core-5 .core-cell{
+    aspect-ratio:1;display:flex;flex-direction:column;justify-content:space-between;
+    padding:18px 16px;position:relative;
+  }
+  .core-5 .core-cell.lt{color:var(--neutral-950)}
+  .core-5 .core-cell.dk{color:#fff}
+  .core-5 .core-cell .role{
+    font-family:var(--font-headline);font-size:11px;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.12em;opacity:0.85;
+  }
+  .core-5 .core-cell .hex-big{
+    font-family:var(--font-headline);font-size:18px;font-weight:700;
+    letter-spacing:-0.005em;
+  }
+  .core-5 .core-cell .pct{
+    font-family:var(--font-body);font-size:12px;opacity:0.75;margin-top:4px;
+  }
+  .core-5-callout{
+    background:var(--color-surface-pure);border:1px solid var(--color-border);
+    border-left:3px solid var(--color-brand-accent);
+    border-radius:var(--radius-lg);padding:18px 22px;margin-bottom:48px;
+    font-size:14px;color:var(--color-text-body);line-height:1.6;
+  }
+  .core-5-callout strong{color:var(--neutral-950);font-weight:700}
+
+  /* SCALE STRIP */
+  .scale-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+  .scale-label h4{margin:0;font-family:var(--font-headline);font-size:18px;font-weight:700;letter-spacing:-0.005em}
+  .scale-label .note{font-size:12px;color:var(--color-text-muted);font-family:var(--font-mono)}
+  .scale{
+    display:grid;grid-template-columns:repeat(11,1fr);gap:0;
+    border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:48px;
+  }
+  .swatch{
+    aspect-ratio:1.1;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:10px;color:var(--neutral-950);position:relative;
+  }
+  .swatch.dark{color:#fff}
+  .swatch .step{font-family:var(--font-mono);font-size:11px;font-weight:700;opacity:0.9}
+  .swatch .hex{font-family:var(--font-mono);font-size:10px;opacity:0.7;margin-top:2px}
+  .swatch.anchor::before{
+    content:"BRAND";position:absolute;top:8px;left:8px;
+    font-family:var(--font-headline);font-size:10px;font-weight:700;letter-spacing:0.1em;
+    background:rgba(255,255,255,0.18);padding:3px 6px;border-radius:3px;
+  }
+  .swatch.signal::before{
+    content:"SIGNAL";position:absolute;top:8px;left:8px;
+    font-family:var(--font-headline);font-size:10px;font-weight:700;letter-spacing:0.1em;
+    background:rgba(255,255,255,0.18);padding:3px 6px;border-radius:3px;
+  }
+  .swatch.structural::before{
+    content:"BLACK";position:absolute;top:8px;left:8px;
+    font-family:var(--font-headline);font-size:10px;font-weight:700;letter-spacing:0.1em;
+    background:rgba(255,255,255,0.18);padding:3px 6px;border-radius:3px;
+  }
+  .swatch.spine::before{
+    content:"SPINE";position:absolute;top:8px;left:8px;
+    font-family:var(--font-headline);font-size:10px;font-weight:700;letter-spacing:0.1em;
+    background:rgba(255,255,255,0.18);padding:3px 6px;border-radius:3px;
+  }
+  @media (max-width:900px){
+    .scale{grid-template-columns:repeat(6,1fr)}
+  }
+
+  /* SPECIAL ROW SCALES (5 cols, 4 cols) */
+  .scale.cols-5{grid-template-columns:repeat(5,1fr)}
+  .scale.cols-4{grid-template-columns:repeat(4,1fr)}
+  .scale.cols-5 .swatch, .scale.cols-4 .swatch{aspect-ratio:2.6}
+
+  /* SEMANTIC TABLE */
+  .sem-table{
+    border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;
+    background:var(--color-surface-pure);
+  }
+  .sem-row{
+    display:grid;grid-template-columns:48px 1fr 240px 1fr;align-items:center;gap:20px;
+    padding:14px 20px;border-bottom:1px solid var(--color-border);
+  }
+  .sem-row:last-child{border-bottom:0}
+  .sem-row.head{background:var(--color-surface-soft);font-family:var(--font-headline);
+    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-brand-slate-deep);
+    font-weight:700;
+  }
+  .sem-chip{width:32px;height:32px;border-radius:var(--radius-sm);border:1px solid var(--color-border)}
+  .sem-name{font-family:var(--font-mono);font-size:13px;color:var(--color-text-default);font-weight:600}
+  .sem-prim{font-family:var(--font-mono);font-size:13px;color:var(--color-text-muted)}
+  .sem-use{font-size:13px;color:var(--color-text-secondary);line-height:1.45}
+  @media (max-width:900px){
+    .sem-row{grid-template-columns:32px 1fr;row-gap:6px}
+    .sem-row.head{display:none}
+    .sem-prim, .sem-use{grid-column:2}
+  }
+
+  /* TYPOGRAPHY SECTION */
+  .type-grid{display:grid;grid-template-columns:1fr;gap:0;
+    border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface-pure)}
+  .type-row{display:grid;grid-template-columns:1fr 220px;align-items:baseline;gap:24px;
+    padding:24px 28px;border-bottom:1px solid var(--color-border)}
+  .type-row:last-child{border-bottom:0}
+  .type-row .meta{font-family:var(--font-headline);font-size:12px;color:var(--color-brand-slate-deep);text-transform:uppercase;letter-spacing:0.12em;text-align:right;font-weight:700}
+  .t-cover{font-family:var(--font-headline);font-size:48px;font-weight:700;letter-spacing:-0.02em;text-transform:uppercase;color:var(--neutral-950);line-height:1.05}
+  .t-page-title{font-family:var(--font-headline);font-size:24px;font-weight:700;color:var(--neutral-950);letter-spacing:-0.01em}
+  .t-subtitle{font-family:var(--font-headline);font-size:18px;font-weight:700;color:var(--neutral-700)}
+  .t-card-title{font-family:var(--font-headline);font-size:14px;font-weight:700;color:var(--neutral-950);text-transform:uppercase;letter-spacing:0.02em}
+  .t-body{font-family:var(--font-body);font-size:15px;color:var(--neutral-800);line-height:1.6;max-width:560px}
+  .t-small{font-family:var(--font-body);font-size:13px;color:var(--neutral-700)}
+  .t-caption{font-family:var(--font-body);font-size:12px;color:var(--neutral-500)}
+  .t-stat{font-family:var(--font-headline);font-size:80px;font-weight:700;color:var(--color-brand-accent);letter-spacing:-0.03em;line-height:1}
+  .t-section-num{font-family:var(--font-headline);font-size:13px;font-weight:700;color:var(--color-brand-accent);letter-spacing:0.04em}
+
+  /* SPACING / RADII / SHADOWS */
+  .token-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+  @media (max-width:900px){ .token-grid{grid-template-columns:1fr} }
+  .token-card{
+    background:var(--color-surface-pure);border:1px solid var(--color-border);
+    border-radius:var(--radius-lg);padding:24px;
+  }
+  .token-card h5{font-family:var(--font-headline);font-size:14px;font-weight:700;margin:0 0 16px;text-transform:uppercase;letter-spacing:0.02em}
+  .token-row{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--color-text-secondary);padding:6px 0;border-bottom:1px solid var(--color-border)}
+  .token-row:last-child{border-bottom:0}
+  .token-row .name{font-family:var(--font-mono);font-size:12px;color:var(--color-text-default);font-weight:600;min-width:90px}
+  .token-row .val{font-family:var(--font-mono);font-size:12px;color:var(--color-text-muted)}
+  .space-bar{height:14px;background:var(--color-brand-accent)}
+  .radius-demo{width:36px;height:36px;background:var(--color-brand-accent);flex-shrink:0}
+  .shadow-demo{width:60px;height:36px;background:#fff;border:1px solid var(--color-border);flex-shrink:0}
+
+  /* MOTIFS */
+  .motifs{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media (max-width:900px){ .motifs{grid-template-columns:1fr} }
+  .motif{
+    background:var(--color-surface-pure);border:1px solid var(--color-border);
+    border-radius:var(--radius-lg);padding:32px;position:relative;overflow:hidden;
+  }
+  .motif h6{font-family:var(--font-headline);font-size:11px;color:var(--color-brand-accent);letter-spacing:0.14em;text-transform:uppercase;margin:0 0 16px;font-weight:700}
+  .motif .desc{font-size:13px;color:var(--color-text-secondary);margin-top:18px;line-height:1.5}
+  .motif-bar-dot{display:flex;align-items:center;gap:11px}
+  .motif-bar-dot .bar{width:140px;height:6px;background:var(--color-brand-accent)}
+  .motif-bar-dot .dot{width:12px;height:12px;border-radius:50%;background:var(--color-signal)}
+  .motif-bottom{height:80px;background:var(--color-surface-soft);position:relative;border-radius:var(--radius-sm);overflow:hidden}
+  .motif-bottom::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:var(--color-brand-accent)}
+  .motif-bullet-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--color-border)}
+  .motif-bullet-row:last-child{border-bottom:0}
+  .motif-bullet-row .b{width:8px;height:8px;border-radius:50%;background:var(--color-brand-accent)}
+  .motif-bullet-row .text{font-size:13px;color:var(--color-text-body)}
+  .motif-numprefix{display:flex;flex-direction:column;gap:8px}
+  .motif-numprefix .row{display:flex;align-items:baseline;gap:10px;font-size:14px;color:var(--color-text-body)}
+  .motif-numprefix .num-t{font-family:var(--font-headline);font-weight:700;color:var(--color-brand-accent);font-size:14px}
+  .motif-numprefix .num-r{font-family:var(--font-headline);font-weight:700;color:var(--color-signal);font-size:14px}
+  .motif-headunder{display:flex;flex-direction:column;gap:4px}
+  .motif-headunder .h-teal{font-family:var(--font-headline);font-size:18px;font-weight:700;color:var(--color-brand-accent);letter-spacing:0.02em;text-transform:uppercase}
+  .motif-headunder .u-teal{height:2px;width:120px;background:var(--color-brand-accent)}
+  .motif-headunder .h-red{font-family:var(--font-headline);font-size:18px;font-weight:700;color:var(--color-signal);letter-spacing:0.02em;text-transform:uppercase;margin-top:14px}
+  .motif-headunder .u-red{height:2px;width:120px;background:var(--color-signal)}
+
+  /* RULES */
+  .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .rule{
+    background:var(--color-surface-pure);border:1px solid var(--color-border);
+    border-radius:var(--radius-lg);padding:22px;
+  }
+  .rule h5{
+    margin:0 0 8px;font-family:var(--font-headline);font-size:14px;font-weight:700;
+    letter-spacing:-0.005em;display:flex;align-items:center;gap:10px;text-transform:uppercase;
+  }
+  .rule h5 .tag{
+    font-family:var(--font-headline);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+    padding:4px 10px;border-radius:var(--radius-xs);font-weight:700;
+  }
+  .rule h5 .tag.do{background:var(--teal-50);color:var(--teal-800);border:1px solid var(--teal-200)}
+  .rule h5 .tag.dont{background:var(--red-50);color:var(--red-800);border:1px solid var(--red-200)}
+  .rule p{margin:0;font-size:13px;color:var(--color-text-secondary);line-height:1.55}
+  @media (max-width:760px){ .rules{grid-template-columns:1fr} }
+
+  /* CODE */
+  pre.code{
+    background:var(--neutral-900);color:#e5e5e5;
+    padding:24px 28px;border-radius:var(--radius-lg);overflow-x:auto;
+    font-family:var(--font-mono);font-size:13px;line-height:1.65;
+    border:1px solid var(--neutral-800);
+  }
+  pre.code .c{color:#888888}
+  pre.code .v{color:var(--teal-300)}
+  pre.code .h{color:#e0c275}
+
+  /* COMPONENT EXAMPLES */
+  .comps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media (max-width:760px){ .comps{grid-template-columns:1fr} }
+  .comp{
+    border:1px solid var(--color-border);border-radius:var(--radius-lg);
+    padding:24px;background:var(--color-surface-pure);position:relative;
+  }
+  .comp-label{
+    font-family:var(--font-headline);font-size:11px;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--color-brand-accent);margin-bottom:16px;font-weight:700;
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    height:40px;padding:0 18px;border-radius:var(--radius-sm);
+    font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.04em;
+    border:1px solid transparent;cursor:pointer;font-family:var(--font-headline);
+    margin-right:8px;margin-bottom:6px;
+  }
+  .btn-primary{background:var(--color-brand-accent);color:#fff}
+  .btn-primary:hover{background:var(--color-brand-accent-hover)}
+  .btn-dark{background:var(--neutral-950);color:#fff}
+  .btn-dark:hover{background:var(--neutral-800)}
+  .btn-ghost{background:transparent;color:var(--neutral-950);border-color:var(--neutral-950)}
+  .btn-ghost:hover{background:var(--neutral-950);color:#fff}
+  .btn-signal{background:var(--color-signal);color:#fff}
+  .btn-pill-outline{
+    background:transparent;color:var(--color-signal);
+    border:2px solid var(--color-signal);
+    border-radius:var(--radius-pill);
+    height:52px;padding:0 40px;
+    font-family:var(--font-body);font-size:16px;font-weight:500;
+    text-transform:none;letter-spacing:0;
+  }
+  .btn-pill-outline:hover{background:var(--color-signal);color:#fff}
+  .btn-pill-outline.accent{color:var(--color-brand-accent);border-color:var(--color-brand-accent)}
+  .btn-pill-outline.accent:hover{background:var(--color-brand-accent);color:#fff}
+
+  .pill{
+    display:inline-block;font-family:var(--font-headline);font-size:11px;
+    letter-spacing:0.1em;text-transform:uppercase;font-weight:700;
+    padding:5px 12px;border-radius:var(--radius-pill);margin-right:6px;margin-bottom:6px;
+  }
+  .pill-accent{background:var(--color-brand-accent-subtle);color:var(--color-brand-accent-active)}
+  .pill-signal{background:var(--color-signal-subtle);color:var(--color-signal)}
+  .pill-slate{background:var(--neutral-200);color:var(--neutral-800)}
+  .pill-dark{background:var(--neutral-950);color:#fff}
+
+  /* Stat callout */
+  .stat-callout{display:flex;align-items:baseline;gap:18px}
+  .stat-callout .num{font-family:var(--font-headline);font-size:64px;font-weight:700;color:var(--color-brand-accent);letter-spacing:-0.03em;line-height:1}
+  .stat-callout .ctx{font-size:13px;color:var(--color-text-secondary);max-width:180px;line-height:1.45}
+
+  /* Pattern: Inputs/Outputs numbered list (Image 1 style) */
+  .io-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  @media (max-width:760px){ .io-grid{grid-template-columns:1fr;gap:32px} }
+  .io-col h4{font-family:var(--font-headline);font-size:18px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;margin:0 0 4px}
+  .io-col .underline{height:2px;width:120px;margin-bottom:18px}
+  .io-col.teal h4{color:var(--color-brand-accent)}
+  .io-col.teal .underline{background:var(--color-brand-accent)}
+  .io-col.red h4{color:var(--color-signal)}
+  .io-col.red .underline{background:var(--color-signal)}
+  .io-item{
+    display:flex;align-items:center;gap:14px;padding:12px 16px;
+    border-radius:var(--radius-md);border:1.5px solid;
+    margin-bottom:10px;font-size:14px;color:var(--color-text-body);
+  }
+  .io-col.teal .io-item{border-color:var(--teal-200);background:var(--teal-50)}
+  .io-col.red .io-item{border-color:var(--red-200);background:var(--red-50)}
+  .io-item .num{font-family:var(--font-headline);font-weight:700;font-size:14px;flex-shrink:0;min-width:18px}
+  .io-col.teal .io-item .num{color:var(--color-brand-accent)}
+  .io-col.red .io-item .num{color:var(--color-signal)}
+
+  /* Pattern: Icon + headline + desc rows (Image 4 style) */
+  .icon-list{display:flex;flex-direction:column;gap:24px}
+  .icon-row{display:grid;grid-template-columns:48px 1fr;gap:18px;align-items:start;padding:8px 12px;border-radius:var(--radius-sm)}
+  .icon-row svg{width:32px;height:32px;stroke:var(--color-brand-accent);stroke-width:1.5;fill:none}
+  .icon-row .ir-title{font-family:var(--font-headline);font-size:15px;font-weight:700;color:var(--neutral-950);margin:0 0 4px;letter-spacing:-0.005em}
+  .icon-row .ir-desc{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.5}
+
+  /* Pattern: POD/POP/Optionality stack (Image 2 style) */
+  .pod-stack > .item{padding-bottom:18px;margin-bottom:18px}
+  .pod-stack > .item:not(:last-child){border-bottom:none;position:relative}
+  .pod-stack > .item:not(:last-child)::after{content:"";display:block;width:120px;height:2px;background:var(--color-brand-accent);margin-top:18px}
+  .pod-stack .label{font-family:var(--font-headline);font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 8px}
+  .pod-stack .label.pod{color:var(--color-brand-accent)}
+  .pod-stack .label.pop{color:var(--color-text-muted)}
+  .pod-stack .label.opt{color:var(--color-signal)}
+  .pod-stack .h{font-family:var(--font-headline);font-size:22px;font-weight:700;color:var(--neutral-950);margin:0 0 8px;letter-spacing:-0.01em}
+  .pod-stack .d{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.55}
+
+  /* Pattern: Solid color callout (Image 2 style) */
+  .solid-callout{
+    background:var(--color-brand-accent);padding:28px 24px;border-radius:var(--radius-lg);
+    font-family:var(--font-headline);font-size:24px;font-weight:700;color:var(--neutral-950);
+    line-height:1.15;letter-spacing:-0.01em;
+  }
+
+  /* Dark surface examples */
+  .dark-surface{
+    background:var(--color-surface-deep);color:#fff;border-radius:var(--radius-lg);
+    padding:32px;position:relative;overflow:hidden;
+  }
+  .dark-surface.slate{background:var(--color-surface-slate-dark)}
+  /* v2.0: bar removed — no bars tied to cards/surfaces. Depth comes from surface contrast; dark surfaces also skip the bottom accent bar. */
+  .dark-surface .num{font-family:var(--font-headline);font-size:13px;font-weight:700;color:var(--color-brand-accent);letter-spacing:0.04em;margin-bottom:8px}
+  .dark-surface h4{font-family:var(--font-headline);font-size:24px;font-weight:700;color:#fff;margin:0 0 8px;text-transform:uppercase;letter-spacing:-0.01em}
+  .dark-surface p{font-size:13px;color:var(--neutral-300);margin:0;line-height:1.55}
+  .dark-surface .surface-label{
+    position:absolute;top:16px;right:20px;font-family:var(--font-headline);font-size:11px;
+    color:rgba(255,255,255,0.6);letter-spacing:0.12em;text-transform:uppercase;font-weight:700;
+  }
+
+  /* States */
+  .state-row{display:flex;gap:18px;flex-wrap:wrap}
+  .state{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--color-text-secondary)}
+  .state .dot{width:10px;height:10px;border-radius:50%}
+
+  /* Voice / tone box */
+  .voice-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:760px){ .voice-grid{grid-template-columns:1fr} }
+  .voice-card{padding:22px;border-radius:var(--radius-lg);border:1px solid var(--color-border)}
+  .voice-card.good{background:var(--teal-50);border-color:var(--teal-200)}
+  .voice-card.bad{background:var(--red-50);border-color:var(--red-200)}
+  .voice-card .vtag{font-family:var(--font-headline);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;margin-bottom:12px;display:inline-block;padding:4px 10px;border-radius:var(--radius-xs)}
+  .voice-card.good .vtag{background:var(--teal-700);color:#fff}
+  .voice-card.bad .vtag{background:var(--red-700);color:#fff}
+  .voice-card p{margin:0 0 8px;font-size:14px;color:var(--neutral-900);line-height:1.55}
+  .voice-card p:last-child{margin:0}
+
+  /* LOGO */
+  .logo-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:20px}
+  @media (max-width:900px){ .logo-grid{grid-template-columns:1fr} }
+  .logo-cell{
+    background:var(--color-surface-pure);border:1px solid var(--color-border);
+    border-radius:var(--radius-lg);padding:40px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;min-height:260px;
+    position:relative;
+  }
+  .logo-cell.dark{background:var(--color-surface-deep)}
+  .logo-cell img{max-width:100%;height:auto;display:block;image-rendering:-webkit-optimize-contrast}
+  .logo-cell.horizontal img{max-height:96px;width:auto}
+  .logo-cell.circular img{max-height:200px;width:auto}
+  .logo-cell.mark img{max-height:170px;width:auto}
+  /* Dark cells use pre-inverted white-on-transparent assets, no CSS filter needed */
+  .logo-cell .caption{
+    font-family:var(--font-headline);font-size:11px;color:var(--color-brand-accent);
+    letter-spacing:0.14em;text-transform:uppercase;font-weight:700;
+    position:absolute;top:16px;left:20px;
+  }
+  .logo-cell.dark .caption{color:rgba(255,255,255,0.5)}
+  .logo-cell .role{
+    font-family:var(--font-headline);font-size:13px;font-weight:700;
+    color:var(--color-text-default);text-transform:uppercase;letter-spacing:0.02em;
+    margin-top:24px;
+  }
+  .logo-cell.dark .role{color:#fff}
+  .logo-clear{
+    background:var(--color-surface-pure);border:1px solid var(--color-border);
+    border-radius:var(--radius-lg);padding:32px;
+    display:flex;align-items:center;gap:32px;flex-wrap:wrap;
+  }
+  .logo-clear .demo{
+    position:relative;padding:20px 24px;border:1px dashed var(--color-brand-accent);
+    border-radius:var(--radius-sm);
+  }
+  .logo-clear .demo img{height:72px;width:auto;display:block}
+  .logo-clear .demo .x{
+    position:absolute;font-family:var(--font-mono);font-size:11px;font-weight:700;
+    color:var(--color-brand-accent);
+  }
+  .logo-clear .demo .x.t{top:-9px;left:50%;transform:translateX(-50%);background:#fff;padding:0 6px}
+  .logo-clear .demo .x.b{bottom:-9px;left:50%;transform:translateX(-50%);background:#fff;padding:0 6px}
+  .logo-clear .demo .x.l{left:-9px;top:50%;transform:translateY(-50%);background:#fff;padding:0 4px}
+  .logo-clear .demo .x.r{right:-9px;top:50%;transform:translateY(-50%);background:#fff;padding:0 4px}
+  .logo-clear .clear-text{flex:1;min-width:200px}
+  .logo-clear .clear-text h6{font-family:var(--font-headline);font-size:14px;font-weight:700;text-transform:uppercase;margin:0 0 8px;letter-spacing:0.02em}
+  .logo-clear .clear-text p{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.55}
+
+  /* CARD PATTERN — spec example */
+  .card-spec-row{
+    background:#FAFAFA;padding:32px;border-radius:var(--radius-lg);
+    display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;
+  }
+  @media (max-width:760px){ .card-spec-row{grid-template-columns:1fr} }
+  .card-spec{
+    background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;
+    padding:24px;
+  }
+  .card-spec h6{
+    font-family:var(--font-headline);font-size:11px;font-weight:700;
+    color:var(--color-brand-accent);letter-spacing:0.14em;text-transform:uppercase;
+    margin:0 0 12px;
+  }
+  .card-spec p{
+    font-family:var(--font-body);font-size:13px;color:var(--color-text-body);
+    margin:0;line-height:1.55;
+  }
+  .card-spec-table{
+    background:#FAFAFA;padding:24px;border-radius:var(--radius-lg);margin-top:16px;
+  }
+  .card-spec-table .row{
+    display:grid;grid-template-columns:160px 1fr;gap:20px;
+    padding:10px 0;border-bottom:1px solid #E2E8F0;font-size:13px;
+  }
+  .card-spec-table .row:last-child{border-bottom:0}
+  .card-spec-table .row .name{
+    font-family:var(--font-headline);font-size:11px;font-weight:700;
+    color:var(--color-brand-slate-deep);letter-spacing:0.1em;text-transform:uppercase;
+  }
+  .card-spec-table .row .val{
+    color:var(--color-text-body);font-family:var(--font-body);
+  }
+
+  /* DARK EMPHASIS SECTION — case studies, key findings, executive callouts */
+  .dark-emphasis{
+    background:var(--dark-bg);color:#fff;border-radius:var(--radius-lg);
+    padding:48px 40px 40px;position:relative;
+  }
+  .dark-emphasis.slate{background:var(--color-brand-slate)}
+  .dark-emphasis .eyebrow-dark{
+    font-family:var(--font-headline);font-size:12px;font-weight:700;
+    letter-spacing:0.16em;text-transform:uppercase;color:var(--color-brand-accent);
+    display:inline-block;padding-bottom:4px;border-bottom:1.5px solid var(--color-brand-accent);
+    margin-bottom:18px;
+  }
+  .dark-emphasis .de-title{
+    font-family:var(--font-headline);font-size:34px;font-weight:700;
+    color:#fff;letter-spacing:-0.02em;margin:0 0 8px;line-height:1.1;
+  }
+  .dark-emphasis .de-sub{
+    font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,0.65);
+    margin:0 0 32px;line-height:1.55;
+  }
+  .stat-strip{
+    display:grid;grid-template-columns:repeat(4, 1fr);gap:14px;
+  }
+  @media (max-width:760px){ .stat-strip{grid-template-columns:repeat(2, 1fr)} }
+  .stat-card{
+    background:var(--dark-card-cool);border-radius:var(--radius-lg);  /* slate-800 #1E293B cool dark-card — matches live site .bb-card */
+    padding:0 0 22px;display:flex;flex-direction:column;align-items:center;
+    text-align:center;position:relative;overflow:hidden;min-height:340px;
+  }
+  /* v2.0: top bar removed — no top-edge bars on cards, ever. The big teal stat number carries the brand inside the card. */
+  .stat-card .logo-frame{
+    background:#fff;width:calc(100% - 24px);margin:14px 12px 0;
+    border-radius:var(--radius-xs);padding:14px 18px;display:flex;
+    align-items:center;justify-content:center;height:64px;
+  }
+  .stat-card .logo-frame img{max-height:32px;max-width:100%;width:auto;display:block}
+  .stat-card .stat-num{
+    font-family:var(--font-headline);font-size:56px;font-weight:700;
+    color:var(--color-brand-accent);letter-spacing:-0.03em;line-height:1;
+    margin:32px 0 12px;
+  }
+  .stat-card .stat-label{
+    font-family:var(--font-headline);font-size:11px;font-weight:700;
+    color:#fff;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 18px;
+  }
+  .stat-card .stat-detail{
+    font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,0.85);
+    line-height:1.5;margin:0 16px;flex:1;
+  }
+  .stat-card .stat-outcome{
+    font-family:var(--font-body);font-size:13px;color:var(--color-brand-accent);
+    font-style:italic;margin:24px 16px 0;
+  }
+
+  /* IMAGE + TEXT TWO-COLUMN — most-used slide layout */
+  .slide-mock{
+    background:var(--color-surface-pure);border:1px solid var(--color-border);
+    border-radius:var(--radius-lg);padding:36px 40px 24px;position:relative;
+    overflow:hidden;
+  }
+  .slide-mock::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:5px;
+    background:var(--color-brand-accent);
+  }
+  .slide-mock .slide-title{
+    font-family:var(--font-headline);font-size:24px;font-weight:700;
+    color:var(--neutral-950);letter-spacing:-0.01em;margin:0 0 24px;line-height:1.15;
+  }
+  .img-text-2col{
+    display:grid;grid-template-columns:55% 1fr;gap:36px;align-items:start;
+  }
+  @media (max-width:760px){ .img-text-2col{grid-template-columns:1fr} }
+  .img-text-2col .image-side{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--neutral-900)}
+  .img-text-2col .image-side img{width:100%;height:auto;display:block;opacity:0.85}
+  .img-text-2col .text-side h5.ts-header{
+    font-family:var(--font-body);font-size:18px;font-weight:700;
+    margin:0 0 16px;color:var(--neutral-950);letter-spacing:-0.005em;text-transform:none;
+  }
+  .img-text-2col .text-side p{
+    font-family:var(--font-body);font-size:14px;line-height:1.6;
+    color:var(--color-text-body);margin:0 0 14px;
+  }
+  .img-text-2col .text-side p:last-child{margin:0}
+  .img-text-2col .text-side p strong{color:var(--neutral-950);font-weight:700}
+  .slide-mock .slide-footer{
+    display:flex;justify-content:flex-end;align-items:center;
+    margin-top:24px;padding-top:0;
+  }
+  .slide-mock .bird-mark-corner{height:32px;width:auto;display:block;opacity:0.9}
+
+  /* ROADMAP */
+  .roadmap{
+    display:grid;grid-template-columns:repeat(4, 1fr);gap:0;
+    position:relative;padding-top:8px;margin:0 0 32px;
+  }
+  .roadmap.steps-3{grid-template-columns:repeat(3, 1fr)}
+  .roadmap.steps-5{grid-template-columns:repeat(5, 1fr)}
+  .roadmap::before{
+    content:"";position:absolute;
+    left:12.5%;right:12.5%;top:42px;height:2px;
+    background:linear-gradient(to right,
+      var(--teal-500) 0%,
+      #2D6A74 33%,
+      #594853 67%,
+      var(--red-500) 100%);
+    z-index:1;
+  }
+  .roadmap.steps-3::before{left:16.66%;right:16.66%;
+    background:linear-gradient(to right, var(--teal-500), #594853, var(--red-500))}
+  .roadmap.steps-5::before{left:10%;right:10%}
+  .roadmap .step{
+    position:relative;display:flex;flex-direction:column;align-items:center;
+  }
+  .roadmap .circle{
+    width:64px;height:64px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-headline);font-weight:700;font-size:18px;color:#fff;
+    position:relative;z-index:2;letter-spacing:0.02em;
+  }
+  .roadmap .step.s1 .circle{background:var(--teal-500)}
+  .roadmap .step.s2 .circle{background:#2D6A74}
+  .roadmap .step.s3 .circle{background:#594853}
+  .roadmap .step.s4 .circle{background:var(--red-500)}
+  .roadmap .vline{
+    width:1.5px;height:36px;
+  }
+  .roadmap .step.s1 .vline{background:var(--teal-500)}
+  .roadmap .step.s2 .vline{background:#2D6A74}
+  .roadmap .step.s3 .vline{background:#594853}
+  .roadmap .step.s4 .vline{background:var(--red-500)}
+  .roadmap .card{
+    border:1.5px solid;padding:18px 16px;border-radius:var(--radius-lg);
+    text-align:center;width:100%;max-width:220px;
+  }
+  .roadmap .step.s1 .card{background:var(--teal-50);border-color:var(--teal-200)}
+  .roadmap .step.s2 .card{background:#E5EEEF;border-color:#A8C7CB}
+  .roadmap .step.s3 .card{background:#EFE6E8;border-color:#C5A0A8}
+  .roadmap .step.s4 .card{background:var(--red-50);border-color:var(--red-200)}
+  .roadmap .card .ttl{
+    font-family:var(--font-headline);font-weight:700;font-size:15px;margin:0 0 8px;
+    letter-spacing:-0.005em;text-transform:none;
+  }
+  .roadmap .step.s1 .card .ttl{color:var(--teal-700)}
+  .roadmap .step.s2 .card .ttl{color:#2D6A74}
+  .roadmap .step.s3 .card .ttl{color:#594853}
+  .roadmap .step.s4 .card .ttl{color:var(--red-700)}
+  .roadmap .card .desc{
+    font-size:12px;color:var(--color-text-secondary);line-height:1.5;margin:0;
+  }
+  @media (max-width:760px){
+    .roadmap{grid-template-columns:1fr;gap:24px;padding-top:0}
+    .roadmap::before{display:none}
+    .roadmap .vline{display:none}
+    .roadmap .step{flex-direction:row;align-items:center;gap:16px}
+    .roadmap .card{text-align:left;max-width:none;flex:1}
+  }
+
+  /* IMAGERY */
+  .imagery-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media (max-width:900px){ .imagery-grid{grid-template-columns:1fr} }
+  .photo-mock{
+    position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:16/9;
+    background-image:url('icons/san-francisco-skyline-fine-art-l.jpg');
+    background-size:cover;background-position:center;
+  }
+  .photo-mock::before{
+    content:"";position:absolute;inset:0;background:rgba(0,0,0,0.7);
+  }
+  /* v2.0: photo-mock bottom bar removed — photo slides skip the bottom accent bar, and nothing carries a stray teal bar. */
+  .photo-mock .label{
+    position:absolute;top:20px;left:28px;font-family:var(--font-headline);font-size:11px;
+    color:rgba(255,255,255,0.65);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;
+  }
+  .photo-mock .stack{
+    position:absolute;left:32px;bottom:32px;display:flex;flex-direction:column;gap:0;
+  }
+  .photo-mock .num{
+    font-family:var(--font-headline);font-size:72px;font-weight:700;color:var(--color-brand-accent);
+    letter-spacing:-0.03em;line-height:0.9;margin:0 0 4px 0;
+  }
+  .photo-mock .title{
+    font-family:var(--font-headline);font-size:30px;font-weight:700;color:#fff;
+    letter-spacing:-0.01em;text-transform:uppercase;margin:0;line-height:1;
+  }
+  .photo-mock .sub{
+    font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,0.7);
+    margin:6px 0 0 0;font-style:italic;
+  }
+  .photo-meta{
+    background:var(--color-surface-pure);border:1px solid var(--color-border);
+    border-radius:var(--radius-lg);padding:24px;
+  }
+  .photo-meta h5{font-family:var(--font-headline);font-size:14px;font-weight:700;margin:0 0 16px;text-transform:uppercase;letter-spacing:0.02em}
+  .photo-meta .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--color-border);font-size:13px;color:var(--color-text-secondary)}
+  .photo-meta .row:last-child{border-bottom:0}
+  .photo-meta .row .name{font-family:var(--font-mono);color:var(--color-text-default);font-weight:600;font-size:12px}
+  .icon-spec{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+  .icon-spec .demo{display:flex;flex-direction:column;align-items:center;gap:8px;width:90px}
+  .icon-spec .demo svg{width:36px;height:36px;stroke:var(--color-brand-accent);stroke-width:1.5;fill:none}
+  .icon-spec .demo .lbl{font-family:var(--font-headline);font-size:11px;color:var(--color-brand-slate-deep);letter-spacing:0.08em;text-transform:uppercase;text-align:center;font-weight:700}
+
+  /* FOOTER */
+  footer{padding:48px 0;color:var(--color-text-muted);font-size:13px;text-align:center;border-top:1px solid var(--color-border)}
+  footer .mono{margin-top:8px}
+  footer .bar-dot{justify-content:center;margin:0 0 18px}
+</style>
+</head>
+<body>
+
+<header class="doc-head">
+  <div class="container head-inner">
+    <div class="doc-brand">
+      <div class="doc-brand-mark"><img src="blackbird_logo.png" alt="Blackbird" /></div>
+      <h1>Blackbird Design System<span class="v">v2.1</span></h1>
+    </div>
+    <nav class="doc-nav">
+      <a href="#foundations">01 Foundations</a>
+      <a href="#logo">02 Logo</a>
+      <a href="#color">03 Color</a>
+      <a href="#type">04 Type</a>
+      <a href="#motifs">05 Motifs</a>
+      <a href="#imagery">06 Imagery</a>
+      <a href="#rules">07 Rules</a>
+      <a href="#code">08 Code</a>
+      <a href="#examples">09 Examples</a>
+    </nav>
+  </div>
+</header>
+
+<section class="doc-hero">
+  <div class="container">
+    <div class="eyebrow">Brand · Color · Type · Components</div>
+    <h2 class="doc-h">White first<br/>Teal carries<br/>Slate frames<br/>Red signals</h2>
+    <div class="bar-dot"><span class="bar"></span><span class="dot"></span></div>
+    <p class="doc-sub">
+      Blackbird&rsquo;s digital system runs on six tokens. Off-white (#FAFAFA) carries the page.
+      Teal does heavy lifting on accents, fills, and links. Red is the second accent &mdash;
+      stronger, more declarative &mdash; carrying signal, callouts, headlines, and counterweight
+      moments. Slate anchors structural neutrals and the warm emphasis surface. Black carries
+      display type; dark slate (#1E293B) carries reading text and the cool dark-card. Two layers:
+      raw primitives at the bottom, semantic roles on top. Components
+      only ever reference the semantic layer.
+    </p>
+  </div>
+</section>
+
+<section class="block" id="foundations">
+  <div class="container">
+    <div class="section-num">01 &middot; Foundations</div>
+    <h3 class="section-title">Six tokens, two fonts, no decoration</h3>
+    <p class="section-desc">
+      Off-white surface, black content, two brand colors that each carry meaning. Teal is
+      the workhorse: surfaces, fills, links, dividers. Red is the second accent,
+      used for emphasis, headlines, counterweight callouts, and signal moments where teal
+      would feel too soft. Slate is structure, not brand: it anchors neutrals and the warm
+      emphasis surface, and recedes. No pastel cards. No filled containers fighting the content for attention.
+    </p>
+
+    <div class="token-grid">
+      <div class="token-card">
+        <h5>Color weights</h5>
+        <div class="token-row"><span class="name" style="color:var(--neutral-950)">White (#FAFAFA)</span><span class="val">50&ndash;55% surface</span></div>
+        <div class="token-row"><span class="name" style="color:var(--color-brand-accent)">Teal</span><span class="val">12&ndash;15% accent + fills</span></div>
+        <div class="token-row"><span class="name" style="color:var(--color-signal)">Red</span><span class="val">8&ndash;10% signal + accent</span></div>
+        <div class="token-row"><span class="name" style="color:var(--color-brand-slate-deep)">Slate</span><span class="val">12&ndash;15% structure</span></div>
+        <div class="token-row"><span class="name" style="color:var(--neutral-950)">Black</span><span class="val">5&ndash;7% display / headlines</span></div>
+        <div class="token-row"><span class="name" style="color:#1E293B">Dark slate</span><span class="val">5&ndash;8% reading + cool card</span></div>
+      </div>
+      <div class="token-card">
+        <h5>Type families</h5>
+        <div class="token-row"><span class="name">Headlines</span><span class="val">Futura Bold</span></div>
+        <div class="token-row"><span class="name">Body</span><span class="val">Avenir</span></div>
+        <div class="token-row"><span class="name">Section nums</span><span class="val">Futura Bold, two-digit</span></div>
+        <div class="token-row"><span class="name">Code/data</span><span class="val">Avenir (no separate mono)</span></div>
+        <div class="token-row"><span class="name">Squarespace</span><span class="val">europa fallback (Avenir N/A)</span></div>
+      </div>
+      <div class="token-card">
+        <h5>Hard rules</h5>
+        <div class="token-row"><span class="name">Gradients</span><span class="val">Never</span></div>
+        <div class="token-row"><span class="name">Underlines</span><span class="val">Never</span></div>
+        <div class="token-row"><span class="name">Centered body</span><span class="val">Hero / cover / quote only</span></div>
+        <div class="token-row"><span class="name">Chart series</span><span class="val">Teal &middot; Slate &middot; Black</span></div>
+        <div class="token-row"><span class="name">Spacing</span><span class="val">4px base, 10px card radius</span></div>
+        <div class="token-row"><span class="name">Shadows</span><span class="val">Hairlines only, no glow</span></div>
+        <div class="token-row"><span class="name">New colors</span><span class="val">Add a token first</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="logo">
+  <div class="container">
+    <div class="section-num">02 &middot; Logo</div>
+    <h3 class="section-title">Three lockups, black ink, no effects</h3>
+    <p class="section-desc">
+      The Blackbird mark is a side-profile bird in flat black ink. Three lockups handle every
+      placement: horizontal (default for headers and signatures), circular (badge moments and
+      profile photos), and bird mark (tight contexts and watermarks). On dark surfaces the
+      logo flips to white. Never recolor to teal, red, or anything else.
+    </p>
+
+    <div class="logo-grid" style="margin-bottom:24px">
+      <div class="logo-cell horizontal">
+        <span class="caption">Horizontal lockup &middot; default</span>
+        <img src="icons/bb-horizontal-logo.png" alt="Blackbird PPC horizontal logo" />
+        <div class="role">Headers, signatures, footers, business cards, decks</div>
+      </div>
+      <div class="logo-cell circular">
+        <span class="caption">Circular badge</span>
+        <img src="icons/bb-circular-logo.png" alt="Blackbird PPC circular logo" />
+        <div class="role">Profile photos, app icons, favicons, sticker moments</div>
+      </div>
+      <div class="logo-cell mark">
+        <span class="caption">Bird mark</span>
+        <img src="blackbird_logo.png" alt="Blackbird mark" />
+        <div class="role">Watermarks, very small sizes, tight contexts</div>
+      </div>
+    </div>
+
+    <div class="logo-grid" style="margin-bottom:24px">
+      <div class="logo-cell horizontal dark">
+        <span class="caption">On slate-dark &middot; white lockup</span>
+        <img src="icons/bb-horizontal-logo_white.png" alt="Blackbird PPC horizontal logo, white" />
+      </div>
+      <div class="logo-cell circular dark">
+        <span class="caption">On dark &middot; white badge</span>
+        <img src="icons/bb-circular-logo_white.png" alt="Blackbird PPC circular logo, white" />
+      </div>
+      <div class="logo-cell mark dark">
+        <span class="caption">Mark on dark &middot; white</span>
+        <img src="blackbird_logo_white.png" alt="Blackbird mark, white" />
+      </div>
+    </div>
+
+    <div class="logo-clear" style="margin-bottom:24px">
+      <div class="demo">
+        <span class="x t">x</span>
+        <span class="x b">x</span>
+        <span class="x l">x</span>
+        <span class="x r">x</span>
+        <img src="icons/bb-horizontal-logo.png" alt="Logo with clear space" />
+      </div>
+      <div class="clear-text">
+        <h6>Clear space</h6>
+        <p>Reserve a margin around the logo equal to the cap height of the wordmark (x). No text, image, or graphic element enters that space. On photo backgrounds, the dark overlay extends through the clear-space zone.</p>
+      </div>
+    </div>
+
+    <h4 class="h4-accent">Lockup rules</h4>
+    <div class="h4-underline"></div>
+    <div class="sem-table" style="margin-bottom:24px">
+      <div class="sem-row head"><div></div><div>Variant</div><div>Min size</div><div>Use for</div></div>
+      <div class="sem-row" style="grid-template-columns:48px 1fr 220px 1fr">
+        <div></div>
+        <div class="sem-name">Horizontal lockup</div>
+        <div class="sem-prim">120px wide on screen</div>
+        <div class="sem-use">Default. Site header, deck title slides (TOC), email signatures, footers, business cards.</div>
+      </div>
+      <div class="sem-row" style="grid-template-columns:48px 1fr 220px 1fr">
+        <div></div>
+        <div class="sem-name">Circular badge</div>
+        <div class="sem-prim">48px wide</div>
+        <div class="sem-use">Profile photos (LinkedIn, X, Slack), app icons, favicon, sticker. The badge is the recognizable lockup at small sizes when the wordmark would be illegible.</div>
+      </div>
+      <div class="sem-row" style="grid-template-columns:48px 1fr 220px 1fr">
+        <div></div>
+        <div class="sem-name">Bird mark</div>
+        <div class="sem-prim">24px wide</div>
+        <div class="sem-use">Watermarks on photos, tiny UI moments, the diamond on the cover slide, repeating-mark patterns. Don&rsquo;t use the bird without context if the audience doesn&rsquo;t know the brand yet.</div>
+      </div>
+    </div>
+
+    <div class="rules" style="grid-template-columns:repeat(2,1fr)">
+      <div class="rule">
+        <h5><span class="tag dont">Don&rsquo;t</span> Recolor the logo</h5>
+        <p>The mark stays black on light surfaces, white on dark. Never teal, never red, never gradient. Color is reserved for accents, not the brand mark itself.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag dont">Don&rsquo;t</span> Stretch, skew, or rotate</h5>
+        <p>Scale uniformly. Don&rsquo;t squish to fit a banner. Don&rsquo;t rotate the bird upright or sideways. The bird faces upper-right, always.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag dont">Don&rsquo;t</span> Add effects</h5>
+        <p>No drop shadows, glows, outlines, embossing, or gradients. Flat black or flat white, full stop.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag dont">Don&rsquo;t</span> Place on busy backgrounds without overlay</h5>
+        <p>If the logo sits on a photo, the photo must carry a dark overlay heavy enough that the logo reads cleanly &mdash; check contrast, don&rsquo;t hit a number. If on a colored surface, only #FAFAFA, #FFFFFF, slate-700/800, or off-black are valid hosts.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Choose the lockup that fits the container</h5>
+        <p>Horizontal first. Circular when the space is square or round. Bird mark only when nothing else fits or the audience already knows the brand.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Bird mark on content slides, horizontal lockup on TOC + cover</h5>
+        <p>Cover slide carries no logo (the project name does the work). TOC slide carries the horizontal lockup, right-center area, ~2.5" wide. Every other content slide carries just the bird mark in the bottom-right corner. Bird mark = quiet brand presence on the most-used layout. Horizontal lockup = louder brand statement, used sparingly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="color">
+  <div class="container">
+    <div class="section-num">03 &middot; Color</div>
+    <h3 class="section-title">Six hex values do 90% of the work</h3>
+    <p class="section-desc">
+      Two layers. Primitives are raw values, never referenced by components directly. The
+      semantic layer assigns each role to a primitive. When the brand teal shifts, one line
+      updates and everything follows. But before any of that &mdash; six hex values carry
+      the majority of every surface, every accent, every section.
+    </p>
+
+    <h4 class="h4-accent" style="margin-top:0">The core six</h4>
+    <div class="h4-underline"></div>
+    <div class="core-5">
+      <div class="core-cell lt" style="background:#FAFAFA">
+        <span class="role">Surface</span>
+        <div>
+          <div class="hex-big">#FAFAFA</div>
+          <div class="pct">50&ndash;55%</div>
+        </div>
+      </div>
+      <div class="core-cell dk" style="background:#008C95">
+        <span class="role">Brand accent</span>
+        <div>
+          <div class="hex-big">#008C95</div>
+          <div class="pct">12&ndash;15%</div>
+        </div>
+      </div>
+      <div class="core-cell dk" style="background:#862633">
+        <span class="role">Signal</span>
+        <div>
+          <div class="hex-big">#862633</div>
+          <div class="pct">8&ndash;10%</div>
+        </div>
+      </div>
+      <div class="core-cell dk" style="background:#64748B">
+        <span class="role">Slate / structure</span>
+        <div>
+          <div class="hex-big">#64748B</div>
+          <div class="pct">12&ndash;15%</div>
+        </div>
+      </div>
+      <div class="core-cell dk" style="background:#000000">
+        <span class="role">Black / display</span>
+        <div>
+          <div class="hex-big">#000000</div>
+          <div class="pct">5&ndash;7%</div>
+        </div>
+      </div>
+      <div class="core-cell dk" style="background:#1E293B">
+        <span class="role">Dark slate / reading</span>
+        <div>
+          <div class="hex-big">#1E293B</div>
+          <div class="pct">5&ndash;8%</div>
+        </div>
+      </div>
+    </div>
+    <div class="core-5-callout">
+      <strong>These six hex values carry the majority of brand color.</strong> Black <span class="mono">#000000</span> is the display ink (headlines, max-contrast marks); dark slate <span class="mono">#1E293B</span> is the reading ink and the cool dark-card; off-black <span class="mono">#0D0D0D</span> is the dark section ground &mdash; the dark twin of the surface, shown in the dark set below. The 11-step scales
+      below exist so you can pick supporting tints &mdash; hover states, subtle backgrounds,
+      dark-section depth, hairline dividers &mdash; but every value in those scales derives from
+      these six anchors. If a design uses a seventh hex, ask whether it earned its place. The
+      answer is almost always no.
+    </div>
+
+    <h4 class="h4-accent">Full scales</h4>
+    <div class="h4-underline"></div>
+
+    <div class="scale-label">
+      <h4>Teal &mdash; brand accent</h4>
+      <span class="note">11 steps &middot; brand at 500 (#008C95)</span>
+    </div>
+    <div class="scale">
+      <div class="swatch" style="background:var(--teal-50)"><div class="step">50</div><div class="hex">#ECF7F8</div></div>
+      <div class="swatch" style="background:var(--teal-100)"><div class="step">100</div><div class="hex">#CFEEF0</div></div>
+      <div class="swatch" style="background:var(--teal-200)"><div class="step">200</div><div class="hex">#A0DCE0</div></div>
+      <div class="swatch" style="background:var(--teal-300)"><div class="step">300</div><div class="hex">#6EC6CB</div></div>
+      <div class="swatch dark" style="background:var(--teal-400)"><div class="step">400</div><div class="hex">#36AAB1</div></div>
+      <div class="swatch dark anchor" style="background:var(--teal-500)"><div class="step">500</div><div class="hex">#008C95</div></div>
+      <div class="swatch dark" style="background:var(--teal-600)"><div class="step">600</div><div class="hex">#007078</div></div>
+      <div class="swatch dark" style="background:var(--teal-700)"><div class="step">700</div><div class="hex">#00565D</div></div>
+      <div class="swatch dark" style="background:var(--teal-800)"><div class="step">800</div><div class="hex">#003E43</div></div>
+      <div class="swatch dark" style="background:var(--teal-900)"><div class="step">900</div><div class="hex">#00282C</div></div>
+      <div class="swatch dark" style="background:var(--teal-950)"><div class="step">950</div><div class="hex">#001316</div></div>
+    </div>
+
+    <div class="scale-label">
+      <h4>Red &mdash; signal</h4>
+      <span class="note">11 steps &middot; signal at 500 (#862633)</span>
+    </div>
+    <div class="scale">
+      <div class="swatch" style="background:var(--red-50)"><div class="step">50</div><div class="hex">#F8E9EC</div></div>
+      <div class="swatch" style="background:var(--red-100)"><div class="step">100</div><div class="hex">#EFC9CF</div></div>
+      <div class="swatch" style="background:var(--red-200)"><div class="step">200</div><div class="hex">#DD9AA3</div></div>
+      <div class="swatch dark" style="background:var(--red-300)"><div class="step">300</div><div class="hex">#C96872</div></div>
+      <div class="swatch dark" style="background:var(--red-400)"><div class="step">400</div><div class="hex">#B14250</div></div>
+      <div class="swatch dark signal" style="background:var(--red-500)"><div class="step">500</div><div class="hex">#862633</div></div>
+      <div class="swatch dark" style="background:var(--red-600)"><div class="step">600</div><div class="hex">#6E1F2A</div></div>
+      <div class="swatch dark" style="background:var(--red-700)"><div class="step">700</div><div class="hex">#561821</div></div>
+      <div class="swatch dark" style="background:var(--red-800)"><div class="step">800</div><div class="hex">#3E1118</div></div>
+      <div class="swatch dark" style="background:var(--red-900)"><div class="step">900</div><div class="hex">#260A0F</div></div>
+      <div class="swatch dark" style="background:var(--red-950)"><div class="step">950</div><div class="hex">#160508</div></div>
+    </div>
+
+    <div class="scale-label">
+      <h4>Slate / structural spine (not a brand color)</h4>
+      <span class="note">11 steps &middot; structural anchor at 500 (matches site #65758B), black at 950</span>
+    </div>
+    <div class="scale">
+      <div class="swatch" style="background:var(--neutral-50)"><div class="step">50</div><div class="hex">#F8FAFC</div></div>
+      <div class="swatch" style="background:var(--neutral-100)"><div class="step">100</div><div class="hex">#F1F5F9</div></div>
+      <div class="swatch" style="background:var(--neutral-200)"><div class="step">200</div><div class="hex">#E2E8F0</div></div>
+      <div class="swatch" style="background:var(--neutral-300)"><div class="step">300</div><div class="hex">#CBD5E1</div></div>
+      <div class="swatch" style="background:var(--neutral-400)"><div class="step">400</div><div class="hex">#94A3B8</div></div>
+      <div class="swatch dark spine" style="background:var(--neutral-500)"><div class="step">500</div><div class="hex">#64748B</div></div>
+      <div class="swatch dark" style="background:var(--neutral-600)"><div class="step">600</div><div class="hex">#475569</div></div>
+      <div class="swatch dark" style="background:var(--neutral-700)"><div class="step">700</div><div class="hex">#334155</div></div>
+      <div class="swatch dark" style="background:var(--neutral-800)"><div class="step">800</div><div class="hex">#1E293B</div></div>
+      <div class="swatch dark" style="background:var(--neutral-900)"><div class="step">900</div><div class="hex">#0F172A</div></div>
+      <div class="swatch dark structural" style="background:var(--neutral-950)"><div class="step">950</div><div class="hex">#000000</div></div>
+    </div>
+
+    <div class="scale-label">
+      <h4>Dark surfaces</h4>
+      <span class="note">section dividers, dark content slides, footer bands</span>
+    </div>
+    <div class="scale cols-5">
+      <div class="swatch dark" style="background:var(--dark-bg)"><div class="step">dark-bg</div><div class="hex">#0D0D0D</div></div>
+      <div class="swatch dark" style="background:var(--dark-card1)"><div class="step">dark-card-1</div><div class="hex">#1C1C1C</div></div>
+      <div class="swatch dark" style="background:var(--dark-card2)"><div class="step">dark-card-2</div><div class="hex">#222222</div></div>
+      <div class="swatch dark" style="background:var(--dark-row)"><div class="step">dark-row</div><div class="hex">#2A2A2A</div></div>
+      <div class="swatch dark" style="background:var(--dark-line)"><div class="step">dark-line</div><div class="hex">#333333</div></div>
+    </div>
+
+    <h4 class="h4-accent" style="font-size:20px">Semantic layer</h4>
+    <div class="h4-underline"></div>
+    <p class="section-desc" style="margin-bottom:24px">Components reference these tokens, never the primitives directly.</p>
+    <div class="sem-table">
+      <div class="sem-row head"><div></div><div>Token</div><div>Maps to</div><div>Used for</div></div>
+
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-brand-accent)"></div>
+        <div class="sem-name">--color-brand-accent</div>
+        <div class="sem-prim">teal-500 &middot; #008C95</div>
+        <div class="sem-use">Section numbers, the bottom-of-slide accent bar, capability bullets, links, primary buttons, key data highlights, chart primary series.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-brand-accent-hover)"></div>
+        <div class="sem-name">--color-brand-accent-hover</div>
+        <div class="sem-prim">teal-600 &middot; #007078</div>
+        <div class="sem-use">Hover state for primary buttons and links.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-brand-accent-active)"></div>
+        <div class="sem-name">--color-brand-accent-active</div>
+        <div class="sem-prim">teal-700 &middot; #00565D</div>
+        <div class="sem-use">Active / pressed state. Selected nav item.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-brand-accent-subtle);border-color:var(--teal-200)"></div>
+        <div class="sem-name">--color-brand-accent-subtle</div>
+        <div class="sem-prim">teal-50 &middot; #ECF7F8</div>
+        <div class="sem-use">Info banners, accent pill backgrounds, ghost button hover.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-brand-deep)"></div>
+        <div class="sem-name">--color-brand-deep</div>
+        <div class="sem-prim">teal-900 &middot; #00282C</div>
+        <div class="sem-use">Dark teal accents. Footer band when teal is preferred over black.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-signal)"></div>
+        <div class="sem-name">--color-signal</div>
+        <div class="sem-prim">red-500 &middot; #862633</div>
+        <div class="sem-use">Second accent. Headlines and eyebrows, secondary CTAs and pill buttons, output/risk/optionality columns, award badges, the bar+dot motif, key stats and pull quotes, hairline accents on dark surfaces, critical callouts. Counterweight to teal &mdash; use when teal would feel too soft.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-signal-subtle);border-color:var(--red-200)"></div>
+        <div class="sem-name">--color-signal-subtle</div>
+        <div class="sem-prim">red-50 &middot; #F8E9EC</div>
+        <div class="sem-use">Signal pill background, error banner background.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-brand-slate)"></div>
+        <div class="sem-name">--color-brand-slate</div>
+        <div class="sem-prim">slate-500 &middot; #64748B</div>
+        <div class="sem-use">Structural spine, not a brand color (matches site #65758B). Section accents, icons on light bg, secondary CTAs, tertiary buttons.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-brand-slate-deep)"></div>
+        <div class="sem-name">--color-brand-slate-deep</div>
+        <div class="sem-prim">slate-700 &middot; #334155</div>
+        <div class="sem-use">Secondary text on white, dark slate accents. Not a dark-surface anchor &mdash; for dark sections use off-black (the Core dark-surface).</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-text-default)"></div>
+        <div class="sem-name">--color-text-default</div>
+        <div class="sem-prim">neutral-950 &middot; #000000</div>
+        <div class="sem-use">Headlines and high-contrast anchors on white.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-text-body)"></div>
+        <div class="sem-name">--color-text-body</div>
+        <div class="sem-prim">slate-800 &middot; #1E293B</div>
+        <div class="sem-use">Body copy on white. Slightly softer than pure black for dense reading.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-text-secondary)"></div>
+        <div class="sem-name">--color-text-secondary</div>
+        <div class="sem-prim">slate-700 &middot; #334155</div>
+        <div class="sem-use">Descriptions, supporting copy, secondary card text.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-text-muted)"></div>
+        <div class="sem-name">--color-text-muted</div>
+        <div class="sem-prim">slate-500 &middot; #64748B</div>
+        <div class="sem-use">Captions, footnotes, source labels, mono labels.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-text-faint)"></div>
+        <div class="sem-name">--color-text-faint</div>
+        <div class="sem-prim">slate-400 &middot; #94A3B8</div>
+        <div class="sem-use">Timestamps, subtle metadata, deemphasized labels.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-surface);border-color:var(--color-border-strong)"></div>
+        <div class="sem-name">--color-surface</div>
+        <div class="sem-prim">#FAFAFA</div>
+        <div class="sem-use">Default page surface. Matches the live site (Squarespace --white token = #FAFAFA, not pure white). Sets the off-white tone of the brand.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-surface-pure);border-color:var(--color-border-strong)"></div>
+        <div class="sem-name">--color-surface-pure</div>
+        <div class="sem-prim">#FFFFFF</div>
+        <div class="sem-use">True white. For cards lifted above the page surface, popovers, modals, inputs. Provides subtle contrast against the off-white page.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-surface-soft)"></div>
+        <div class="sem-name">--color-surface-soft</div>
+        <div class="sem-prim">slate-50 &middot; #F8FAFC</div>
+        <div class="sem-use">Page section backgrounds, card hover, Quick Win callout.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-surface-muted)"></div>
+        <div class="sem-name">--color-surface-muted</div>
+        <div class="sem-prim">slate-100 &middot; #F1F5F9</div>
+        <div class="sem-use">Cards, calculators, secondary panels, table header fills.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-surface-structural)"></div>
+        <div class="sem-name">--color-surface-structural</div>
+        <div class="sem-prim">slate-200 &middot; #E2E8F0</div>
+        <div class="sem-use">Quiet structural fills, dividers, separator regions when teal would be too loud.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-surface-deep)"></div>
+        <div class="sem-name">--color-surface-deep</div>
+        <div class="sem-prim">dark-bg &middot; #0D0D0D</div>
+        <div class="sem-use"><strong>Default dark surface.</strong> Core anchor (the dark section ground). Use for every dark rhythm break, case-study stat strip, key finding, executive callout, quote interstitial, code block, closing slide.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-surface-slate-dark)"></div>
+        <div class="sem-name">--color-surface-slate-dark</div>
+        <div class="sem-prim">slate-500 &middot; #64748B</div>
+        <div class="sem-use">Slate emphasis surface (Core slate anchor). A medium cool-gray structural surface, not a "dark" surface. Use when you want the slate structural color to carry the section, structural and warm rather than heavy. Off-black is still the default for dark rhythm breaks.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-border)"></div>
+        <div class="sem-name">--color-border</div>
+        <div class="sem-prim">slate-200 &middot; #E2E8F0</div>
+        <div class="sem-use">Card borders, dividers, hairlines on white.</div>
+      </div>
+      <div class="sem-row">
+        <div class="sem-chip" style="background:var(--color-border-strong)"></div>
+        <div class="sem-name">--color-border-strong</div>
+        <div class="sem-prim">slate-300 &middot; #CBD5E1</div>
+        <div class="sem-use">Stronger dividers, table borders, separators inside cards.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="type">
+  <div class="container">
+    <div class="section-num">04 &middot; Type</div>
+    <h3 class="section-title">Futura builds the structure, Avenir does the reading</h3>
+    <p class="section-desc">
+      Futura Bold for every headline, label, section number, and stat callout. Avenir for body
+      copy, descriptions, captions, and quote text. Avenir is the brand standard. The live
+      Squarespace site falls through to europa because Avenir isn&rsquo;t licensed via Adobe
+      Fonts &mdash; europa is the closest free substitute. Per-platform fallback chains below.
+      Left-align everything except three contexts: site/landing-page hero blocks (centered
+      headline + tagline over a full-bleed photo), the deck cover slide, and quote
+      interstitial slides.
+    </p>
+
+    <div class="type-grid">
+      <div class="type-row">
+        <div class="t-cover">CLIENT NAME</div>
+        <div class="meta">Cover headline<br/>Futura Bold &middot; 48pt &middot; uppercase</div>
+      </div>
+      <div class="type-row">
+        <div class="t-section-num">01</div>
+        <div class="meta">Section number<br/>Futura Bold &middot; 13pt &middot; teal</div>
+      </div>
+      <div class="type-row">
+        <div class="t-page-title">Marginal CPA is 4x higher than reported above $50K spend</div>
+        <div class="meta">Page title<br/>Futura Bold &middot; 24pt</div>
+      </div>
+      <div class="type-row">
+        <div class="t-subtitle">Holdout testing reveals the truth your dashboard hides</div>
+        <div class="meta">Subtitle / lead-in<br/>Futura Bold &middot; 18pt</div>
+      </div>
+      <div class="type-row">
+        <div class="t-card-title">Strategic Pillar</div>
+        <div class="meta">Card title<br/>Futura Bold &middot; 14pt &middot; uppercase</div>
+      </div>
+      <div class="type-row">
+        <div class="t-body">We do not hide behind dashboards. We tell the truth about what is working and show the math behind it. When the data says a campaign is wasting money, the deck says so on slide three.</div>
+        <div class="meta">Body copy<br/>Avenir &middot; 15px</div>
+      </div>
+      <div class="type-row">
+        <div class="t-small">Card descriptions and secondary supporting text use this size. Slightly tighter than full body.</div>
+        <div class="meta">Small body<br/>Avenir &middot; 13px</div>
+      </div>
+      <div class="type-row">
+        <div class="t-caption">Source: Q4 2025 internal MMM &middot; n=12 accounts</div>
+        <div class="meta">Caption / footnote<br/>Avenir &middot; 12px &middot; muted</div>
+      </div>
+      <div class="type-row" style="align-items:center">
+        <div class="t-stat">90</div>
+        <div class="meta">Large stat callout<br/>Futura Bold &middot; 80pt &middot; teal</div>
+      </div>
+    </div>
+
+    <h4 class="h4-accent" style="font-size:20px;margin-top:48px">Cross-platform fallback chains</h4>
+    <div class="h4-underline"></div>
+    <p class="section-desc" style="margin-bottom:24px">
+      Futura + Avenir are the brand standard. They render natively on Mac (both ship with
+      macOS). Other platforms each have a constraint: Squarespace can&rsquo;t license Avenir,
+      Google Slides has neither, Windows ships neither pre-installed. The fallbacks below
+      are the agreed substitutes for each environment.
+    </p>
+
+    <div class="sem-table" style="margin-bottom:24px">
+      <div class="sem-row head"><div></div><div>Platform</div><div>Headline</div><div>Body</div></div>
+      <div class="sem-row" style="grid-template-columns:48px 1fr 1fr 1fr">
+        <div></div>
+        <div class="sem-name">Squarespace (live site)</div>
+        <div class="sem-prim">futura-pt (via Adobe Fonts)</div>
+        <div class="sem-prim">europa (Avenir not licensed)</div>
+      </div>
+      <div class="sem-row" style="grid-template-columns:48px 1fr 1fr 1fr">
+        <div></div>
+        <div class="sem-name">Google Slides</div>
+        <div class="sem-prim">Jost</div>
+        <div class="sem-prim">Nunito Sans</div>
+      </div>
+      <div class="sem-row" style="grid-template-columns:48px 1fr 1fr 1fr">
+        <div></div>
+        <div class="sem-name">PowerPoint (Mac)</div>
+        <div class="sem-prim">Futura</div>
+        <div class="sem-prim">Avenir</div>
+      </div>
+      <div class="sem-row" style="grid-template-columns:48px 1fr 1fr 1fr">
+        <div></div>
+        <div class="sem-name">PowerPoint (Windows)</div>
+        <div class="sem-prim">Embed Futura, else Bahnschrift &rarr; Trebuchet MS</div>
+        <div class="sem-prim">Embed Avenir, else Calibri</div>
+      </div>
+      <div class="sem-row" style="grid-template-columns:48px 1fr 1fr 1fr">
+        <div></div>
+        <div class="sem-name">PDF (any source)</div>
+        <div class="sem-prim">Embed at export</div>
+        <div class="sem-prim">Embed at export</div>
+      </div>
+    </div>
+
+    <div class="rules" style="grid-template-columns:repeat(2,1fr)">
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Embed fonts in shared PowerPoint files</h5>
+        <p>Save &gt; Embed fonts in file. Adds ~200KB. Recipients on Windows see Futura/Avenir as intended instead of Calibri substitutes.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Use Jost + Nunito Sans for Google Slides</h5>
+        <p>Both are in the Google Fonts library, both are the closest free matches. Don&rsquo;t fight Slides &mdash; pick the substitutes once and apply consistently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="motifs">
+  <div class="container">
+    <div class="section-num">05 &middot; Signature Motifs</div>
+    <h3 class="section-title">Five small marks that make a page read as Blackbird</h3>
+    <p class="section-desc">
+      The teal bar with the red dot is the strongest signature. The bottom accent bar grounds
+      every white content slide. Numbered prefixes carry color meaning. Section headers earn
+      a thin colored underline. Bullet dots replace standard bullets.
+    </p>
+
+    <div class="motifs">
+      <div class="motif">
+        <h6>Teal bar &middot; red dot</h6>
+        <div class="motif-bar-dot"><span class="bar"></span><span class="dot"></span></div>
+        <p class="desc">Sits directly <strong>below the title</strong> it punctuates, never above. Also used under quotes and as section-end punctuation. Roughly 1 in 3-4 slides. Never inside containers. <strong>Maximum once per slide</strong> &mdash; the motif is a signature, not a repeating decoration. Two on one slide reads as pattern, not punctuation.</p>
+      </div>
+      <div class="motif">
+        <h6>Bottom accent bar</h6>
+        <div class="motif-bottom"></div>
+        <p class="desc">Full-width teal bar runs along the bottom edge of every white-background content slide. The deck's foundation line.</p>
+      </div>
+      <div class="motif">
+        <h6>Numbered colored prefix</h6>
+        <div class="motif-numprefix">
+          <div class="row"><span class="num-t">01</span> Initial Website Review</div>
+          <div class="row"><span class="num-t">02</span> Competitor Positioning</div>
+          <div class="row"><span class="num-r">01</span> Feature &rArr; Benefit Mapping</div>
+          <div class="row"><span class="num-r">02</span> Benefit Ranking</div>
+        </div>
+        <p class="desc">Two-digit number in bold, colored to match the column theme. Teal for inputs/positives, red for outputs/risks. Replaces filled card backgrounds.</p>
+      </div>
+      <div class="motif">
+        <h6>Section header underline</h6>
+        <div class="motif-headunder">
+          <div class="h-teal">Inputs</div>
+          <div class="u-teal"></div>
+          <div class="h-red">Outputs</div>
+          <div class="u-red"></div>
+        </div>
+        <p class="desc">Bold uppercase headline, thin matching colored line beneath. Width matches the headline, not the column. Quieter than a tag, louder than nothing.</p>
+      </div>
+      <div class="motif">
+        <h6>Teal bullet dot</h6>
+        <div class="motif-bullet-row"><span class="b"></span><span class="text">Holdout testing across paid channels</span></div>
+        <div class="motif-bullet-row"><span class="b"></span><span class="text">Marginal CPA modeling per spend tier</span></div>
+        <div class="motif-bullet-row"><span class="b"></span><span class="text">Weekly incrementality readouts</span></div>
+        <p class="desc">8px filled circle, brand teal. Replaces standard bullet characters in lists. No nested bullets &mdash; if you need hierarchy, restructure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="imagery">
+  <div class="container">
+    <div class="section-num">06 &middot; Imagery</div>
+    <h3 class="section-title">San Francisco at night, bird imagery, teal line icons</h3>
+    <p class="section-desc">
+      Photography lives in two subjects: San Francisco (skyline, urban detail, the bay,
+      shot at dusk or after dark) and bird imagery (blackbirds, ravens, crows, silhouettes
+      against sky). Aesthetic is nightscape &mdash; dark, moody, atmospheric. Overlay treatment
+      varies by use; the goal is mood, not a fixed opacity number. Photos appear on the
+      cover, section dividers, and closing slide. Icons are line-stroke teal, on every
+      content card and list row, never on photo slides.
+    </p>
+
+    <h4 class="h4-accent" style="margin-top:0">Photography</h4>
+    <div class="h4-underline"></div>
+    <div class="imagery-grid" style="margin-bottom:48px">
+      <div class="photo-mock">
+        <span class="label">SF nightscape &middot; dark overlay to taste</span>
+        <div class="stack">
+          <span class="num">03</span>
+          <span class="title">Performance</span>
+          <p class="sub">Section dividers anchor the deck rhythm</p>
+        </div>
+      </div>
+      <div class="photo-meta">
+        <h5>Photography rules</h5>
+        <div class="row"><span class="name">Subjects</span><span>SF cityscape and skyline; bird imagery (blackbirds, ravens, crows, silhouettes)</span></div>
+        <div class="row"><span class="name">Mood</span><span>Nightscape &mdash; dusk, after-dark, atmospheric, low-key</span></div>
+        <div class="row"><span class="name">Treatment</span><span>Dark overlay to taste; goal is mood, not a fixed opacity</span></div>
+        <div class="row"><span class="name">Where</span><span>Cover, section dividers, closing slide, hero blocks</span></div>
+        <div class="row"><span class="name">Where not</span><span>Content slides, cards, dividers within sections</span></div>
+        <div class="row"><span class="name">No</span><span>Generic stock, daylight skylines, abstract gradients, AI-generated cityscapes or birds</span></div>
+      </div>
+    </div>
+
+    <h4 class="h4-accent" style="margin-top:0">Icons</h4>
+    <div class="h4-underline"></div>
+    <div class="imagery-grid">
+      <div class="comp" style="padding:32px">
+        <div class="comp-label">Line-stroke teal or black &middot; ~32px on slides, 1.5px stroke</div>
+        <div class="icon-spec">
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="14" width="3" height="7"/><rect x="9" y="9" width="3" height="12"/><rect x="15" y="4" width="3" height="17"/></svg>
+            <span class="lbl">analytics</span>
+          </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="21" y2="21"/></svg>
+            <span class="lbl">search</span>
+          </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12,3 21,8 12,13 3,8"/><polyline points="3,13 12,18 21,13"/><polyline points="3,18 12,23 21,18"/></svg>
+            <span class="lbl">layers</span>
+          </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+            <span class="lbl">target</span>
+          </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="1"/><polyline points="7,10 9,12 7,14"/><line x1="12" y1="14" x2="16" y2="14"/></svg>
+            <span class="lbl">code</span>
+          </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+            <span class="lbl">checklist</span>
+          </div>
+        </div>
+      </div>
+      <div class="photo-meta">
+        <h5>Icon rules</h5>
+        <div class="row"><span class="name">Style</span><span>Lucide / Feather, line stroke only. No filled shapes, no dual-tone, no novelty illustrations.</span></div>
+        <div class="row"><span class="name">Color (light bg)</span><span>Teal (#008C95) for accent / category-marker roles. Black (#0D0D0D) for content / structural roles where icons read like text. Pick one per grid and hold it.</span></div>
+        <div class="row"><span class="name">Color (dark bg)</span><span>White. Always. Teal-on-dark goes muddy; black-on-dark disappears.</span></div>
+        <div class="row"><span class="name">Stroke</span><span>1.5px, no fill. Corners are square or barely rounded &mdash; no soft consumer shapes.</span></div>
+        <div class="row"><span class="name">Size</span><span>~32px on slides, ~24px in compact rows. Optical-sized in pairs, never stretched.</span></div>
+        <div class="row"><span class="name">Position</span><span>Top-left of card, or left of row. Aligned to the cap-height of the headline next to them.</span></div>
+        <div class="row"><span class="name">Where not</span><span>Section dividers, quote slides, data tables, cover, closing.</span></div>
+        <div class="row"><span class="name">Consistency</span><span>If one item in a grid has an icon, all do. If one is teal, all are teal. No mixed colors in a single grid.</span></div>
+        <div class="row"><span class="name">Container</span><span>Bare on white cards. Optional filled-circle treatment (teal-500 with white icon) for hero rows &mdash; pick one or the other across the deck, not both.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="rules">
+  <div class="container">
+    <div class="section-num">07 &middot; Rules</div>
+    <h3 class="section-title">How to keep it tight</h3>
+    <p class="section-desc">Eighteen system rules, four slide-composition rules, and a pre-ship checklist. Break these and the system drifts.</p>
+
+    <div class="rules">
+      <div class="rule">
+        <h5><span class="tag do">Do</span> White carries the surface</h5>
+        <p>55-65% of slide and screen area is white. Open and clean, not dark or heavy. Dark surfaces are the exception, used as rhythm breaks every 2-4 slides.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Reference semantic tokens, not primitives</h5>
+        <p>Buttons use <span class="mono">var(--color-brand-accent)</span>, not <span class="mono">#008C95</span> or <span class="mono">var(--teal-500)</span>. The semantic layer is the only contract components touch.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag dont">Don't</span> Hardcode hex values anywhere</h5>
+        <p>If you find yourself typing <span class="mono">#008C95</span> in a component, stop. Either there's already a semantic token for it, or there should be one. Add to the system, then use it.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Use teal as a primary accent, not a punctuation mark</h5>
+        <p>Teal can fill surfaces, anchor sections, color CTAs, and underline links &mdash; not just dot bullets. Target 10-15% of any view. The constraint is meaning, not count: teal carries positive/primary signal. When everything is teal, that signal stops working.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Use red as a second accent, not just a signal</h5>
+        <p>Red is the counterweight to teal &mdash; declarative, confident, and brand-anchored. Target 8-10% of any view. Use it for headlines and section eyebrows, secondary CTAs and pill buttons, output/risk/optionality columns, award badges, the bar+dot motif, key stats and pull quotes, hairline accents on dark surfaces, and one-per-deck critical callouts. Pair it intentionally against teal so the meanings stay distinct: teal carries primary/positive, red carries emphasis/counterpoint. Avoid red as a full content background, as body copy, or in long runs of solid fill.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag dont">Don't</span> Add gradients or saturated extras</h5>
+        <p>Flat color only. The four-color palette plus the slate scale and dark surfaces is the entire system. No new colors without a new semantic token.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag dont">Don't</span> Use filled containers for content</h5>
+        <p>No pastel cards, no warm fills, no rounded boxes with solid backgrounds fighting the text for attention. Containers are outlined with a subtle matching tint (teal-50 or red-50), or they don't exist at all.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Color the numbered prefix to match meaning</h5>
+        <p>Two-digit prefix is teal for inputs, positives, points of difference. Red for outputs, risks, optionality. Slate-500 for neutral context. The number carries the color signal so the title text stays plain.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag dont">Don't</span> Add decorative lines under headlines</h5>
+        <p>A hallmark of generic AI-generated slides. Use whitespace. Two exceptions: the teal-bar-red-dot signature (1-in-3 slides), and the section-header underline that matches headline width, not column width.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Drop into a dark section every few slides for emphasis</h5>
+        <p>Off-black (#0D0D0D) is the default for dark emphasis &mdash; it's the Core dark-surface anchor and carries the brand directly. Use it every 3-5 slides to break the white rhythm and signal "this matters" &mdash; case-study stat strips, key findings, executive callouts, quote interstitials. Slate-500 (#64748B) is the alternative emphasis surface: a medium cool-gray structural surface (the Core slate anchor itself), used when you want the slate structural color to carry a section, warm and structural rather than heavy. Two emphasis surfaces, both anchored. Dark-section grounds are never slate-700/-800 &mdash; those are tone derivatives (slate-800 is the cool dark-card, not a ground).</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Treat slate as the structural spine, not a brand color</h5>
+        <p>Teal and red are the only brand colors. Slate-500 is structure, not identity: it grounds and divides, then recedes. Use it for tertiary CTAs, icon strokes on light bg, dividers between major sections, captions, and the warm emphasis surface. Its hex is Tailwind's slate-500, a workhorse neutral, so never push it forward to carry brand identity.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Use teal, red, and slate-500 together in stat grids</h5>
+        <p>Stat cards can carry all three core colors (teal, red, slate) at once, grouped by intent. Teal carries the primary figures, red the headline/signal numbers (the stats that genuinely "wow"), slate-500 the secondary or contextual stats. Band by row or column so the grouping reads as hierarchy. The thing to avoid is random cell-by-cell alternation, not multi-color stat grids themselves. A 2-teal / 2-red / 2-slate grid is on-brand; a teal/red/teal/red checkerboard is not.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Vary the rhythm of every list and text wall</h5>
+        <p>Mix fonts (Futura headers, Avenir body), weights (bold key terms inside running prose), color (one teal phrase per paragraph), and bullet styles (teal dot bullets for top-level, no bullets for sub-context). A good content slide has 2-3 different formats running through it. A bad one has eight identical rows.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag dont">Don't</span> Bullet every line</h5>
+        <p>If everything is a bullet, the structure stops working &mdash; the eye reads the dots, not the meaning. Mix bullet lists with prose paragraphs, callout blocks, stat strips, and icon rows. The variety is the structure. Two consecutive bullet lists on one slide is a smell; rewrite one as prose.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag dont">Don't</span> Put a top-edge bar on a card</h5>
+        <p>Cards stand on their outline, not on a colored bar. The bottom-of-slide accent and the bar+dot signature are the only sanctioned horizontal bars in the system. A teal bar across the top of a card duplicates one of those signatures inside a container &mdash; the eye reads the bar, not the card title. White cards get a slate-200 hairline outline. Tinted cards (teal-50, red-50) get a matching tinted border. Nothing on top.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag dont">Don't</span> Repeat the bar+dot motif on one slide</h5>
+        <p>Maximum once per slide. The bar+dot is a signature, not a divider you sprinkle. Two on one slide reads as decorative pattern, not punctuation &mdash; and the second one weakens the first. If you need a second separator, use whitespace or the bottom accent bar.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Place the bar+dot below the title</h5>
+        <p>The bar+dot sits directly under the headline it punctuates, never above. Order is title first, mark second, supporting copy third. Above the title it reads as a chip or kicker; below the title it reads as the brand signature finishing the statement.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Use black icons when icons play a content role</h5>
+        <p>Teal icons read as accents and category markers. Black icons read as content &mdash; like text. Use black when icons line up next to body copy and shouldn't compete with the headline color hierarchy. Pick one color per grid and hold it across every item; mixed-color icons in a single grid look like a mistake, not a choice.</p>
+      </div>
+    </div>
+
+    <h4 class="h4-accent" style="margin-top:48px">Slide composition</h4>
+    <div class="h4-underline"></div>
+    <div class="rules">
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Let images carry the message when they can</h5>
+        <p>A slide can be a single full-bleed image with no text overlay if the image makes the point. SF skyline at dusk after a section divider doesn&rsquo;t need a caption. Don&rsquo;t add text to "balance" the slide &mdash; the absence of text is the choice.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Make the title the message, not the topic</h5>
+        <p>"Marginal CPA is 4x higher above $50K spend" not "CPA Analysis." A reader who only scans titles should understand the deck&rsquo;s argument. Categorical slides (TOC, dividers, roster) can use topic-label titles; everywhere else the title carries the conclusion.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Direct the eye in tables of numbers</h5>
+        <p>A table is a tool for proof, not a data dump. The key cell gets a teal left-edge accent, a bold weight, or a teal-100 fill &mdash; something that says "this is the point." If nothing on the table is highlighted, the audience doesn&rsquo;t know why the table is there.</p>
+      </div>
+      <div class="rule">
+        <h5><span class="tag do">Do</span> Ask if every number pushes the narrative</h5>
+        <p>Each number on a slide must advance the argument. If a stat is interesting but irrelevant, cut it. Numbers compound &mdash; five of them on one slide make four of them noise. Rigor is what we sell; selective is the discipline that proves it.</p>
+      </div>
+    </div>
+
+    <h4 class="h4-accent" style="margin-top:48px">Before you ship</h4>
+    <div class="h4-underline"></div>
+    <p style="font-size:14px;color:var(--color-text-body);margin:0 0 16px;line-height:1.6">Final-pass review. Walk every slide top-to-bottom against this list before the deck leaves your hands. Most brand drift is caught here, not in early drafts.</p>
+    <div class="card-spec-table" style="margin-top:0">
+      <div class="row"><span class="name">Color budget</span><span class="val">Each slide reads as ~50&ndash;55% surface, 12&ndash;15% teal, 8&ndash;10% red, 12&ndash;15% slate, 5&ndash;7% black, 5&ndash;8% dark slate. No seventh hex.</span></div>
+      <div class="row"><span class="name">Cards</span><span class="val">No top-edge bars. White cards have a slate-200 outline; tinted cards use matching teal-200 or red-200 borders.</span></div>
+      <div class="row"><span class="name">Bar + dot motif</span><span class="val">Sits directly below the title it punctuates, never above. Maximum one per slide. Roughly 1 in 3-4 slides across the deck. Never inside a container.</span></div>
+      <div class="row"><span class="name">Titles</span><span class="val">Each carries the conclusion, not the topic. Scan-only readers should follow the argument.</span></div>
+      <div class="row"><span class="name">Images</span><span class="val">Check every image for stretching, squishing, or skew. Aspect ratios preserved. Spacing around images consistent slide-to-slide. No image touches a slide edge unless it's a full-bleed cover or divider.</span></div>
+      <div class="row"><span class="name">Spacing</span><span class="val">Margins consistent across slides. Card padding matches the spec. No element jammed against another or floating in dead space.</span></div>
+      <div class="row"><span class="name">Icons</span><span class="val">One color per grid &mdash; either all teal or all black. Line stroke only, 1.5px, no fill. If one card has an icon, all cards in that grid have icons.</span></div>
+      <div class="row"><span class="name">Dark rhythm</span><span class="val">One dark slide every 3-5 slides. Slate-800 by default; off-black only for code or closing.</span></div>
+      <div class="row"><span class="name">Fonts</span><span class="val">Futura and Avenir embedded in shared .pptx files. Cross-platform fallbacks set.</span></div>
+      <div class="row"><span class="name">Logo placement</span><span class="val">Bird mark in bottom-right of every content slide. No logo on cover or closing. Horizontal lockup reserved for TOC.</span></div>
+      <div class="row"><span class="name">Numbers</span><span class="val">Every stat advances the argument. Cut interesting-but-irrelevant. Sources cited where claimed.</span></div>
+      <div class="row"><span class="name">Voice</span><span class="val">No hype words ("revolutionary", "best-in-class", "passionate"). Declarative sentences. No exclamation marks.</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="block" id="code">
+  <div class="container">
+    <div class="section-num">08 &middot; Code</div>
+    <h3 class="section-title">Drop into any project</h3>
+    <p class="section-desc">Two CSS variable blocks. Primitives at the bottom, semantic on top. Ship as <span class="mono">tokens.css</span>.</p>
+
+    <pre class="code"><span class="c">/* primitives.css &mdash; raw values, never referenced by components */</span>
+<span class="h">:root</span> {
+  <span class="c">/* Teal &mdash; brand accent, anchored on Blackbird Teal #008C95 */</span>
+  <span class="v">--teal-50</span>:  #ECF7F8;
+  <span class="v">--teal-100</span>: #CFEEF0;
+  <span class="v">--teal-200</span>: #A0DCE0;
+  <span class="v">--teal-300</span>: #6EC6CB;
+  <span class="v">--teal-400</span>: #36AAB1;
+  <span class="v">--teal-500</span>: #008C95;  <span class="c">/* BRAND */</span>
+  <span class="v">--teal-600</span>: #007078;
+  <span class="v">--teal-700</span>: #00565D;
+  <span class="v">--teal-800</span>: #003E43;
+  <span class="v">--teal-900</span>: #00282C;
+  <span class="v">--teal-950</span>: #001316;
+
+  <span class="c">/* Red &mdash; signal, anchored on #862633 */</span>
+  <span class="v">--red-50</span>:  #F8E9EC;
+  <span class="v">--red-500</span>: #862633;  <span class="c">/* SIGNAL */</span>
+  <span class="v">--red-700</span>: #561821;
+  <span class="c">/* ...full 11-step scale */</span>
+
+  <span class="c">/* Neutrals &mdash; cool slate, harmonizes with brand teal */</span>
+  <span class="v">--neutral-50</span>:  #F8FAFC;
+  <span class="v">--neutral-100</span>: #F1F5F9;
+  <span class="v">--neutral-200</span>: #E2E8F0;
+  <span class="v">--neutral-300</span>: #CBD5E1;
+  <span class="v">--neutral-500</span>: #64748B;
+  <span class="v">--neutral-700</span>: #334155;
+  <span class="v">--neutral-800</span>: #1E293B;
+  <span class="v">--neutral-900</span>: #0F172A;
+  <span class="v">--neutral-950</span>: #000000;  <span class="c">/* brand black */</span>
+
+  <span class="c">/* Dark surfaces */</span>
+  <span class="v">--dark-bg</span>:    #0D0D0D;
+  <span class="v">--dark-card1</span>: #1C1C1C;
+  <span class="v">--dark-card2</span>: #222222;
+}
+
+<span class="c">/* semantic.css &mdash; the active system. Components only use these. */</span>
+<span class="h">:root</span> {
+  <span class="v">--color-brand-accent</span>:        <span class="h">var</span>(--teal-500);
+  <span class="v">--color-brand-accent-hover</span>:  <span class="h">var</span>(--teal-600);
+  <span class="v">--color-brand-accent-active</span>: <span class="h">var</span>(--teal-700);
+  <span class="v">--color-brand-accent-subtle</span>: <span class="h">var</span>(--teal-50);
+  <span class="v">--color-brand-deep</span>:          <span class="h">var</span>(--teal-900);
+  <span class="v">--color-signal</span>:              <span class="h">var</span>(--red-500);
+  <span class="v">--color-signal-subtle</span>:       <span class="h">var</span>(--red-50);
+  <span class="v">--color-brand-slate</span>:         <span class="h">var</span>(--neutral-500);  <span class="c">/* structural spine (not a brand color), matches site */</span>
+  <span class="v">--color-brand-slate-deep</span>:    <span class="h">var</span>(--neutral-700);
+
+  <span class="v">--color-text-default</span>:        <span class="h">var</span>(--neutral-950);
+  <span class="v">--color-text-body</span>:           <span class="h">var</span>(--neutral-800);
+  <span class="v">--color-text-secondary</span>:      <span class="h">var</span>(--neutral-700);
+  <span class="v">--color-text-muted</span>:          <span class="h">var</span>(--neutral-500);
+  <span class="v">--color-text-inverse</span>:        #FFFFFF;
+
+  <span class="v">--color-surface</span>:             #FAFAFA;             <span class="c">/* off-white, matches site */</span>
+  <span class="v">--color-surface-pure</span>:        #FFFFFF;             <span class="c">/* raised cards, modals */</span>
+  <span class="v">--color-surface-soft</span>:        <span class="h">var</span>(--neutral-50);
+  <span class="v">--color-surface-muted</span>:       <span class="h">var</span>(--neutral-100);
+  <span class="v">--color-surface-structural</span>:  <span class="h">var</span>(--neutral-200);
+  <span class="v">--color-surface-deep</span>:        <span class="h">var</span>(--dark-bg);     <span class="c">/* DEFAULT DARK — Core anchor (dark ground) #0D0D0D */</span>
+  <span class="v">--color-surface-slate-dark</span>:  <span class="h">var</span>(--neutral-500);   <span class="c">/* slate emphasis surface — slate-500 anchor (Core) */</span>
+
+  <span class="v">--color-border</span>:              <span class="h">var</span>(--neutral-200);
+  <span class="v">--color-border-strong</span>:       <span class="h">var</span>(--neutral-300);
+
+  <span class="c">/* Type stacks &mdash; Avenir is brand standard. europa is the Squarespace
+     fallback (Avenir not licensed via Adobe Fonts). See section 03 for per-platform map. */</span>
+  <span class="v">--font-headline</span>: <span class="v">"Futura"</span>, <span class="v">"futura-pt"</span>, <span class="v">"Jost"</span>, <span class="v">"Trebuchet MS"</span>, system-ui, sans-serif;
+  <span class="v">--font-body</span>:     <span class="v">"Avenir"</span>, <span class="v">"europa"</span>, <span class="v">"Nunito Sans"</span>, <span class="v">"Calibri"</span>, system-ui, sans-serif;
+}</pre>
+  </div>
+</section>
+
+<section class="block" id="examples">
+  <div class="container">
+    <div class="section-num">09 &middot; Examples</div>
+    <h3 class="section-title">The system in components</h3>
+    <p class="section-desc">Every element here references semantic tokens. Swap teal-500 to a different hex and watch all of these update at once.</p>
+
+    <div class="slide-mock" style="margin-bottom:24px;aspect-ratio:16/9;display:flex;flex-direction:column">
+      <h2 class="slide-title">Top brand qualities = Brilliant + Approachable + Modern</h2>
+      <div class="img-text-2col" style="flex:1;align-items:stretch">
+        <div class="image-side" style="background:#ffffff;border:1px solid var(--color-border);display:flex;align-items:center;justify-content:center;padding:18px 22px">
+          <svg viewBox="0 0 600 360" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" role="img" aria-label="Brand quality scores bar chart">
+            <text x="0" y="18" font-family="Futura, Jost, sans-serif" font-size="11" font-weight="700" fill="#0f172a" letter-spacing="1.4">BRAND QUALITY SCORES</text>
+            <text x="0" y="34" font-family="Avenir, Nunito Sans, sans-serif" font-size="10" fill="#64748b">Customer + employee panel &middot; n=240</text>
+            <line x1="125" y1="56" x2="125" y2="348" stroke="#cbd5e1" stroke-width="1"/>
+            <g font-family="Avenir, Nunito Sans, sans-serif" font-size="11" font-weight="600" fill="#0f172a">
+              <text x="118" y="78" text-anchor="end">Brilliant</text>
+              <text x="118" y="113" text-anchor="end">Approachable</text>
+              <text x="118" y="148" text-anchor="end">Modern</text>
+              <text x="118" y="183" text-anchor="end">Trustworthy</text>
+              <text x="118" y="218" text-anchor="end">Bold</text>
+              <text x="118" y="253" text-anchor="end">Caring</text>
+              <text x="118" y="288" text-anchor="end">Skillful</text>
+              <text x="118" y="323" text-anchor="end">Lightweight</text>
+            </g>
+            <rect x="125" y="66" width="368" height="18" fill="#008C95"/>
+            <rect x="125" y="101" width="352" height="18" fill="#008C95"/>
+            <rect x="125" y="136" width="336" height="18" fill="#008C95"/>
+            <rect x="125" y="171" width="284" height="18" fill="#64748b"/>
+            <rect x="125" y="206" width="260" height="18" fill="#64748b"/>
+            <rect x="125" y="241" width="248" height="18" fill="#64748b"/>
+            <rect x="125" y="276" width="232" height="18" fill="#64748b"/>
+            <rect x="125" y="311" width="204" height="18" fill="#64748b"/>
+            <g font-family="Futura, Jost, sans-serif" font-size="11" font-weight="700" fill="#0f172a">
+              <text x="500" y="79">92</text>
+              <text x="484" y="114">88</text>
+              <text x="468" y="149">84</text>
+              <text x="416" y="184">71</text>
+              <text x="392" y="219">65</text>
+              <text x="380" y="254">62</text>
+              <text x="364" y="289">58</text>
+              <text x="336" y="324">51</text>
+            </g>
+          </svg>
+        </div>
+        <div class="text-side">
+          <h5 class="ts-header">Tensions</h5>
+          <p><strong>Brilliant + Approachable:</strong> smart, not intimidating</p>
+          <p><strong>Bold + Caring:</strong> confident, not aggressive</p>
+          <p><strong>Modern + Trustworthy:</strong> new, not unproven</p>
+          <p><strong>Lightweight + Skillful:</strong> easy, not trivial</p>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <img src="blackbird_logo.png" alt="Blackbird" class="bird-mark-corner" />
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 32px;line-height:1.55"><strong style="color:var(--color-text-default)">Most-used slide layout, 16:9 PowerPoint widescreen.</strong> Chart left, text right, two fonts plus bold weight for emphasis. Title carries the message. Chart uses the canonical series &mdash; teal for the top three qualities (the ones the title elevates), slate for the rest. Bird mark only in the corner; the horizontal lockup is reserved for TOC and cover slides. Teal bar grounds the bottom edge.</p>
+
+    <h4 class="h4-accent" style="margin-top:0">Card pattern</h4>
+    <div class="h4-underline"></div>
+    <p style="font-size:14px;color:var(--color-text-body);margin:0 0 16px;line-height:1.6">When a layout calls for cards, this is the spec. Page surface stays #FAFAFA. White cards sit on top in pure white with a thin slate-200 outline and a 10px radius &mdash; just enough contrast to lift the card off the page without shadow. The slate-200 outline is specifically for white cards on the off-white surface; tinted cards (teal-50, red-50) use matching tinted borders (teal-200, red-200), and dark cards skip the outline entirely. <strong>No top-edge accent bars on cards.</strong> Ever.</p>
+
+    <div class="card-spec-row">
+      <div class="card-spec">
+        <h6>Card 01</h6>
+        <p>Pure white background lifts off the off-white page surface. The thin slate outline does the rest of the visual separation work.</p>
+      </div>
+      <div class="card-spec">
+        <h6>Card 02</h6>
+        <p>10px radius on every corner. No drop shadows, no glows, no inner shadows. Depth comes from the contrast between #FAFAFA and #FFFFFF.</p>
+      </div>
+      <div class="card-spec">
+        <h6>Card 03</h6>
+        <p>1px outline in slate-200 (#E2E8F0). The lightest visible step in the slate scale &mdash; reads as a hairline, not a frame.</p>
+      </div>
+    </div>
+
+    <div class="card-spec-table">
+      <div class="row"><span class="name">Page surface</span><span class="val">#FAFAFA &mdash; the off-white that matches the live site</span></div>
+      <div class="row"><span class="name">Card background</span><span class="val">#FFFFFF &mdash; pure white, lifted above the page</span></div>
+      <div class="row"><span class="name">Outline color</span><span class="val">#E2E8F0 (slate-200) &mdash; for white cards on FAFAFA. Tinted cards use teal-200 or red-200 to match the tint.</span></div>
+      <div class="row"><span class="name">Outline width</span><span class="val">1px</span></div>
+      <div class="row"><span class="name">Border radius</span><span class="val">10px (--radius-lg)</span></div>
+      <div class="row"><span class="name">Padding</span><span class="val">24px default. 18-22px tight, 32px generous</span></div>
+      <div class="row"><span class="name">Top accent bar</span><span class="val">None. Ever. Cards never carry top-edge teal bars &mdash; that pattern is reserved for the bottom-of-slide accent and the bar+dot motif.</span></div>
+      <div class="row"><span class="name">Shadow</span><span class="val">None. Depth comes from the surface contrast, not drop shadows</span></div>
+    </div>
+    <p style="font-size:13px;color:var(--color-text-secondary);margin:16px 0 32px;line-height:1.55">Every card in this design system follows this spec &mdash; rule cards, motif cards, component examples, token tables. Reuse the pattern instead of inventing a new container.</p>
+
+    <div class="comps">
+      <div class="comp">
+        <div class="comp-label">Buttons &mdash; default uppercase rectangular</div>
+        <button class="btn btn-primary">Get a proposal</button>
+        <button class="btn btn-dark">Talk to us</button>
+        <button class="btn btn-ghost">Case studies</button>
+        <div style="height:14px"></div>
+        <div style="font-family:var(--font-headline);font-size:11px;color:var(--color-brand-accent);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px">Pill outline &mdash; form CTAs</div>
+        <button class="btn-pill-outline">Submit</button>
+        <button class="btn-pill-outline accent">Send message</button>
+      </div>
+
+      <div class="comp">
+        <div class="comp-label">Tags &amp; pills</div>
+        <span class="pill pill-accent">Strategic Pillar</span>
+        <span class="pill pill-signal">Risk</span>
+        <span class="pill pill-slate">Context</span>
+        <span class="pill pill-dark">Award 2025</span>
+      </div>
+
+      <div class="comp">
+        <div class="comp-label">Stat callout</div>
+        <div class="stat-callout">
+          <div class="num">90</div>
+          <div class="ctx">NPS score across active accounts. Source: Q1 2026 client survey, n=47.</div>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-label">Brand-only state dots &mdash; teal positive, slate neutral, red negative</div>
+        <div class="state-row">
+          <span class="state"><span class="dot" style="background:var(--color-brand-accent)"></span> Pacing on track</span>
+          <span class="state"><span class="dot" style="background:var(--color-brand-slate)"></span> Budget at 85%</span>
+          <span class="state"><span class="dot" style="background:var(--color-signal)"></span> Spend exceeded</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <div class="comp">
+      <div class="comp-label">Inputs / Outputs &mdash; numbered list, outlined + tinted</div>
+      <div class="io-grid">
+        <div class="io-col teal">
+          <h4>Inputs</h4>
+          <div class="underline"></div>
+          <div class="io-item"><span class="num">01</span> Initial Website Review</div>
+          <div class="io-item"><span class="num">02</span> Competitor Positioning</div>
+          <div class="io-item"><span class="num">03</span> Kickoff Meeting</div>
+          <div class="io-item"><span class="num">04</span> Survey Rankings &amp; Write-ins</div>
+          <div class="io-item"><span class="num">05</span> Competitors Visual Audit</div>
+        </div>
+        <div class="io-col red">
+          <h4>Outputs</h4>
+          <div class="underline"></div>
+          <div class="io-item"><span class="num">01</span> Feature &rArr; Benefits Mapping</div>
+          <div class="io-item"><span class="num">02</span> Benefit Ranking</div>
+          <div class="io-item"><span class="num">03</span> Core Offering Identification</div>
+          <div class="io-item"><span class="num">04</span> Bain&rsquo;s Elements of Value</div>
+          <div class="io-item"><span class="num">05</span> Resonating Focus</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <div class="comp">
+      <div class="comp-label">Icon list &mdash; line-stroke teal icons, bold headline + gray description</div>
+      <div class="icon-list">
+        <div class="icon-row">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="14" width="3" height="7"/><rect x="9" y="9" width="3" height="12"/><rect x="15" y="4" width="3" height="17"/></svg>
+          <div>
+            <p class="ir-title">Benchmark numbers front and centre</p>
+            <p class="ir-desc">94% cost, 4x, 0 JVM lead the hero stat strip. The draft does what EMR does with 4.5x, but louder and earlier.</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="1"/><polyline points="7,10 9,12 7,14"/><line x1="12" y1="14" x2="16" y2="14"/></svg>
+          <div>
+            <p class="ir-title">Migration friction dissolved by a code diff</p>
+            <p class="ir-desc">The one-line before/after swapping the endpoint string is the single most persuasive element on the page.</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12,3 21,8 12,13 3,8"/><polyline points="3,13 12,18 21,13"/><polyline points="3,18 12,23 21,18"/></svg>
+          <div>
+            <p class="ir-title">OSS vs. managed tier clearly separated</p>
+            <p class="ir-desc">A two-card layout distinguishes self-hosted Sail from the managed platform. Engineers see their on-ramp clearly.</p>
+          </div>
+        </div>
+        <div class="icon-row">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3a3 3 0 0 0-3 3v1a3 3 0 0 0-3 3v1a3 3 0 0 0 3 3v1a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3v-1a3 3 0 0 0 3-3v-1a3 3 0 0 0-3-3V6a3 3 0 0 0-3-3H9z"/></svg>
+          <div>
+            <p class="ir-title">Agentic AI retained for VC signalling</p>
+            <p class="ir-desc">The badge keeps "agentic AI" visible to investors without pushing it into the H1, which stays engineer-focused.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <div class="comps">
+      <div class="comp">
+        <div class="comp-label">POD / POP / Optionality stack &mdash; colored labels, teal dividers</div>
+        <div class="pod-stack">
+          <div class="item">
+            <p class="label pod">Point of Difference</p>
+            <h4 class="h">~94% lower compute cost vs Spark</h4>
+            <p class="d">The only LakeSail prop with quantified, buyer-verifiable magnitude. ClickBench-anchored. Survives 12-18 months as the lead.</p>
+          </div>
+          <div class="item">
+            <p class="label pop">Point of Parity</p>
+            <h4 class="h">Open lakehouse compatibility</h4>
+            <p class="d">Spark Connect protocol. Iceberg and Delta. Drop-in for existing Spark code. Removes the switching objection.</p>
+          </div>
+          <div class="item">
+            <p class="label opt">Optionality</p>
+            <h4 class="h">Agent-native architecture</h4>
+            <p class="d">Long-game moat, not the 2026 sale. Hedged bet. If the agent thesis lands, the resonating focus shifts here in 3-5 years.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-label">Solid color callout &mdash; teal block, bold black text</div>
+        <div class="solid-callout">Everything Spark does. Faster, cheaper, and ready for agents.</div>
+        <p style="font-size:13px;color:var(--color-text-secondary);margin-top:16px;line-height:1.5">Replaces the typical white-card-with-quote pattern. The block IS the emphasis. Use once per slide, never two solid blocks side by side.</p>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <div class="comp">
+      <div class="comp-label">Roadmap slide &mdash; example of a good slide</div>
+      <div class="roadmap" style="margin:24px 0 8px">
+        <div class="step s1">
+          <div class="circle">01</div>
+          <div class="vline"></div>
+          <div class="card">
+            <h5 class="ttl">Synthesize Feedback</h5>
+            <p class="desc">Compile and analyze all stakeholder input from this audit presentation</p>
+          </div>
+        </div>
+        <div class="step s2">
+          <div class="circle">02</div>
+          <div class="vline"></div>
+          <div class="card">
+            <h5 class="ttl">Schedule Interviews</h5>
+            <p class="desc">Set up discovery calls with key customers and internal teams</p>
+          </div>
+        </div>
+        <div class="step s3">
+          <div class="circle">03</div>
+          <div class="vline"></div>
+          <div class="card">
+            <h5 class="ttl">Iterate on Design</h5>
+            <p class="desc">Refine content and visual design based on consolidated feedback</p>
+          </div>
+        </div>
+        <div class="step s4">
+          <div class="circle">04</div>
+          <div class="vline"></div>
+          <div class="card">
+            <h5 class="ttl">Build Pages</h5>
+            <p class="desc">Develop secondary website pages aligned with new positioning</p>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:16px 0 0;line-height:1.55">Numbered circles in horizontal sequence, color-graded from teal (now, first) to red (later, future). 3&ndash;5 steps; more than 5 reads as a checklist. Use for next-steps, project phases, sequenced processes. Titles are the verb of the work, not "Next Steps." Card text is centered &mdash; the one place we break left-align, mirroring the symmetry of the circle above.</p>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <div class="dark-surface">
+      <span class="surface-label">off-black #0D0D0D &middot; default dark</span>
+      <div class="num">07</div>
+      <h4>Off-black is the default dark surface</h4>
+      <p>The Core dark-surface anchor (the dark section ground). Use for every dark rhythm break: section divider emphasis, case-study stat strips, key findings, executive callouts, quote interstitials, code blocks, closing slide. Teal accents carry across cleanly; dark surfaces skip the bottom accent bar and carry no card bars.</p>
+    </div>
+
+    <div style="height:12px"></div>
+
+    <div class="dark-surface slate">
+      <span class="surface-label">slate-500 #64748B &middot; slate emphasis surface</span>
+      <div class="num">08</div>
+      <h4>Slate-500 is the slate emphasis surface (Core anchor)</h4>
+      <p>The slate structural color (#64748B) used as a full surface. Not "dark" &mdash; medium cool-gray. Use when you want the section to feel structural and warm rather than heavy: capability dividers, slate-themed quote interstitials, the secondary kind of emphasis. Two emphasis surfaces in the system, both anchored: off-black for heavy, slate-500 for warm. No interpolated slate-700/-800 surfaces.</p>
+    </div>
+
+    <div style="height:24px"></div>
+
+    <div class="dark-emphasis">
+      <span class="eyebrow-dark">Case Studies</span>
+      <h3 class="de-title">Performance to be proud of</h3>
+      <p class="de-sub">Four enterprise programs. Every number sourced from internal QBR decks and weekly performance reviews.</p>
+      <div class="stat-strip">
+        <div class="stat-card">
+          <div class="logo-frame"><img src="Logos/databricks.png" alt="Databricks" /></div>
+          <div class="stat-num">8X</div>
+          <div class="stat-label">MQL Volume</div>
+          <p class="stat-detail">6X ad spend<br/>40+ countries</p>
+          <p class="stat-outcome">Pipeline outpaced spend</p>
+        </div>
+        <div class="stat-card">
+          <div class="logo-frame"><img src="Logos/intercom.png" alt="Intercom" /></div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">NB / Prospecting LTV/CAC &gt; 1</div>
+          <p class="stat-detail">Up from 20%</p>
+          <p class="stat-outcome">Historical highest net profit</p>
+        </div>
+        <div class="stat-card">
+          <div class="logo-frame"><img src="Logos/Nutanix.png" alt="Nutanix" /></div>
+          <div class="stat-num">&minus;49%</div>
+          <div class="stat-label">Cost per SAL</div>
+          <p class="stat-detail">MQL volume up on lower budgets</p>
+          <p class="stat-outcome">Every theater, every quarter, on plan</p>
+        </div>
+        <div class="stat-card">
+          <div class="logo-frame"><img src="Logos/Cisco-Merki-Logo-300-x-245.png" alt="Cisco Meraki" /></div>
+          <div class="stat-num">&minus;45%</div>
+          <div class="stat-label">CPA</div>
+          <p class="stat-detail">+34% conversions<br/>&minus;27% spend</p>
+          <p class="stat-outcome">Beat the auction</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--color-text-secondary);margin:16px 0 0;line-height:1.55"><strong style="color:var(--color-text-default)">Dark emphasis section.</strong> Off-black background (#0D0D0D), four cool dark-cards on dark slate (#1E293B), white logo frames, big teal stats, white labels, teal italic outcomes. No bars on the cards &mdash; the stat number carries the brand. Slate-500 (#64748B) is the alternative emphasis surface for warm/structural emphasis &mdash; both are Core anchors. Use one of these every 3-5 slides to break the white rhythm.</p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="bar-dot"><span class="bar"></span><span class="dot"></span></div>
+    Blackbird PPC Design System
+    <div class="mono">v2.1 &middot; Core Six: brand = teal + red; surface = FAFAFA; structure/ink = slate, black, dark slate (#1E293B); off-black #0D0D0D = dark ground. No bars on cards. FFFFFF cards, 1px slate-200 outline, 10px radius, no shadows</div>
+  </div>
+</footer>
+
+</body>
+</html>
