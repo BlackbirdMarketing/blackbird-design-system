@@ -1,6 +1,6 @@
 # Blackbird PPC Design System
 
-The single source of truth for the Blackbird PPC brand. Colors, typography, logo, spacing, layout patterns, signature motifs, imagery, and voice, in one versioned place.
+The single source of truth for the Blackbird PPC brand. Colors, typography, logo, spacing, layout patterns, signature motifs, imagery, voice, and the PowerPoint skill, in one versioned place.
 
 The main artifact is [`index.html`](index.html), a self-contained styleguide you can open in any browser or publish as a live page.
 
@@ -11,12 +11,14 @@ The main artifact is [`index.html`](index.html), a self-contained styleguide you
 | Token | Hex | Role | Weight |
 |-------|-----|------|--------|
 | Surface | `#FAFAFA` | Off-white page, never pure white | 50-55% |
-| Teal | `#008C95` | Brand accent. Numbers, links, primary data | 12-15% |
+| Teal | `#008C95` | Brand accent. Fills, bars, chart series, large numerals | 12-15% |
 | Red (Signal) | `#862633` | Second accent. Headlines, key stats, the bar+dot | 8-10% |
 | Slate | `#64748B` | Structure. Dividers, captions, icon strokes | 12-15% |
 | Black | `#000000` | Display. Headlines and big stat numbers | 5-7% |
 | Dark Slate | `#1E293B` | Reading. Body copy, table text, cool dark cards | 5-8% |
 | Off-black | `#0D0D0D` | The dark section ground | dark slides |
+
+**Small-text accent (v3.0):** teal-500 on the off-white surface is 3.88:1 and fails WCAG AA below 18px. Links, eyebrows, and section numbers use `--color-link` (teal-600, 5.61:1). Teal-500 keeps every fill, bar, and large-numeral role.
 
 **Two fonts.** Futura for headlines, Avenir for body. Web stand-ins: Jost and Nunito Sans.
 
@@ -27,35 +29,41 @@ The main artifact is [`index.html`](index.html), a self-contained styleguide you
 ## What is in this repo
 
 ```
-index.html      The styleguide. The main thing. Open it in a browser.
-spec/           The canonical written spec (PowerPoint brand skill v2.8).
-reference/      A portable PDF snapshot of the styleguide.
-icons/          Blackbird logos and reference imagery used by index.html.
-Logos/          Client logos used by index.html.
-blackbird_logo*.png   Root logos used by index.html.
+index.html        The styleguide. Open it in a browser.
+spec/             The canonical written spec (PowerPoint brand skill).
+skill/            The packaged skill: SKILL.md + bundled logo assets, ready to upload.
+assets/logos/     All six lockups plus deck-ready crops (tight + pre-faded).
+assets/photography/  14 cleared images (9 SF nightscapes, 5 corvids) + PHOTOS.md license manifest.
+assets/clients/   Client logos used by the case-study examples.
+assets/meta/      Favicons and the social-share card.
+tokens/           tokens.css and tokens.json. Drop into any project.
+scripts/          validate_assets.py, the CI guard.
+reference/        Portable PDF snapshots of the styleguide.
+VERSION           The single system version. Governs index.html and the spec.
+CHANGELOG.md      Repo-level history.
 ```
 
 ## View it
 
-Open `index.html` in any browser. No build step, no dependencies. The only external load is Google Fonts (Jost and Nunito Sans), which resolves automatically online.
+Open `index.html` in any browser. No build step. External loads: Google Fonts (Jost, Nunito Sans).
 
-Once this repo is on GitHub with Pages enabled, the live styleguide lives at:
+With GitHub Pages enabled (Settings, Pages, deploy from `main`), the live styleguide lives at:
 
 ```
-https://<your-org>.github.io/blackbird-design-system/
+https://blackbirdmarketing.github.io/blackbird-design-system/
 ```
 
-## Source of truth and versions
+## One version
 
-This repo closes the brand's longest-standing governance gap: three artifacts that carried three different version numbers. From here, the repo is canonical.
-
-- **Design system styleguide:** `index.html`, v2.1
-- **PowerPoint brand skill:** `spec/powerpoint-brand-skill-v2.8.md`, v2.8
-
-The two are aligned. When the brand changes, change it here first, bump the version, and let the website and decks follow.
+`VERSION` at the repo root is the system version. `index.html` and `spec/powerpoint-brand-skill.md` both carry it, and CI (`.github/workflows/validate.yml`) fails any push where they diverge, where the core six hex values drift between the two artifacts, or where `index.html` references a file that does not exist.
 
 ## Update it
 
-1. Edit `index.html` (or the spec).
-2. Bump the version in the file and note the change in the spec changelog.
-3. Commit. If Pages is enabled, the live styleguide updates on push.
+1. Edit `index.html` and/or the spec.
+2. Bump `VERSION`, note the change in `CHANGELOG.md` and the spec changelog.
+3. If the skill changed, re-copy the spec into `skill/blackbird-pptx-brand/SKILL.md` and re-upload the skill folder.
+4. Run `python3 scripts/validate_assets.py`, then commit. Pages updates on push.
+
+## Photography rules
+
+Nightscape only: dusk, after-dark, atmospheric, low-key. No AI-generated cityscapes or birds. Every image gets a row in `assets/photography/PHOTOS.md` in the same commit; an image without a manifest row does not ship.

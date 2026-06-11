@@ -1,11 +1,11 @@
 ---
 name: blackbird-pptx-brand
-description: "Blackbird PPC PowerPoint brand guidelines (v2.8, June 2026). Use this skill whenever creating, editing, or reviewing a PowerPoint presentation for Blackbird PPC or any Blackbird client deliverable. Triggers include: any request to make a deck, slides, or presentation mentioning Blackbird; any pptx creation where the user is Jay or a Blackbird team member (Hillary, Thomas, Gabby, Jack); any request to 'make it on-brand' or 'use our brand' in a presentation context; any request referencing 'our deck style' or 'Blackbird template'. This skill defines Blackbird's identity layer (mission, pillars), color system, typography, layout patterns, slide anatomy, voice, and a pre-ship checklist for slide decks. Always read this skill BEFORE the general pptx skill when both apply. If this skill conflicts with the general pptx skill, this skill wins."
+description: "Blackbird PPC PowerPoint brand guidelines (v3.0, June 2026). Use this skill whenever creating, editing, or reviewing a PowerPoint presentation for Blackbird PPC or any Blackbird client deliverable. Triggers include: any request to make a deck, slides, or presentation mentioning Blackbird; any pptx creation where the user is Jay or a Blackbird team member (Hillary, Thomas, Gabby, Jack); any request to 'make it on-brand' or 'use our brand' in a presentation context; any request referencing 'our deck style' or 'Blackbird template'. This skill defines Blackbird's identity layer (mission, pillars), color system, typography, layout patterns, slide anatomy, voice, and a pre-ship checklist for slide decks. Always read this skill BEFORE the general pptx skill when both apply. If this skill conflicts with the general pptx skill, this skill wins."
 ---
 
-# Blackbird PPC -- PowerPoint Brand Guidelines (v2.8)
+# Blackbird PPC -- PowerPoint Brand Guidelines (v3.0)
 
-Source of truth: `Blackbird PPC Brand Identity System` (Mar 2026) + `Blackbird Design System v2.1` (June 2026). **v2.8 relabels slate as structure, not a brand color (teal and red are the only brand colors).** **v2.7 adds Dark Slate `1E293B` as the sixth Core anchor** — the reading-text and cool-dark-card color, kept distinct from Black `000000`, which stays display-only (headlines, max-contrast marks, small UI). **v2.6 settled the dark-surface question across the deck skill, the design-system HTML, and the live site.** One dark section ground: off-black `0D0D0D` (default) or slate-500 `64748B` for warm/structural emphasis — both Core anchors. Pure black `000000` is text/UI only and is **never a section surface**. Slate-800 `1E293B` is now a **sanctioned cool dark-card token** (card on a dark ground), but is **never a full-bleed section ground**. Cards on a dark ground: neutral `1C1C1C`/`222222`, or cool slate-800 `1E293B` (white text). v2.5 had removed slate-800 from every surface; v2.6 brings it back for cards only, to legalize the live site's dark cards without blessing pure-black grounds. v2.4 closed the "no top-edge bars on cards" rule. v2.3 enforces 10px radius on every card-like container. When the general pptx skill conflicts with anything here, these rules override.
+Source of truth: the `blackbird-design-system` repo, system version 3.0.0 (see `VERSION` at repo root). The styleguide (`index.html`) and this skill now carry one shared version number. **v3.0 ships canonical assets: the logo pack (`assets/logos/`) and the cleared photography library (`assets/photography/` + `PHOTOS.md`), plus a python-pptx implementation appendix.** **v2.8 relabels slate as structure, not a brand color (teal and red are the only brand colors).** **v2.7 adds Dark Slate `1E293B` as the sixth Core anchor** — the reading-text and cool-dark-card color, kept distinct from Black `000000`, which stays display-only (headlines, max-contrast marks, small UI). **v2.6 settled the dark-surface question across the deck skill, the design-system HTML, and the live site.** One dark section ground: off-black `0D0D0D` (default) or slate-500 `64748B` for warm/structural emphasis — both Core anchors. Pure black `000000` is text/UI only and is **never a section surface**. Slate-800 `1E293B` is now a **sanctioned cool dark-card token** (card on a dark ground), but is **never a full-bleed section ground**. Cards on a dark ground: neutral `1C1C1C`/`222222`, or cool slate-800 `1E293B` (white text). v2.5 had removed slate-800 from every surface; v2.6 brings it back for cards only, to legalize the live site's dark cards without blessing pure-black grounds. v2.4 closed the "no top-edge bars on cards" rule. v2.3 enforces 10px radius on every card-like container. When the general pptx skill conflicts with anything here, these rules override.
 
 ## Quick Reference
 
@@ -259,6 +259,21 @@ Three lockups. Black on light, white on dark. Never recolor.
 - **Closing slide:** No logo. Just "Thank you" centered.
 
 The pattern is bird mark = quiet brand presence on the most-used layout; horizontal lockup = louder statement, used sparingly.
+
+### Canonical asset files (v3.0)
+
+All lockups live in the repo at `assets/logos/` and are bundled inside this skill folder under `assets/`. Use these files; do not regenerate or trace the mark.
+
+| File | What it is | Notes |
+|------|------------|-------|
+| `bb-horizontal-lockup.png` / `_white.png` | Horizontal lockup, 820x312 | TOC right-center at ~2.5" wide |
+| `bb-circular-badge.png` / `_white.png` | Circular badge, 800x800 | Profile photos, favicons, stickers |
+| `bb-bird-mark.png` / `_white.png` | Bird mark on full 1148x774 canvas | Watermarks, large placements |
+| `bb-bird-mark-deck.png` | Bird mark, tight crop 633x597 (aspect 1.06) | The content-slide corner mark |
+| `bb-bird-mark-deck-faded.png` | Same crop with 90% alpha baked in | Use in python-pptx, which cannot set picture opacity |
+| `bb-bird-mark-deck_white.png` | White tight crop | Corner mark on sanctioned dark content layouts |
+
+Corner-mark geometry on the 10.00" x 5.625" slide: height 0.32", width 0.34" (preserve the 1.06 aspect; the old padded file forced a squish at w=0.40), x=9.34", y=5.05".
 
 ### Logo rules
 
@@ -523,6 +538,8 @@ Bold uppercase headline (Futura Bold 18pt) with a thin matching colored line ben
 **Where not:** Content slides, cards, dividers within sections.
 
 **Never:** Generic stock, daylight skylines, abstract gradients, AI-generated cityscapes or birds.
+
+**The library (v3.0):** Fourteen cleared images at `assets/photography/`: nine SF nightscapes (Twin Peaks skyline, Bay Bridge trails and dusk span, downtown blue hour, Bernal light field, Sutro above fog, Golden Gate tower and night fog, Chinatown) and five corvids (pair on wire, wings silhouette, branch against storm sky, raven profile, raven portrait). Pull covers, dividers, and closings from this folder first. Every file has a license row in `assets/photography/PHOTOS.md`; an image without a manifest row does not ship. One flag: `sf-night-skyline-twinpeaks.jpg` predates v3.0 with an unverified license; confirm or replace it for client-facing work.
 
 ### Icons
 
@@ -802,10 +819,13 @@ function addSectionHeader(slide, number, title) {
 }
 
 // Bird mark in bottom-right corner (every content slide)
-function addBirdMarkCorner(slide, pres, imagePath) {
+// v3.0: use the canonical tight crop. The old padded 1148x774 file at w=0.40
+// both squished the mark (true aspect is 1.06, not 1.25) and rendered the
+// visible bird smaller than spec because of canvas padding.
+function addBirdMarkCorner(slide, pres) {
   slide.addImage({
-    path: imagePath,
-    x: 9.30, y: 5.05, w: 0.40, h: 0.32,
+    path: "assets/bb-bird-mark-deck.png",
+    x: 9.34, y: 5.05, w: 0.34, h: 0.32,
     transparency: 10,  // pptxgenjs supports 0-100 on addImage
   });
 }
@@ -958,6 +978,54 @@ For each step, the card uses:
 
 ---
 
+## 11b. Implementation Notes (python-pptx)
+
+Decks generated in Claude/Cowork environments are built with python-pptx, not pptxgenjs. The constants below mirror Section 11. The slide is 10.00" x 5.625" (16:9).
+
+```python
+from pptx import Presentation
+from pptx.util import Inches, Pt
+from pptx.dml.color import RGBColor
+
+TEAL      = RGBColor(0x00, 0x8C, 0x95)
+RED       = RGBColor(0x86, 0x26, 0x33)
+SLATE_500 = RGBColor(0x64, 0x74, 0x8B)
+SLATE_200 = RGBColor(0xE2, 0xE8, 0xF0)
+BLACK     = RGBColor(0x00, 0x00, 0x00)
+SLATE_800 = RGBColor(0x1E, 0x29, 0x3B)
+OFF_BLACK = RGBColor(0x0D, 0x0D, 0x0D)
+SURFACE   = RGBColor(0xFA, 0xFA, 0xFA)
+
+SLIDE_W, SLIDE_H = Inches(10.0), Inches(5.625)
+
+def add_bird_mark_corner(slide):
+    """Bird mark, bottom-right of every content slide.
+    Skipped on cover, dividers, quote interstitials, and closing.
+    python-pptx cannot set picture transparency, so the asset itself
+    carries the 90% alpha (bb-bird-mark-deck-faded.png)."""
+    slide.shapes.add_picture(
+        "assets/bb-bird-mark-deck-faded.png",
+        left=Inches(9.34), top=Inches(5.05), height=Inches(0.32),
+    )  # width follows the 1.06 aspect automatically: ~0.34"
+
+def add_bottom_accent_bar(slide):
+    """Full-width teal bar, 0.10\" tall, on every white content slide."""
+    bar = slide.shapes.add_shape(1, Inches(0), Inches(5.525), SLIDE_W, Inches(0.10))
+    bar.fill.solid(); bar.fill.fore_color.rgb = TEAL
+    bar.line.fill.background()
+
+def add_toc_lockup(slide):
+    """Horizontal lockup, right-center, ~2.5\" wide. TOC only."""
+    slide.shapes.add_picture(
+        "assets/bb-horizontal-lockup.png",
+        left=Inches(6.6), top=Inches(2.33), width=Inches(2.5),
+    )
+```
+
+Asset paths resolve relative to the skill folder, which bundles `assets/` next to `SKILL.md`. When running from the repo instead, prefix with `assets/logos/`.
+
+---
+
 ## 12. Rules
 
 ### System rules
@@ -1041,6 +1109,14 @@ Final-pass review. Walk every slide top-to-bottom against this list before the d
 ---
 
 ## Changelog
+
+**v3.0 (June 2026)** — assets shipped, single system version
+- **Single system version.** The repo `VERSION` file (3.0.0) now governs both the styleguide (`index.html`) and this skill. The two-number era (site v2.1, skill v2.8) ends here; CI fails the build if either artifact drops the shared version.
+- **Logo pack shipped.** `assets/logos/` carries all six lockups recovered at source quality, plus deck-ready crops: `bb-bird-mark-deck.png` (tight 633x597 crop, aspect 1.06) and `bb-bird-mark-deck-faded.png` (90% alpha baked in for python-pptx). The skill folder bundles the same files, so deck generation no longer depends on the repo or the network.
+- **Corner-mark geometry corrected.** The old helper forced the padded 1148x774 file into a 0.40 x 0.32 box: a 1.25 aspect on a 1.48 canvas holding a 1.06 mark, which both squished the file and rendered the visible bird under spec size. New geometry: 0.34 x 0.32 at x=9.34, y=5.05.
+- **Photography library shipped.** Fourteen cleared images at `assets/photography/` (nine SF nightscapes, five corvids) with a per-file license manifest (`PHOTOS.md`). Covers, dividers, and closings pull from the library first. The pre-v3.0 Twin Peaks hero is flagged license-unverified.
+- **python-pptx appendix added (Section 11b)** with color constants, corner-mark, bottom-bar, and TOC-lockup helpers matching the pptxgenjs notes.
+- File renamed `powerpoint-brand-skill-v2.8.md` to `powerpoint-brand-skill.md`; the version lives in the document and `VERSION`, not the filename.
 
 **v2.8 (June 2026)** — slate relabeled: structure, not brand
 - **Only teal and red are brand colors.** Slate `64748B` (and its dark sibling `1E293B`) are structure/ink, not brand colors. Core Six membership is unchanged; the labels got honest: 2 brand (teal, red) + surface (`FAFAFA`) + structure/ink (slate, black, dark slate), with off-black `0D0D0D` the dark ground.

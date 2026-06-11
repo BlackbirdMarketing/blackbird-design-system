@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Blackbird PPC Design System v2.1</title>
+<title>Blackbird PPC Design System v3.0</title>
+<meta name="description" content="The Blackbird PPC design system. Six tokens, two fonts, one signature. Colors, typography, logo, motifs, imagery, slide layouts, and code in one versioned styleguide." />
+<link rel="icon" type="image/png" sizes="48x48" href="assets/meta/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/meta/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/meta/apple-touch-icon.png" />
+<meta property="og:title" content="Blackbird PPC Design System v3.0" />
+<meta property="og:description" content="White first. Teal carries. Slate frames. Red signals. The single source of truth for the Blackbird PPC brand." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/meta/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -67,6 +76,8 @@
     --color-signal-subtle:       var(--red-50);
     --color-brand-slate:         var(--neutral-500);  /* structural spine (not a brand color); cool neutral, a peer in weight not identity */
     --color-brand-slate-deep:    var(--neutral-700);
+    --color-link:                var(--teal-600);    /* v3.0 — AA-safe small-text accent. teal-500 on FAFAFA is 3.88:1; teal-600 is 5.61:1. */
+    --color-link-hover:          var(--teal-700);
 
     --color-text-default:        var(--neutral-950);
     --color-text-body:           var(--neutral-800);
@@ -150,7 +161,7 @@
   .doc-brand .v{color:var(--color-text-muted);font-size:13px;margin-left:10px;font-family:var(--font-mono);font-weight:500;text-transform:none;letter-spacing:0}
   .doc-nav{display:flex;gap:22px;font-size:13px;color:var(--color-text-secondary);font-weight:600;font-family:var(--font-headline)}
   .doc-nav a{color:inherit;text-decoration:none}
-  .doc-nav a:hover{color:var(--color-brand-accent)}
+  .doc-nav a:hover{color:var(--color-link)}
 
   /* signature teal bar + red dot, positioned under header on hero */
   .bar-dot{display:inline-flex;align-items:center;gap:9px;margin:18px 0 8px}
@@ -161,7 +172,7 @@
   .doc-hero{padding:80px 0 64px;border-bottom:1px solid var(--color-border)}
   .eyebrow{
     font-family:var(--font-headline);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;
-    color:var(--color-brand-accent);font-weight:700;margin-bottom:18px;
+    color:var(--color-link);font-weight:700;margin-bottom:18px;
   }
   h2.doc-h{
     font-family:var(--font-headline);
@@ -175,7 +186,7 @@
   section.block{padding:88px 0;border-bottom:1px solid var(--color-border)}
   .section-num{
     display:inline-block;font-family:var(--font-headline);font-size:14px;letter-spacing:0.14em;
-    text-transform:uppercase;color:var(--color-brand-accent);margin-bottom:12px;font-weight:700;
+    text-transform:uppercase;color:var(--color-link);margin-bottom:12px;font-weight:700;
   }
   h3.section-title{
     font-family:var(--font-headline);font-size:32px;font-weight:700;letter-spacing:-0.02em;
@@ -311,7 +322,7 @@
   .t-small{font-family:var(--font-body);font-size:13px;color:var(--neutral-700)}
   .t-caption{font-family:var(--font-body);font-size:12px;color:var(--neutral-500)}
   .t-stat{font-family:var(--font-headline);font-size:80px;font-weight:700;color:var(--color-brand-accent);letter-spacing:-0.03em;line-height:1}
-  .t-section-num{font-family:var(--font-headline);font-size:13px;font-weight:700;color:var(--color-brand-accent);letter-spacing:0.04em}
+  .t-section-num{font-family:var(--font-headline);font-size:13px;font-weight:700;color:var(--color-link);letter-spacing:0.04em}
 
   /* SPACING / RADII / SHADOWS */
   .token-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
@@ -396,7 +407,7 @@
   }
   .comp-label{
     font-family:var(--font-headline);font-size:11px;letter-spacing:0.14em;
-    text-transform:uppercase;color:var(--color-brand-accent);margin-bottom:16px;font-weight:700;
+    text-transform:uppercase;color:var(--color-link);margin-bottom:16px;font-weight:700;
   }
   .btn{
     display:inline-flex;align-items:center;justify-content:center;
@@ -762,7 +773,7 @@
   @media (max-width:900px){ .imagery-grid{grid-template-columns:1fr} }
   .photo-mock{
     position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:16/9;
-    background-image:url('icons/san-francisco-skyline-fine-art-l.jpg');
+    background-image:url('assets/photography/sf-night-skyline-twinpeaks.jpg');
     background-size:cover;background-position:center;
   }
   .photo-mock::before{
@@ -805,6 +816,118 @@
   footer{padding:48px 0;color:var(--color-text-muted);font-size:13px;text-align:center;border-top:1px solid var(--color-border)}
   footer .mono{margin-top:8px}
   footer .bar-dot{justify-content:center;margin:0 0 18px}
+
+  /* ===== v3.0 ADDITIONS ===== */
+
+  /* Full-bleed photo section divider (Layout G, live) */
+  .photo-divider{
+    position:relative;min-height:380px;background-size:cover;background-position:center;
+    display:flex;align-items:flex-end;
+  }
+  .photo-divider::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.66)}
+  .photo-divider .container{position:relative;padding-top:64px;padding-bottom:56px}
+  .photo-divider .pd-num{
+    font-family:var(--font-headline);font-size:84px;font-weight:700;color:var(--color-brand-accent);
+    letter-spacing:-0.03em;line-height:0.9;margin:0;
+  }
+  .photo-divider .pd-title{
+    font-family:var(--font-headline);font-size:38px;font-weight:700;color:#fff;
+    text-transform:uppercase;letter-spacing:-0.01em;margin:6px 0 0;line-height:1.05;
+  }
+  .photo-divider .pd-sub{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,0.72);margin:10px 0 0;max-width:560px}
+  .photo-divider .pd-credit{position:absolute;right:24px;bottom:14px;font-size:10px;color:rgba(255,255,255,0.4);font-family:var(--font-body)}
+
+  /* Dark rhythm band (off-black interstitial) */
+  .dark-band{background:var(--color-surface-deep);padding:72px 0}
+  .dark-band .eyebrow{color:var(--color-brand-accent)}
+  .dark-band h3{
+    font-family:var(--font-headline);font-size:34px;font-weight:700;color:#fff;
+    text-transform:uppercase;letter-spacing:-0.01em;margin:0 0 14px;line-height:1.1;max-width:760px;
+  }
+  .dark-band p{font-family:var(--font-body);font-size:15px;color:var(--neutral-300);margin:0;max-width:680px;line-height:1.6}
+  .dark-band .accent-rule{width:280px;height:5px;background:var(--color-signal);margin-top:28px}
+
+  /* Photography library grid */
+  .photo-lib{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:12px}
+  @media (max-width:900px){ .photo-lib{grid-template-columns:repeat(2,1fr)} }
+  .photo-lib figure{margin:0}
+  .photo-lib img{
+    width:100%;aspect-ratio:4/3;object-fit:cover;display:block;
+    border-radius:var(--radius-lg);filter:saturate(0.92);
+  }
+  .photo-lib figcaption{
+    font-family:var(--font-body);font-size:11px;color:var(--color-text-muted);
+    margin-top:6px;letter-spacing:0.01em;
+  }
+  .lib-note{font-size:12px;color:var(--color-text-muted);margin:6px 0 48px;font-family:var(--font-body)}
+  .lib-note code{font-family:var(--font-mono);font-size:11px;background:var(--color-surface-muted);padding:1px 5px;border-radius:3px}
+
+  /* Overlay treatment triptych */
+  .triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:48px}
+  @media (max-width:760px){ .triptych{grid-template-columns:1fr} }
+  .triptych .panel{position:relative;aspect-ratio:16/9;border-radius:var(--radius-lg);overflow:hidden;background-size:cover;background-position:center}
+  .triptych .panel.ov::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.62)}
+  .triptych .panel .t-type{position:absolute;left:18px;bottom:16px}
+  .triptych .panel .t-num{font-family:var(--font-headline);font-size:30px;font-weight:700;color:var(--color-brand-accent);line-height:0.9;display:block}
+  .triptych .panel .t-word{font-family:var(--font-headline);font-size:15px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.02em}
+  .triptych figcaption{font-family:var(--font-body);font-size:11px;color:var(--color-text-muted);margin-top:6px}
+  .triptych figure{margin:0}
+
+  /* Deck rhythm strip */
+  .rhythm-strip{display:grid;grid-template-columns:repeat(12,1fr);gap:8px;margin:18px 0 8px}
+  @media (max-width:900px){ .rhythm-strip{grid-template-columns:repeat(6,1fr)} }
+  .rhythm-strip .tile{
+    aspect-ratio:16/9;border-radius:4px;border:1px solid var(--color-border);
+    background:var(--color-surface-pure);position:relative;overflow:hidden;
+  }
+  .rhythm-strip .tile.photo{background-size:cover;background-position:center;border:0}
+  .rhythm-strip .tile.photo::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.62)}
+  .rhythm-strip .tile.dark{background:var(--color-surface-deep);border:0}
+  .rhythm-strip .tile span{
+    position:absolute;left:6px;bottom:4px;font-family:var(--font-headline);font-size:8px;
+    font-weight:700;letter-spacing:0.08em;color:var(--color-text-muted);text-transform:uppercase;
+  }
+  .rhythm-strip .tile.photo span, .rhythm-strip .tile.dark span{color:rgba(255,255,255,0.65)}
+  .rhythm-caption{font-size:12px;color:var(--color-text-muted);margin:0 0 48px;font-family:var(--font-body)}
+
+  /* Slide gallery */
+  .sg-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:16px}
+  @media (max-width:900px){ .sg-grid{grid-template-columns:1fr} }
+  .sg-item figcaption{font-family:var(--font-body);font-size:12px;color:var(--color-text-secondary);margin-top:8px;line-height:1.45}
+  .sg-item figcaption b{font-family:var(--font-headline);color:var(--color-text-default);text-transform:uppercase;font-size:11px;letter-spacing:0.06em}
+  .sg-item{margin:0}
+  .slide-frame{
+    position:relative;aspect-ratio:16/9;background:var(--color-surface);
+    border:1px solid var(--color-border);border-radius:6px;overflow:hidden;
+    padding:18px 22px 20px;font-family:var(--font-body);
+    display:flex;flex-direction:column;
+  }
+  .slide-frame::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--color-brand-accent)}
+  .slide-frame.no-bar::after{display:none}
+  .slide-frame.dark{background:var(--color-surface-deep);border:0}
+  .slide-frame.photo{background-size:cover;background-position:center;border:0;padding:0}
+  .slide-frame.photo .ov{position:absolute;inset:0;background:rgba(0,0,0,0.7)}
+  .slide-frame.photo .ov.heavy{background:rgba(0,0,0,0.82)}
+  .slide-frame .bird-corner{position:absolute;right:10px;bottom:9px;height:13px;width:auto;opacity:0.9}
+  .slide-frame .sf-num{font-family:var(--font-headline);font-size:8.5px;font-weight:700;color:var(--color-link);letter-spacing:0.1em;margin:0 0 5px}
+  .slide-frame .sf-title{font-family:var(--font-headline);font-size:17px;font-weight:700;color:var(--neutral-950);letter-spacing:-0.01em;margin:0 0 12px;line-height:1.15}
+  .slide-frame .sf-cards{display:grid;gap:9px;flex:1;grid-auto-rows:1fr;align-items:stretch;min-height:0}
+  .slide-frame .sf-card{background:var(--color-surface-pure);border:1px solid var(--color-border);border-radius:5px;padding:11px 12px}
+  .slide-frame .sf-card .ct{font-family:var(--font-headline);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--neutral-950);margin:0 0 4px}
+  .slide-frame .sf-card p{font-size:8.5px;color:var(--color-text-secondary);margin:0;line-height:1.5}
+  .slide-frame .sf-card p b{color:var(--color-link);font-weight:700}
+  .slide-frame table{width:100%;border-collapse:collapse;font-size:9px;color:var(--color-text-body)}
+  .slide-frame th{font-family:var(--font-headline);font-size:7.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-text-muted);text-align:left;padding:6px 7px;border-bottom:1px solid var(--color-border-strong)}
+  .slide-frame td{padding:8px 7px;border-bottom:1px solid var(--color-border)}
+  .slide-frame td.num{font-family:var(--font-headline);font-weight:700}
+  .slide-frame tr.key td{background:var(--teal-50)}
+  .slide-frame tr.key td:first-child{box-shadow:inset 3px 0 0 var(--color-brand-accent)}
+  .slide-frame .toc-row{display:flex;gap:9px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--color-border);font-size:9.5px;color:var(--color-text-body)}
+  .slide-frame .toc-row .n{font-family:var(--font-headline);font-weight:700;color:var(--color-link);font-size:9.5px}
+  .slide-frame .nlist-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--color-border)}
+  .slide-frame .nlist-row .n{font-family:var(--font-headline);font-weight:700;color:var(--color-link);font-size:12px;line-height:1.2}
+  .slide-frame .nlist-row div{font-size:9px;color:var(--color-text-body);line-height:1.45}
+  .slide-frame .nlist-row div b{display:block;font-family:var(--font-headline);font-size:9.5px;color:var(--neutral-950);text-transform:none;margin-bottom:1px}
 </style>
 </head>
 <body>
@@ -812,8 +935,8 @@
 <header class="doc-head">
   <div class="container head-inner">
     <div class="doc-brand">
-      <div class="doc-brand-mark"><img src="blackbird_logo.png" alt="Blackbird" /></div>
-      <h1>Blackbird Design System<span class="v">v2.1</span></h1>
+      <div class="doc-brand-mark"><img src="assets/logos/bb-bird-mark.png" alt="Blackbird" /></div>
+      <h1>Blackbird Design System<span class="v">v3.0</span></h1>
     </div>
     <nav class="doc-nav">
       <a href="#foundations">01 Foundations</a>
@@ -904,17 +1027,17 @@
     <div class="logo-grid" style="margin-bottom:24px">
       <div class="logo-cell horizontal">
         <span class="caption">Horizontal lockup &middot; default</span>
-        <img src="icons/bb-horizontal-logo.png" alt="Blackbird PPC horizontal logo" />
+        <img src="assets/logos/bb-horizontal-lockup.png" alt="Blackbird PPC horizontal logo" />
         <div class="role">Headers, signatures, footers, business cards, decks</div>
       </div>
       <div class="logo-cell circular">
         <span class="caption">Circular badge</span>
-        <img src="icons/bb-circular-logo.png" alt="Blackbird PPC circular logo" />
+        <img src="assets/logos/bb-circular-badge.png" alt="Blackbird PPC circular logo" />
         <div class="role">Profile photos, app icons, favicons, sticker moments</div>
       </div>
       <div class="logo-cell mark">
         <span class="caption">Bird mark</span>
-        <img src="blackbird_logo.png" alt="Blackbird mark" />
+        <img src="assets/logos/bb-bird-mark.png" alt="Blackbird mark" />
         <div class="role">Watermarks, very small sizes, tight contexts</div>
       </div>
     </div>
@@ -922,15 +1045,15 @@
     <div class="logo-grid" style="margin-bottom:24px">
       <div class="logo-cell horizontal dark">
         <span class="caption">On slate-dark &middot; white lockup</span>
-        <img src="icons/bb-horizontal-logo_white.png" alt="Blackbird PPC horizontal logo, white" />
+        <img src="assets/logos/bb-horizontal-lockup_white.png" alt="Blackbird PPC horizontal logo, white" />
       </div>
       <div class="logo-cell circular dark">
         <span class="caption">On dark &middot; white badge</span>
-        <img src="icons/bb-circular-logo_white.png" alt="Blackbird PPC circular logo, white" />
+        <img src="assets/logos/bb-circular-badge_white.png" alt="Blackbird PPC circular logo, white" />
       </div>
       <div class="logo-cell mark dark">
         <span class="caption">Mark on dark &middot; white</span>
-        <img src="blackbird_logo_white.png" alt="Blackbird mark, white" />
+        <img src="assets/logos/bb-bird-mark_white.png" alt="Blackbird mark, white" />
       </div>
     </div>
 
@@ -940,7 +1063,7 @@
         <span class="x b">x</span>
         <span class="x l">x</span>
         <span class="x r">x</span>
-        <img src="icons/bb-horizontal-logo.png" alt="Logo with clear space" />
+        <img src="assets/logos/bb-horizontal-lockup.png" alt="Logo with clear space" />
       </div>
       <div class="clear-text">
         <h6>Clear space</h6>
@@ -1444,6 +1567,15 @@
   </div>
 </section>
 
+<section class="photo-divider" style="background-image:url('assets/photography/sf-night-baybridge-trails.jpg')">
+  <div class="container">
+    <p class="pd-num">06</p>
+    <p class="pd-title">Imagery</p>
+    <p class="pd-sub">This band is Layout G running live: full-bleed nightscape, dark overlay to taste, teal section number, no logo, no bottom bar. Drop one of these into the page every few sections, exactly as a deck would.</p>
+  </div>
+  <span class="pd-credit">Photo: Mikl Barton, CC BY. See assets/photography/PHOTOS.md</span>
+</section>
+
 <section class="block" id="imagery">
   <div class="container">
     <div class="section-num">06 &middot; Imagery</div>
@@ -1477,6 +1609,46 @@
         <div class="row"><span class="name">Where not</span><span>Content slides, cards, dividers within sections</span></div>
         <div class="row"><span class="name">No</span><span>Generic stock, daylight skylines, abstract gradients, AI-generated cityscapes or birds</span></div>
       </div>
+    </div>
+
+    <h4 class="h4-accent" style="margin-top:0">The library</h4>
+    <div class="h4-underline"></div>
+    <p class="section-desc" style="margin-bottom:20px">Fourteen cleared images live in <code style="font-family:var(--font-mono);font-size:13px">assets/photography/</code>: nine San Francisco nightscapes and five corvids. Every file has a row in PHOTOS.md recording photographer, license, and source. If an image is not in the manifest, it does not ship.</p>
+    <div class="photo-lib">
+      <figure><img src="assets/photography/sf-night-skyline-twinpeaks.jpg" alt="Twin Peaks skyline, blue hour" loading="lazy" /><figcaption>Twin Peaks skyline, blue hour</figcaption></figure>
+      <figure><img src="assets/photography/sf-night-baybridge-trails.jpg" alt="Bay Bridge light trails" loading="lazy" /><figcaption>Bay Bridge light trails</figcaption></figure>
+      <figure><img src="assets/photography/sf-night-baybridge-dusk.jpg" alt="Bay Bridge western span, dusk" loading="lazy" /><figcaption>Bay Bridge western span, dusk</figcaption></figure>
+      <figure><img src="assets/photography/sf-night-skyline-bluehour.jpg" alt="Downtown and Bay Bridge" loading="lazy" /><figcaption>Downtown and Bay Bridge</figcaption></figure>
+      <figure><img src="assets/photography/sf-night-lightfield-bernal.jpg" alt="Light field from Bernal Heights" loading="lazy" /><figcaption>Light field from Bernal Heights</figcaption></figure>
+      <figure><img src="assets/photography/sf-night-sutro-fog.jpg" alt="Sutro Tower above the fog" loading="lazy" /><figcaption>Sutro Tower above the fog</figcaption></figure>
+      <figure><img src="assets/photography/sf-night-goldengate-tower.jpg" alt="Golden Gate south tower" loading="lazy" /><figcaption>Golden Gate south tower</figcaption></figure>
+      <figure><img src="assets/photography/sf-night-goldengate-fog.jpg" alt="Golden Gate in night fog" loading="lazy" /><figcaption>Golden Gate in night fog</figcaption></figure>
+      <figure><img src="assets/photography/sf-night-chinatown.jpg" alt="Chinatown, Grant and Pine" loading="lazy" /><figcaption>Chinatown, Grant and Pine</figcaption></figure>
+      <figure><img src="assets/photography/corvid-pair-on-wire.jpg" alt="Crows on a wire" loading="lazy" /><figcaption>Crows on a wire</figcaption></figure>
+      <figure><img src="assets/photography/corvid-wings-silhouette.jpg" alt="Wings, silhouette" loading="lazy" /><figcaption>Wings, silhouette</figcaption></figure>
+      <figure><img src="assets/photography/corvid-branch-storm.jpg" alt="Crow on branch, storm sky" loading="lazy" /><figcaption>Crow on branch, storm sky</figcaption></figure>
+      <figure><img src="assets/photography/corvid-raven-profile.jpg" alt="Raven profile" loading="lazy" /><figcaption>Raven profile</figcaption></figure>
+      <figure><img src="assets/photography/corvid-raven-portrait.jpg" alt="Raven portrait" loading="lazy" /><figcaption>Raven portrait</figcaption></figure>
+    </div>
+    <p class="lib-note">Licenses: CC0, Public Domain Mark, or CC BY 2.0 (credit kept in <code>PHOTOS.md</code>). One exception: the Twin Peaks hero predates v3.0 and its license is unverified. Confirm or replace before client-facing use.</p>
+
+    <h4 class="h4-accent" style="margin-top:0">Overlay treatment</h4>
+    <div class="h4-underline"></div>
+    <div class="triptych">
+      <figure>
+        <div class="panel" style="background-image:url('assets/photography/sf-night-chinatown.jpg')"></div>
+        <figcaption>Raw. Too busy to carry type.</figcaption>
+      </figure>
+      <figure>
+        <div class="panel ov" style="background-image:url('assets/photography/sf-night-chinatown.jpg')"></div>
+        <figcaption>Dark overlay to taste. Mood, not a fixed opacity.</figcaption>
+      </figure>
+      <figure>
+        <div class="panel ov" style="background-image:url('assets/photography/sf-night-chinatown.jpg')">
+          <div class="t-type"><span class="t-num">02</span><span class="t-word">Strategy</span></div>
+        </div>
+        <figcaption>Overlay heavy enough that type and logo read cleanly.</figcaption>
+      </figure>
     </div>
 
     <h4 class="h4-accent" style="margin-top:0">Icons</h4>
@@ -1524,6 +1696,15 @@
         <div class="row"><span class="name">Container</span><span>Bare on white cards. Optional filled-circle treatment (teal-500 with white icon) for hero rows &mdash; pick one or the other across the deck, not both.</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="dark-band">
+  <div class="container">
+    <div class="eyebrow">System rule &middot; dark rhythm</div>
+    <h3>Drop into a dark section every few slides</h3>
+    <p>Off-black #0D0D0D is the default dark ground. One of these every 3 to 5 slides breaks the white rhythm and resets attention. This band is the rule running live on the page that states it. Red carries the counterweight accent below.</p>
+    <div class="accent-rule"></div>
   </div>
 </section>
 
@@ -1723,6 +1904,11 @@
   <span class="v">--color-border</span>:              <span class="h">var</span>(--neutral-200);
   <span class="v">--color-border-strong</span>:       <span class="h">var</span>(--neutral-300);
 
+  <span class="c">/* v3.0 — AA-safe small-text accent. Use for links, eyebrows, section
+     numbers, and any teal text below 18px on light surfaces. */</span>
+  <span class="v">--color-link</span>:                <span class="h">var</span>(--teal-600);
+  <span class="v">--color-link-hover</span>:          <span class="h">var</span>(--teal-700);
+
   <span class="c">/* Type stacks &mdash; Avenir is brand standard. europa is the Squarespace
      fallback (Avenir not licensed via Adobe Fonts). See section 03 for per-platform map. */</span>
   <span class="v">--font-headline</span>: <span class="v">"Futura"</span>, <span class="v">"futura-pt"</span>, <span class="v">"Jost"</span>, <span class="v">"Trebuchet MS"</span>, system-ui, sans-serif;
@@ -1736,6 +1922,163 @@
     <div class="section-num">09 &middot; Examples</div>
     <h3 class="section-title">The system in components</h3>
     <p class="section-desc">Every element here references semantic tokens. Swap teal-500 to a different hex and watch all of these update at once.</p>
+
+    <h4 class="h4-accent" style="margin-top:0">The deck at a glance</h4>
+    <div class="h4-underline"></div>
+    <div class="rhythm-strip">
+      <div class="tile photo" style="background-image:url('assets/photography/sf-night-sutro-fog.jpg')"><span>Cover</span></div>
+      <div class="tile"><span>TOC</span></div>
+      <div class="tile"><span>A</span></div>
+      <div class="tile"><span>B</span></div>
+      <div class="tile photo" style="background-image:url('assets/photography/sf-night-baybridge-dusk.jpg')"><span>G</span></div>
+      <div class="tile"><span>C</span></div>
+      <div class="tile dark"><span>O</span></div>
+      <div class="tile"><span>F</span></div>
+      <div class="tile"><span>K</span></div>
+      <div class="tile dark"><span>I</span></div>
+      <div class="tile"><span>N</span></div>
+      <div class="tile dark"><span>J</span></div>
+    </div>
+    <p class="rhythm-caption">The canonical sequence from the spec: cover, TOC, content, a photo divider per section, a dark break every 3 to 5 slides, closing on off-black. White carries; photo and dark slides are the punctuation.</p>
+
+    <h4 class="h4-accent" style="margin-top:0">Slide gallery</h4>
+    <div class="h4-underline"></div>
+    <p class="section-desc" style="margin-bottom:24px">Each layout in the spec, rendered at slide scale. The chart slide below this gallery is Layout A; Inputs/Outputs, POD/POP, Solid Callout, Roadmap, and the Dark Emphasis Strip are specced as full components further down.</p>
+
+    <div class="sg-grid">
+
+      <figure class="sg-item">
+        <div class="slide-frame photo no-bar" style="background-image:url('assets/photography/sf-night-sutro-fog.jpg')">
+          <div class="ov heavy"></div>
+          <div style="position:absolute;left:22px;bottom:24px">
+            <p style="font-family:var(--font-headline);font-size:7px;font-weight:700;letter-spacing:0.18em;color:rgba(255,255,255,0.6);text-transform:uppercase;margin:0 0 6px">Q3 2026 &middot; Performance review</p>
+            <p style="font-family:var(--font-headline);font-size:21px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:-0.01em;margin:0;line-height:1.05">Client Name</p>
+          </div>
+        </div>
+        <figcaption><b>H &middot; Cover</b> &mdash; full-bleed nightscape, pure black overlay, no logo, no bottom bar. The client name does the work.</figcaption>
+      </figure>
+
+      <figure class="sg-item">
+        <div class="slide-frame">
+          <p class="sf-title" style="margin-bottom:12px">Contents</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 24px;align-items:stretch;flex:1">
+            <div>
+              <div class="toc-row"><span class="n">01</span><span>Performance summary</span></div>
+              <div class="toc-row"><span class="n">02</span><span>Incrementality readout</span></div>
+              <div class="toc-row"><span class="n">03</span><span>Marginal CPA by channel</span></div>
+              <div class="toc-row" style="border-bottom:0"><span class="n">04</span><span>Q4 plan and budget</span></div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:center">
+              <img src="assets/logos/bb-horizontal-lockup.png" alt="Blackbird PPC" style="width:62%;height:auto" />
+            </div>
+          </div>
+        </div>
+        <figcaption><b>TOC</b> &mdash; the one slide that carries the horizontal lockup, right-center. Numbered rows in teal-600.</figcaption>
+      </figure>
+
+      <figure class="sg-item">
+        <div class="slide-frame">
+          <p class="sf-num">02 &middot; STRUCTURE</p>
+          <p class="sf-title">Four workstreams, one owner each</p>
+          <div class="sf-cards" style="grid-template-columns:1fr 1fr">
+            <div class="sf-card"><p class="ct">Paid media</p><p>Marginal-return budgeting across <b>Google and Meta</b>, weekly pacing.</p></div>
+            <div class="sf-card"><p class="ct">Measurement</p><p>Geo holdouts and <b>MMM refresh</b> each quarter.</p></div>
+            <div class="sf-card"><p class="ct">Creative</p><p>Concept testing tied to <b>incremental lift</b>, not CTR.</p></div>
+            <div class="sf-card"><p class="ct">Analytics</p><p>CRM-tied dashboards, <b>pipeline over leads</b>.</p></div>
+          </div>
+          <img class="bird-corner" src="assets/logos/bb-bird-mark-deck.png" alt="" />
+        </div>
+        <figcaption><b>B &middot; Two-column cards</b> &mdash; 2x2 grid, white cards on the off-white surface, no top-edge bars, one teal phrase per card.</figcaption>
+      </figure>
+
+      <figure class="sg-item">
+        <div class="slide-frame">
+          <p class="sf-num">03 &middot; FINDINGS</p>
+          <p class="sf-title">Three things the dashboard hides</p>
+          <div class="sf-cards" style="grid-template-columns:1fr 1fr 1fr">
+            <div class="sf-card"><p class="ct">Saturation</p><p>Brand search converts at <b>4x lower</b> marginal efficiency above $50K.</p></div>
+            <div class="sf-card"><p class="ct">Halo</p><p>Paid social lifts branded queries <b>+18%</b> in holdout geos.</p></div>
+            <div class="sf-card"><p class="ct">Lag</p><p>Pipeline impact lands <b>6 to 8 weeks</b> after spend.</p></div>
+          </div>
+          <img class="bird-corner" src="assets/logos/bb-bird-mark-deck.png" alt="" />
+        </div>
+        <figcaption><b>C &middot; Three-column cards</b> &mdash; same card spec, three across. Title carries the conclusion, not the topic.</figcaption>
+      </figure>
+
+      <figure class="sg-item">
+        <div class="slide-frame">
+          <p class="sf-num">01 &middot; APPROACH</p>
+          <p class="sf-title">Five pillars</p>
+          <div class="sf-cards" style="grid-template-columns:repeat(5,1fr);gap:6px">
+            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Ambition</p><p style="font-size:7.5px">Targets worth chasing.</p></div>
+            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Analytics</p><p style="font-size:7.5px">Math behind every call.</p></div>
+            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Artistry</p><p style="font-size:7.5px">Craft in the creative.</p></div>
+            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Candor</p><p style="font-size:7.5px">The deck says so.</p></div>
+            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Stewardship</p><p style="font-size:7.5px">Spend like it is ours.</p></div>
+          </div>
+          <img class="bird-corner" src="assets/logos/bb-bird-mark-deck.png" alt="" />
+        </div>
+        <figcaption><b>D &middot; Pillars</b> &mdash; five narrow cards. The only layout that runs five across; copy stays under ten words per card.</figcaption>
+      </figure>
+
+      <figure class="sg-item">
+        <div class="slide-frame">
+          <p class="sf-num">04 &middot; PROOF</p>
+          <p class="sf-title">Marginal CPA is 4x higher above $50K</p>
+          <table>
+            <tr><th>Channel</th><th>Spend</th><th>Blended CPA</th><th>Marginal CPA</th></tr>
+            <tr><td>Paid search</td><td>$38K</td><td class="num">$212</td><td class="num">$268</td></tr>
+            <tr class="key"><td>Paid search &gt;$50K</td><td>$74K</td><td class="num">$241</td><td class="num" style="color:var(--color-signal)">$1,030</td></tr>
+            <tr><td>Paid social</td><td>$41K</td><td class="num">$307</td><td class="num">$355</td></tr>
+          </table>
+          <img class="bird-corner" src="assets/logos/bb-bird-mark-deck.png" alt="" />
+        </div>
+        <figcaption><b>F &middot; Data table</b> &mdash; a table is for proof, not a dump. Teal left-edge accent marks the row that is the point; red on the number that hurts.</figcaption>
+      </figure>
+
+      <figure class="sg-item">
+        <div class="slide-frame photo no-bar" style="background-image:url('assets/photography/sf-night-baybridge-dusk.jpg')">
+          <div class="ov"></div>
+          <div style="position:absolute;left:22px;bottom:20px">
+            <p style="font-family:var(--font-headline);font-size:26px;font-weight:700;color:var(--color-brand-accent);letter-spacing:-0.03em;line-height:0.9;margin:0">03</p>
+            <p style="font-family:var(--font-headline);font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;margin:2px 0 0">Performance</p>
+          </div>
+        </div>
+        <figcaption><b>G &middot; Photo divider</b> &mdash; section number at 88pt-equivalent in teal, title in white, overlay to taste. No logo, no bar.</figcaption>
+      </figure>
+
+      <figure class="sg-item">
+        <div class="slide-frame dark no-bar" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
+          <div style="padding:0 14px;max-width:86%">
+            <p style="font-family:var(--font-headline);font-size:15px;font-weight:700;color:#fff;line-height:1.35;margin:0 0 8px">&ldquo;When the data says a campaign is wasting money, the deck says so on slide three.&rdquo;</p>
+            <p style="font-family:var(--font-body);font-size:7.5px;color:var(--color-brand-accent);margin:0;text-transform:uppercase;letter-spacing:0.1em;font-weight:700">Blackbird PPC &middot; Measurement principles</p>
+          </div>
+        </div>
+        <figcaption><b>I &middot; Quote interstitial</b> &mdash; off-black, one quote, teal attribution. No logo; the quote is the slide.</figcaption>
+      </figure>
+
+      <figure class="sg-item">
+        <div class="slide-frame">
+          <p class="sf-num">05 &middot; NEXT</p>
+          <p class="sf-title">Before the next QBR</p>
+          <div>
+            <div class="nlist-row"><span class="n">01</span><div><b>Launch the geo holdout</b>Two matched markets, four weeks, brand search off.</div></div>
+            <div class="nlist-row"><span class="n">02</span><div><b>Rebalance to marginal return</b>Shift $24K from saturated brand into prospecting.</div></div>
+            <div class="nlist-row" style="border-bottom:0"><span class="n">03</span><div><b>Wire pipeline to the dashboard</b>CRM join lands revenue, not leads, on every view.</div></div>
+          </div>
+          <img class="bird-corner" src="assets/logos/bb-bird-mark-deck.png" alt="" />
+        </div>
+        <figcaption><b>K &middot; Numbered list</b> &mdash; teal two-digit prefixes replace bullets. Bold lead, one supporting line, never more than five rows.</figcaption>
+      </figure>
+
+      <figure class="sg-item">
+        <div class="slide-frame dark no-bar" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <p style="font-family:var(--font-headline);font-size:19px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.01em;margin:0">Thank you</p>
+        </div>
+        <figcaption><b>J &middot; Closing</b> &mdash; off-black, two words, centered. No logo, no contact block; contact details belong in the email.</figcaption>
+      </figure>
+
+    </div>
 
     <div class="slide-mock" style="margin-bottom:24px;aspect-ratio:16/9;display:flex;flex-direction:column">
       <h2 class="slide-title">Top brand qualities = Brilliant + Approachable + Modern</h2>
@@ -1784,7 +2127,7 @@
         </div>
       </div>
       <div class="slide-footer">
-        <img src="blackbird_logo.png" alt="Blackbird" class="bird-mark-corner" />
+        <img src="assets/logos/bb-bird-mark.png" alt="Blackbird" class="bird-mark-corner" />
       </div>
     </div>
     <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 32px;line-height:1.55"><strong style="color:var(--color-text-default)">Most-used slide layout, 16:9 PowerPoint widescreen.</strong> Chart left, text right, two fonts plus bold weight for emphasis. Title carries the message. Chart uses the canonical series &mdash; teal for the top three qualities (the ones the title elevates), slate for the rest. Bird mark only in the corner; the horizontal lockup is reserved for TOC and cover slides. Teal bar grounds the bottom edge.</p>
@@ -2018,28 +2361,28 @@
       <p class="de-sub">Four enterprise programs. Every number sourced from internal QBR decks and weekly performance reviews.</p>
       <div class="stat-strip">
         <div class="stat-card">
-          <div class="logo-frame"><img src="Logos/databricks.png" alt="Databricks" /></div>
+          <div class="logo-frame"><img src="assets/clients/client-databricks.png" alt="Databricks" /></div>
           <div class="stat-num">8X</div>
           <div class="stat-label">MQL Volume</div>
           <p class="stat-detail">6X ad spend<br/>40+ countries</p>
           <p class="stat-outcome">Pipeline outpaced spend</p>
         </div>
         <div class="stat-card">
-          <div class="logo-frame"><img src="Logos/intercom.png" alt="Intercom" /></div>
+          <div class="logo-frame"><img src="assets/clients/client-intercom.png" alt="Intercom" /></div>
           <div class="stat-num">100%</div>
           <div class="stat-label">NB / Prospecting LTV/CAC &gt; 1</div>
           <p class="stat-detail">Up from 20%</p>
           <p class="stat-outcome">Historical highest net profit</p>
         </div>
         <div class="stat-card">
-          <div class="logo-frame"><img src="Logos/Nutanix.png" alt="Nutanix" /></div>
+          <div class="logo-frame"><img src="assets/clients/client-nutanix.png" alt="Nutanix" /></div>
           <div class="stat-num">&minus;49%</div>
           <div class="stat-label">Cost per SAL</div>
           <p class="stat-detail">MQL volume up on lower budgets</p>
           <p class="stat-outcome">Every theater, every quarter, on plan</p>
         </div>
         <div class="stat-card">
-          <div class="logo-frame"><img src="Logos/Cisco-Merki-Logo-300-x-245.png" alt="Cisco Meraki" /></div>
+          <div class="logo-frame"><img src="assets/clients/client-cisco-meraki.png" alt="Cisco Meraki" /></div>
           <div class="stat-num">&minus;45%</div>
           <div class="stat-label">CPA</div>
           <p class="stat-detail">+34% conversions<br/>&minus;27% spend</p>
@@ -2056,7 +2399,7 @@
   <div class="container">
     <div class="bar-dot"><span class="bar"></span><span class="dot"></span></div>
     Blackbird PPC Design System
-    <div class="mono">v2.1 &middot; Core Six: brand = teal + red; surface = FAFAFA; structure/ink = slate, black, dark slate (#1E293B); off-black #0D0D0D = dark ground. No bars on cards. FFFFFF cards, 1px slate-200 outline, 10px radius, no shadows</div>
+    <div class="mono">v3.0 &middot; Core Six: brand = teal + red; surface = FAFAFA; structure/ink = slate, black, dark slate (#1E293B); off-black #0D0D0D = dark ground. No bars on cards. FFFFFF cards, 1px slate-200 outline, 10px radius, no shadows</div>
   </div>
 </footer>
 

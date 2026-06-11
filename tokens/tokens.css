@@ -1,0 +1,117 @@
+/* Blackbird PPC Design System — tokens.css
+   Source of truth: index.html <style> :root. Keep in sync; CI checks the core six. */
+
+:root{
+    /* Teal (brand accent) — anchored on Blackbird Teal #008C95 at 500 */
+    --teal-50:  #ecf7f8;
+    --teal-100: #cfeef0;
+    --teal-200: #a0dce0;
+    --teal-300: #6ec6cb;
+    --teal-400: #36aab1;
+    --teal-500: #008c95;   /* BRAND ACCENT — Blackbird Teal */
+    --teal-600: #007078;
+    --teal-700: #00565d;
+    --teal-800: #003e43;
+    --teal-900: #00282c;
+    --teal-950: #001316;
+
+    /* Red (signal) — anchored on Blackbird Red #862633 at 500 */
+    --red-50:  #f8e9ec;
+    --red-100: #efc9cf;
+    --red-200: #dd9aa3;
+    --red-300: #c96872;
+    --red-400: #b14250;
+    --red-500: #862633;    /* SIGNAL — Blackbird Red */
+    --red-600: #6e1f2a;
+    --red-700: #561821;
+    --red-800: #3e1118;
+    --red-900: #260a0f;
+    --red-950: #160508;
+
+    /* Neutrals — cool slate. Harmonizes with brand teal. */
+    --neutral-50:  #f8fafc;
+    --neutral-100: #f1f5f9;
+    --neutral-200: #e2e8f0;
+    --neutral-300: #cbd5e1;
+    --neutral-400: #94a3b8;
+    --neutral-500: #64748b;
+    --neutral-600: #475569;
+    --neutral-700: #334155;
+    --neutral-800: #1e293b;
+    --neutral-900: #0f172a;
+    --neutral-950: #000000;   /* Black — brand anchor */
+
+    /* Dark slide surfaces */
+    --dark-bg:    #0d0d0d;    /* Off-black — the dark SECTION ground (pure black #000000 is text/UI only, never a surface) */
+    --dark-card1: #1c1c1c;    /* Neutral card on off-black */
+    --dark-card2: #222222;    /* Neutral card on off-black (alt) */
+    --dark-card-cool: #1e293b; /* slate-800 — sanctioned cool dark-card (v1.9). White text, slate-500 @40% border. Never a section ground. */
+    --dark-row:   #2a2a2a;    /* Alternating rows */
+    --dark-line:  #333333;    /* Internal dividers */
+
+    /* ===== SEMANTIC ROLES (the active system) ===== */
+    --color-brand-accent:        var(--teal-500);
+    --color-brand-accent-hover:  var(--teal-600);
+    --color-brand-accent-active: var(--teal-700);
+    --color-brand-accent-subtle: var(--teal-50);
+    --color-brand-deep:          var(--teal-900);
+    --color-signal:              var(--red-500);
+    --color-signal-subtle:       var(--red-50);
+    --color-brand-slate:         var(--neutral-500);  /* structural spine (not a brand color); cool neutral, a peer in weight not identity */
+    --color-brand-slate-deep:    var(--neutral-700);
+
+    --color-text-default:        var(--neutral-950);
+    --color-text-body:           var(--neutral-800);
+    --color-text-secondary:      var(--neutral-700);
+    --color-text-muted:          var(--neutral-500);
+    --color-text-faint:          var(--neutral-400);
+    --color-text-inverse:        #ffffff;
+
+    --color-surface:             #fafafa;             /* off-white, matches live site */
+    --color-surface-pure:        #ffffff;             /* true white for cards-on-bg, popovers */
+    --color-surface-soft:        var(--neutral-50);
+    --color-surface-muted:       var(--neutral-100);
+    --color-surface-structural:  var(--neutral-200);
+    --color-surface-deep:        var(--dark-bg);            /* DEFAULT DARK — Core dark-surface anchor #0D0D0D */
+    --color-surface-slate-dark:  var(--neutral-500);         /* slate emphasis surface — slate-500 anchor; medium cool gray, not "dark" */
+    --color-surface-card-dark:   var(--dark-card1);
+    --color-surface-card-dark-cool: var(--dark-card-cool);   /* cool dark-card — slate-800, matches the live-site .bb-card */
+
+    --color-border:              var(--neutral-200);
+    --color-border-strong:       var(--neutral-300);
+    --color-border-dark:         var(--dark-line);
+
+    /* Spacing — 4px base, tight at the small end, generous at the large */
+    --space-1:  4px;
+    --space-2:  8px;
+    --space-3:  12px;
+    --space-4:  16px;
+    --space-5:  24px;
+    --space-6:  32px;
+    --space-7:  48px;
+    --space-8:  64px;
+    --space-9:  96px;
+
+    /* Radii — small for buttons/pills, modest for cards. No big rounded corners. */
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 10px;
+    --radius-pill: 999px;
+
+    /* Shadows — restrained. Mostly hairlines, not big drops. */
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-2: 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-3: 0 12px 32px rgba(0,0,0,0.10);
+
+    /* Type stacks — only Futura and Avenir per brand spec. No mono. */
+    --font-headline: "Futura", "futura-pt", "Jost", "Trebuchet MS", system-ui, sans-serif;
+    --font-body:     "Avenir", "europa", "Nunito Sans", "Calibri", system-ui, sans-serif;
+    --font-mono:     var(--font-body);   /* alias for legacy CSS — all "mono" usage now Avenir */
+
+    /* Accessible link / small-text accent (v3.0) — teal-500 on FAFAFA is 3.88:1
+       and fails WCAG AA below 18px. Route all small teal text through teal-600 (5.61:1).
+       teal-500 remains the accent for fills, bars, chart series, and large numerals. */
+    --color-link:                var(--teal-600);
+    --color-link-hover:          var(--teal-700);
+}
