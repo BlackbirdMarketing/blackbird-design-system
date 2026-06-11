@@ -2,6 +2,11 @@
 
 Repo-level history. The spec keeps its own detailed changelog in `spec/powerpoint-brand-skill.md`.
 
+## 3.1.0 (June 2026)
+
+- Spec to v3.1 with reporting-deck refinements proven on the Customer.io weekly agenda: red eyebrow labels replace content-slide section numbers; channel-coded table headers (teal = Google, slate-800 = LinkedIn, slate-500 = Reddit); discussion-notes boxes retired in favor of the new Layout F2 narrative + mini-trend band; filled icon circles black, not teal; red dot never outlined.
+- `skill/blackbird-pptx-brand/SKILL.md` mirrored to the v3.1 spec; styleguide version labels bumped.
+
 ## 3.0.0 (June 2026)
 
 - Single system version: `VERSION` file governs `index.html` and the spec; CI enforces it along with asset existence and core-six hex parity (`scripts/validate_assets.py`, `.github/workflows/validate.yml`).
