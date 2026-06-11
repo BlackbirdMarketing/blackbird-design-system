@@ -26,3 +26,7 @@ All new v3.0 additions are CC0, Public Domain Mark, or CC BY 2.0. CC BY requires
 - Aesthetic gate: nightscape. Dusk, after-dark, atmospheric, low-key. Daylight images do not enter this folder.
 - Add a manifest row in the same commit that adds an image. CI does not enforce this yet; the reviewer does.
 - `sf-night-skyline-twinpeaks.jpg` was recovered from the v2.1 PDF snapshot. Its license is UNVERIFIED; the original filename pattern suggests a fine-art print vendor. Confirm the purchase license before using it in anything client-facing, or replace it with a cleared alternative from this folder.
+
+## Sourcing queue (requested June 2026)
+
+Wanted: 3-4 additional SF nightscapes (Transamerica/Salesforce Tower angles, Mission or Chinatown neon, wet-street reflections) and 2-3 additional corvids (flight shots; perched against city lights would be ideal). License gate unchanged: CC0, Public Domain Mark, or CC BY 2.0 only. No CC BY-SA, no AI-generated images. Add the manifest row in the same commit as the file. Note: the repo automation sandbox cannot reach Wikimedia/Flickr; source candidates on an unrestricted machine, then commit file + row together.

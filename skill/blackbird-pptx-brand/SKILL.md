@@ -250,16 +250,16 @@ Three lockups. Black on light, white on dark. Never recolor.
 |--------|----------|---------|
 | **Horizontal lockup** | 120px wide on screen | Default. TOC slide right-center (~2.5" wide), footers, signatures. |
 | **Circular badge** | 48px wide | Profile photos, app icons, sticker moments. |
-| **Bird mark** | 24px wide | Watermarks, content slide bottom-right corner, tight contexts. |
+| **Bird mark** | 24px wide | Watermarks, badges, tight contexts. |
 
 ### Logo placement on decks
 
 - **Cover slide:** No logo. The project/client name does the work.
-- **TOC slide:** Horizontal lockup, right-center area, ~2.5" wide.
-- **Every content slide:** Bird mark in bottom-right corner, ~0.32" tall, opacity ~0.9.
+- **TOC / Agenda slide:** Horizontal lockup, right-center area, ~2.5-2.9" wide. The deck's one logo moment.
+- **Content slides:** No logo (v3.1). The corner bird mark is retired: its mandated geometry collided with the Layout F2 band, and a logo on every slide reads as insecurity, not presence.
 - **Closing slide:** No logo. Just "Thank you" centered.
 
-The pattern is bird mark = quiet brand presence on the most-used layout; horizontal lockup = louder statement, used sparingly.
+The pattern is one logo home per deck: the horizontal lockup on the TOC/Agenda. The bird mark stays in the kit for watermarks, badges, and favicons.
 
 ### Canonical asset files (v3.0)
 
@@ -270,11 +270,11 @@ All lockups live in the repo at `assets/logos/` and are bundled inside this skil
 | `bb-horizontal-lockup.png` / `_white.png` | Horizontal lockup, 820x312 | TOC right-center at ~2.5" wide |
 | `bb-circular-badge.png` / `_white.png` | Circular badge, 800x800 | Profile photos, favicons, stickers |
 | `bb-bird-mark.png` / `_white.png` | Bird mark on full 1148x774 canvas | Watermarks, large placements |
-| `bb-bird-mark-deck.png` | Bird mark, tight crop 633x597 (aspect 1.06) | The content-slide corner mark |
+| `bb-bird-mark-deck.png` | Bird mark, tight crop 633x597 (aspect 1.06) | Watermarks, badges (corner-mark use retired v3.1) |
 | `bb-bird-mark-deck-faded.png` | Same crop with 90% alpha baked in | Use in python-pptx, which cannot set picture opacity |
-| `bb-bird-mark-deck_white.png` | White tight crop | Corner mark on sanctioned dark content layouts |
+| `bb-bird-mark-deck_white.png` | White tight crop | Dark-ground watermarks and badges |
 
-Corner-mark geometry on the 10.00" x 5.625" slide: height 0.32", width 0.34" (preserve the 1.06 aspect; the old padded file forced a squish at w=0.40), x=9.34", y=5.05".
+(Retired v3.1) The corner-mark geometry — 0.34" x 0.32" at x=9.34", y=5.05" — is kept here for reading historical decks only. New decks place no corner mark.
 
 ### Logo rules
 
@@ -328,7 +328,6 @@ y=0.28"  Eyebrow label ("WEEKLY · GOOGLE BRAND") — Futura Bold 10pt, red, all
 y=0.55"  Page title — Futura 24pt, black
 y=1.10-1.22"  Content area begins
 y=5.53"  Bottom accent bar — teal, full width, 0.10" tall
-bottom-right Bird mark in corner — ~0.32" tall, opacity ~0.9
 ```
 
 Left margin (text): **0.45"**
@@ -346,7 +345,6 @@ The default content slide. Image left, text right.
   - `ts-header` (Avenir Bold, 18pt, black) at top
   - 2-4 short body paragraphs (Avenir 13pt, slate-800)
   - **Bold key terms** within running prose for emphasis
-- Bird mark in bottom-right corner
 
 ### Layout B: Two-Column Cards (2x2 Grid)
 
@@ -509,6 +507,17 @@ Used for case studies, key findings, executive callouts. Two emphasis surfaces, 
 
 ---
 
+### Layout P: Performance Trend (line chart by channel) (v3.1)
+
+The high-level reporting view: one line chart, months on the x-axis, one series per channel or campaign, for spend, CPA, or ROAS.
+
+- Works light or dark. Light: chart sits in a card-like panel (slate-200 outline, 0.10" radius). Dark (`0D0D0D`): chart floats on the ground, gridlines `2A2A2A`.
+- Series colors: light = teal, slate-500, black; dark = white, teal, slate-300. **Three series max**; a fourth means split the slide.
+- Currency axes carry the unit (`$#,##0` format code). Months abbreviated.
+- **Exclude partial periods (MTD) from trend lines** and say so in a footnote. A partial month fakes an inflection.
+- Title states the finding ("Demo CPA converged to $369-$437 in May"); a narrative panel right or below interprets in business language per Layout F2 rules.
+- Annotate the inflection that matters directly on the chart where the tooling allows; otherwise bold it in the narrative.
+
 ## 6. Signature Motifs
 
 Five small marks that make a page read as Blackbird.
@@ -612,6 +621,16 @@ For grids that need icons but want simpler implementation, use a line-stroke tea
 3. **Annotate, do not decorate.** Label inflection points directly on charts (Avenir 9pt, teal or slate-700).
 
 Plus: **ask if every number pushes the narrative.** Five stats on one slide make four of them noise.
+
+### Pie / Donut Charts (v3.1)
+
+Sanctioned when composition is the single point of the visual: share of spend, share of conversions, budget mix.
+
+- Donut preferred over pie; put the total in the hole (Futura Bold, teal).
+- Six slices max; bucket the tail into "Other". If two slices are within a few points and that comparison matters, use bars — angles hide small differences.
+- Colors: teal-500 for the lead slice, then the slate ramp (slate-400, slate-300, slate-200) descending by size. Red only if one slice is the flagged problem.
+- Label slices with name + % (Avenir 9pt). No 3D, no exploded slices, no more than one composition chart per slide.
+- Recurring composition belongs in a table, not a parade of pies.
 
 ### Data Callout Pattern
 
@@ -719,7 +738,7 @@ Cover (H, no logo)
 
 Section numbers: "01" through N, two-digit. Appears on divider slides (88pt) and TOC cards only. Content slides carry a red eyebrow label instead -- Futura Bold 10pt, all caps, tracked, naming section and subject: "WEEKLY · GOOGLE BRAND" (v3.1).
 
-Bird mark in bottom-right corner of every content slide. Skipped on cover, dividers, quote interstitials, and closing.
+No corner mark on content slides (retired v3.1). The Agenda/TOC lockup is the deck's only logo placement.
 
 ---
 
@@ -831,17 +850,8 @@ function addContentHeader(slide, eyebrow, title) {
   });
 }
 
-// Bird mark in bottom-right corner (every content slide)
-// v3.0: use the canonical tight crop. The old padded 1148x774 file at w=0.40
-// both squished the mark (true aspect is 1.06, not 1.25) and rendered the
-// visible bird smaller than spec because of canvas padding.
-function addBirdMarkCorner(slide, pres) {
-  slide.addImage({
-    path: "assets/bb-bird-mark-deck.png",
-    x: 9.34, y: 5.05, w: 0.34, h: 0.32,
-    transparency: 10,  // pptxgenjs supports 0-100 on addImage
-  });
-}
+// Corner bird mark: retired in v3.1. Content slides carry no logo; the
+// Agenda/TOC horizontal lockup is the deck's single logo placement.
 
 // Card on FAFAFA surface — white fill, slate-200 outline, 10px radius.
 // NO top-edge bar (v2.1 rule: no bars on cards, ever). The card stands on its outline alone.
@@ -1011,15 +1021,8 @@ SURFACE   = RGBColor(0xFA, 0xFA, 0xFA)
 
 SLIDE_W, SLIDE_H = Inches(10.0), Inches(5.625)
 
-def add_bird_mark_corner(slide):
-    """Bird mark, bottom-right of every content slide.
-    Skipped on cover, dividers, quote interstitials, and closing.
-    python-pptx cannot set picture transparency, so the asset itself
-    carries the 90% alpha (bb-bird-mark-deck-faded.png)."""
-    slide.shapes.add_picture(
-        "assets/bb-bird-mark-deck-faded.png",
-        left=Inches(9.34), top=Inches(5.05), height=Inches(0.32),
-    )  # width follows the 1.06 aspect automatically: ~0.34"
+# Corner bird mark: retired in v3.1 — content slides carry no logo.
+# bb-bird-mark-deck-faded.png remains in assets/ for watermark use.
 
 def add_bottom_accent_bar(slide):
     """Full-width teal bar, 0.10\" tall, on every white content slide."""
@@ -1092,7 +1095,7 @@ Final-pass review. Walk every slide top-to-bottom against this list before the d
 | **Icons** | One color per grid — either all teal or all black. Line stroke only, 1.5px, no fill. If one card has an icon, all cards in that grid have icons. Filled-circle containers are black with white glyphs. |
 | **Dark rhythm** | One dark slide every 3-5 slides. Section ground is off-black `0D0D0D` by default (Core Five anchor) or slate-500 `64748B` for warm emphasis — never pure black `000000`, never slate-800 `1E293B`. Dark cards may be neutral `1C1C1C`/`222222` or cool slate-800 `1E293B`. |
 | **Fonts** | Futura and Avenir embedded in shared .pptx files. Cross-platform fallbacks set. |
-| **Logo placement** | Bird mark in bottom-right of every content slide. No logo on cover or closing. Horizontal lockup reserved for TOC. |
+| **Logo placement** | One logo per deck: horizontal lockup on the Agenda/TOC. No corner marks on content slides (retired v3.1). No logo on cover or closing. |
 | **Numbers** | Every stat advances the argument. Cut interesting-but-irrelevant. Sources cited where claimed. |
 | **Tables** | Header fills channel-coded (teal = Google, slate-800 = LinkedIn, slate-500 = Reddit). Every reporting table pairs with the narrative + mini-trend band (F2). No empty notes boxes anywhere in the deck. |
 | **Voice** | No hype words ("revolutionary", "best-in-class", "passionate"). Declarative sentences. No exclamation marks. |
@@ -1114,8 +1117,8 @@ Final-pass review. Walk every slide top-to-bottom against this list before the d
 11. **Teal outline on a teal-tinted card.** Tinted cards (teal-50 background) use teal-200 borders, not slate-200. Match the tint family. Same for red.
 12. **Mixed-color icons in a grid.** If one icon is teal and another is black in the same grid, it looks like a mistake. Pick one color per grid.
 13. **Card-like containers with non-10px radii.** Every visually card-shaped element — stat cards, callouts (teal-50/red-50 and solid), dark emphasis containers, roadmap step cards, image panels in slide mockups — uses 0.10" radius. Don't use 4px or 6px on anything card-like. The eye registers radius inconsistencies as carelessness before it registers them as variety.
-14. **Logo on cover or closing.** Cover and closing carry no logo. TOC carries the horizontal lockup. Every other content slide carries the bird mark in the bottom-right corner.
-15. **Filling chart with multiple colors.** Three series max: Teal, Slate, Black. More series = data density problem.
+14. **Logo on cover, closing, or content slides.** The Agenda/TOC carries the horizontal lockup; nothing else carries a logo. The per-slide corner bird mark was retired in v3.1 after its geometry collided with the Layout F2 band.
+15. **Filling chart with multiple colors.** Three series max for lines and bars: Teal, Slate, Black. More series = data density problem. Donut slices may walk down the slate ramp (see Pie / Donut rules).
 16. **Skipping font embed when sharing.** Always embed Futura and Avenir in shared `.pptx` files. ~200KB cost.
 17. **Two solid color callouts on one slide.** Use Layout M once per slide max.
 18. **Roadmap with 6+ steps.** 3-5 only. More is a checklist (Layout K), not a roadmap.
@@ -1133,6 +1136,9 @@ Final-pass review. Walk every slide top-to-bottom against this list before the d
 - **Discussion-notes boxes retired; Layout F2 added.** Every reporting table pairs with a narrative card ("WHAT THE NUMBERS SAY", mixed bold/teal/red runs in business language) and a mini-trend card (shape-built bars, prior periods slate-300, latest period teal or red, latest value labeled). Empty note boxes read as unfinished slides.
 - **Filled icon circles are black, not teal.** Teal circles competed with the headline hierarchy and read as buttons. Line-stroke icon guidance unchanged.
 - **The red dot is never outlined.** Flat `862633` fill on every ground. Dim-on-dark is an overlay problem, not a dot problem.
+- **Corner bird mark retired.** Its mandated geometry (x=9.34", y=5.05") collided with the Layout F2 band, and a per-slide logo reads as insecurity. One logo home per deck: the horizontal lockup on the Agenda/TOC.
+- **Layout P added: Performance Trend.** Line chart by channel by month for spend, CPA, or ROAS. Three series max, currency-formatted axes, partial months excluded from trends.
+- **Pie/donut charts sanctioned** for composition-only stories: donut preferred, total in the hole, six slices max, teal lead + slate ramp, no 3D.
 - Reference implementation: the Customer.io weekly agenda generator (`build_deck_v3.js`, kept with the deck, not in this repo).
 
 **v3.0 (June 2026)** — assets shipped, single system version
