@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Blackbird PPC Design System v3.0</title>
+<title>Blackbird PPC Design System v3.1</title>
 <meta name="description" content="The Blackbird PPC design system. Six tokens, two fonts, one signature. Colors, typography, logo, motifs, imagery, slide layouts, and code in one versioned styleguide." />
 <link rel="icon" type="image/png" sizes="48x48" href="assets/meta/favicon-48.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/meta/favicon-32.png" />
 <link rel="apple-touch-icon" href="assets/meta/apple-touch-icon.png" />
-<meta property="og:title" content="Blackbird PPC Design System v3.0" />
+<meta property="og:title" content="Blackbird PPC Design System v3.1" />
 <meta property="og:description" content="White first. Teal carries. Slate frames. Red signals. The single source of truth for the Blackbird PPC brand." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="assets/meta/og-image.png" />
@@ -95,6 +95,8 @@
     --color-surface-slate-dark:  var(--neutral-500);         /* slate emphasis surface — slate-500 anchor; medium cool gray, not "dark" */
     --color-surface-card-dark:   var(--dark-card1);
     --color-surface-card-dark-cool: var(--dark-card-cool);   /* cool dark-card — slate-800, matches the live-site .bb-card */
+
+    --color-icon:                var(--dark-bg);   /* default icon stroke on light bg — off-black #0D0D0D. Icons read like content; teal/red are opt-in accent roles. */
 
     --color-border:              var(--neutral-200);
     --color-border-strong:       var(--neutral-300);
@@ -473,7 +475,7 @@
   /* Pattern: Icon + headline + desc rows (Image 4 style) */
   .icon-list{display:flex;flex-direction:column;gap:24px}
   .icon-row{display:grid;grid-template-columns:48px 1fr;gap:18px;align-items:start;padding:8px 12px;border-radius:var(--radius-sm)}
-  .icon-row svg{width:32px;height:32px;stroke:var(--color-brand-accent);stroke-width:1.5;fill:none}
+  .icon-row svg{width:32px;height:32px;stroke:var(--color-icon);stroke-width:1.5;fill:none}
   .icon-row .ir-title{font-family:var(--font-headline);font-size:15px;font-weight:700;color:var(--neutral-950);margin:0 0 4px;letter-spacing:-0.005em}
   .icon-row .ir-desc{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.5}
 
@@ -809,7 +811,7 @@
   .photo-meta .row .name{font-family:var(--font-mono);color:var(--color-text-default);font-weight:600;font-size:12px}
   .icon-spec{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
   .icon-spec .demo{display:flex;flex-direction:column;align-items:center;gap:8px;width:90px}
-  .icon-spec .demo svg{width:36px;height:36px;stroke:var(--color-brand-accent);stroke-width:1.5;fill:none}
+  .icon-spec .demo svg{width:36px;height:36px;stroke:var(--color-icon);stroke-width:1.5;fill:none}
   .icon-spec .demo .lbl{font-family:var(--font-headline);font-size:11px;color:var(--color-brand-slate-deep);letter-spacing:0.08em;text-transform:uppercase;text-align:center;font-weight:700}
 
   /* FOOTER */
@@ -936,7 +938,7 @@
   <div class="container head-inner">
     <div class="doc-brand">
       <div class="doc-brand-mark"><img src="assets/logos/bb-bird-mark.png" alt="Blackbird" /></div>
-      <h1>Blackbird Design System<span class="v">v3.0</span></h1>
+      <h1>Blackbird Design System<span class="v">v3.1</span></h1>
     </div>
     <nav class="doc-nav">
       <a href="#foundations">01 Foundations</a>
@@ -975,10 +977,13 @@
     <h3 class="section-title">Six tokens, two fonts, no decoration</h3>
     <p class="section-desc">
       Off-white surface, black content, two brand colors that each carry meaning. Teal is
-      the workhorse: surfaces, fills, links, dividers. Red is the second accent,
-      used for emphasis, headlines, counterweight callouts, and signal moments where teal
-      would feel too soft. Slate is structure, not brand: it anchors neutrals and the warm
-      emphasis surface, and recedes. No pastel cards. No filled containers fighting the content for attention.
+      the workhorse: surfaces, fills, links, dividers. Red is a full co-accent &mdash; it
+      carries emphasis, headlines, counterweight callouts, key stats, pull quotes, and is a
+      sanctioned <em>text</em> color (red-500 on the off-white surface is ~8.3:1, AA at any
+      size). Reach for it freely where teal would feel too soft; just keep it off long runs
+      of body copy and out of full content backgrounds. Slate is structure, not brand: it
+      anchors neutrals and the warm emphasis surface, and recedes. No pastel cards. No filled
+      containers fighting the content for attention.
     </p>
 
     <div class="token-grid">
@@ -986,7 +991,7 @@
         <h5>Color weights</h5>
         <div class="token-row"><span class="name" style="color:var(--neutral-950)">White (#FAFAFA)</span><span class="val">50&ndash;55% surface</span></div>
         <div class="token-row"><span class="name" style="color:var(--color-brand-accent)">Teal</span><span class="val">12&ndash;15% accent + fills</span></div>
-        <div class="token-row"><span class="name" style="color:var(--color-signal)">Red</span><span class="val">8&ndash;10% signal + accent</span></div>
+        <div class="token-row"><span class="name" style="color:var(--color-signal)">Red</span><span class="val">12&ndash;18% co-accent + text</span></div>
         <div class="token-row"><span class="name" style="color:var(--color-brand-slate-deep)">Slate</span><span class="val">12&ndash;15% structure</span></div>
         <div class="token-row"><span class="name" style="color:var(--neutral-950)">Black</span><span class="val">5&ndash;7% display / headlines</span></div>
         <div class="token-row"><span class="name" style="color:#1E293B">Dark slate</span><span class="val">5&ndash;8% reading + cool card</span></div>
@@ -1005,6 +1010,7 @@
         <div class="token-row"><span class="name">Underlines</span><span class="val">Never</span></div>
         <div class="token-row"><span class="name">Centered body</span><span class="val">Hero / cover / quote only</span></div>
         <div class="token-row"><span class="name">Chart series</span><span class="val">Teal &middot; Slate &middot; Black</span></div>
+        <div class="token-row"><span class="name">Red text</span><span class="val">OK: headlines, stats, quotes. Not body runs.</span></div>
         <div class="token-row"><span class="name">Spacing</span><span class="val">4px base, 10px card radius</span></div>
         <div class="token-row"><span class="name">Shadows</span><span class="val">Hairlines only, no glow</span></div>
         <div class="token-row"><span class="name">New colors</span><span class="val">Add a token first</span></div>
@@ -1579,14 +1585,14 @@
 <section class="block" id="imagery">
   <div class="container">
     <div class="section-num">06 &middot; Imagery</div>
-    <h3 class="section-title">San Francisco at night, bird imagery, teal line icons</h3>
+    <h3 class="section-title">San Francisco at night, bird imagery, black line icons</h3>
     <p class="section-desc">
       Photography lives in two subjects: San Francisco (skyline, urban detail, the bay,
       shot at dusk or after dark) and bird imagery (blackbirds, ravens, crows, silhouettes
       against sky). Aesthetic is nightscape &mdash; dark, moody, atmospheric. Overlay treatment
       varies by use; the goal is mood, not a fixed opacity number. Photos appear on the
-      cover, section dividers, and closing slide. Icons are line-stroke teal, on every
-      content card and list row, never on photo slides.
+      cover, section dividers, and closing slide. Icons are line-stroke black by default, on
+      every content card and list row, never on photo slides.
     </p>
 
     <h4 class="h4-accent" style="margin-top:0">Photography</h4>
@@ -1613,7 +1619,7 @@
 
     <h4 class="h4-accent" style="margin-top:0">The library</h4>
     <div class="h4-underline"></div>
-    <p class="section-desc" style="margin-bottom:20px">Fourteen cleared images live in <code style="font-family:var(--font-mono);font-size:13px">assets/photography/</code>: nine San Francisco nightscapes and five corvids. Every file has a row in PHOTOS.md recording photographer, license, and source. If an image is not in the manifest, it does not ship.</p>
+    <p class="section-desc" style="margin-bottom:20px">Twenty-four cleared images live in <code style="font-family:var(--font-mono);font-size:13px">assets/photography/</code>: fourteen San Francisco nightscapes and ten corvids. Every file has a row in PHOTOS.md recording photographer, license, and source. If an image is not in the manifest, it does not ship.</p>
     <div class="photo-lib">
       <figure><img src="assets/photography/sf-night-skyline-twinpeaks.jpg" alt="Twin Peaks skyline, blue hour" loading="lazy" /><figcaption>Twin Peaks skyline, blue hour</figcaption></figure>
       <figure><img src="assets/photography/sf-night-baybridge-trails.jpg" alt="Bay Bridge light trails" loading="lazy" /><figcaption>Bay Bridge light trails</figcaption></figure>
@@ -1624,11 +1630,21 @@
       <figure><img src="assets/photography/sf-night-goldengate-tower.jpg" alt="Golden Gate south tower" loading="lazy" /><figcaption>Golden Gate south tower</figcaption></figure>
       <figure><img src="assets/photography/sf-night-goldengate-fog.jpg" alt="Golden Gate in night fog" loading="lazy" /><figcaption>Golden Gate in night fog</figcaption></figure>
       <figure><img src="assets/photography/sf-night-chinatown.jpg" alt="Chinatown, Grant and Pine" loading="lazy" /><figcaption>Chinatown, Grant and Pine</figcaption></figure>
+      <figure><img src="assets/photography/sf-night-bay-reflections.jpg" alt="Bay Bridge under a starry sky" loading="lazy" /><figcaption>Bay Bridge under a starry sky</figcaption></figure>
+      <figure><img src="assets/photography/sf-night-baybridge-lightrails.jpg" alt="Bay Bridge light rails" loading="lazy" /><figcaption>Bay Bridge light rails</figcaption></figure>
+      <figure><img src="assets/photography/sf-night-skyline-overview.jpg" alt="Downtown skyline at night" loading="lazy" /><figcaption>Downtown skyline at night</figcaption></figure>
+      <figure><img src="assets/photography/sf-night-baybridge-yerbabuena.jpg" alt="Bay Bridge, black and white" loading="lazy" /><figcaption>Bay Bridge, black and white</figcaption></figure>
+      <figure><img src="assets/photography/sf-night-goldengate-citylights.jpg" alt="Golden Gate above the city lights" loading="lazy" /><figcaption>Golden Gate above the city lights</figcaption></figure>
       <figure><img src="assets/photography/corvid-pair-on-wire.jpg" alt="Crows on a wire" loading="lazy" /><figcaption>Crows on a wire</figcaption></figure>
       <figure><img src="assets/photography/corvid-wings-silhouette.jpg" alt="Wings, silhouette" loading="lazy" /><figcaption>Wings, silhouette</figcaption></figure>
       <figure><img src="assets/photography/corvid-branch-storm.jpg" alt="Crow on branch, storm sky" loading="lazy" /><figcaption>Crow on branch, storm sky</figcaption></figure>
       <figure><img src="assets/photography/corvid-raven-profile.jpg" alt="Raven profile" loading="lazy" /><figcaption>Raven profile</figcaption></figure>
       <figure><img src="assets/photography/corvid-raven-portrait.jpg" alt="Raven portrait" loading="lazy" /><figcaption>Raven portrait</figcaption></figure>
+      <figure><img src="assets/photography/corvid-raven-in-flight.jpg" alt="Raven in flight" loading="lazy" /><figcaption>Raven in flight</figcaption></figure>
+      <figure><img src="assets/photography/corvid-silhouette-dusk-clouds.jpg" alt="Corvid against dusk clouds" loading="lazy" /><figcaption>Corvid against dusk clouds</figcaption></figure>
+      <figure><img src="assets/photography/corvid-silhouette-dusk.jpg" alt="Silhouette at blue hour" loading="lazy" /><figcaption>Silhouette at blue hour</figcaption></figure>
+      <figure><img src="assets/photography/corvid-silhouette-branches.jpg" alt="Silhouette in bare branches" loading="lazy" /><figcaption>Silhouette in bare branches</figcaption></figure>
+      <figure><img src="assets/photography/corvid-blackbird-silhouette.jpg" alt="Blackbird silhouette" loading="lazy" /><figcaption>Blackbird silhouette</figcaption></figure>
     </div>
     <p class="lib-note">Licenses: CC0, Public Domain Mark, or CC BY 2.0 (credit kept in <code>PHOTOS.md</code>). One exception: the Twin Peaks hero predates v3.0 and its license is unverified. Confirm or replace before client-facing use.</p>
 
@@ -1655,7 +1671,7 @@
     <div class="h4-underline"></div>
     <div class="imagery-grid">
       <div class="comp" style="padding:32px">
-        <div class="comp-label">Line-stroke teal or black &middot; ~32px on slides, 1.5px stroke</div>
+        <div class="comp-label">Line-stroke black (default) &middot; ~32px on slides, 1.5px stroke</div>
         <div class="icon-spec">
           <div class="demo">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="14" width="3" height="7"/><rect x="9" y="9" width="3" height="12"/><rect x="15" y="4" width="3" height="17"/></svg>
@@ -1681,12 +1697,48 @@
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
             <span class="lbl">checklist</span>
           </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="3,17 9,11 13,15 21,7"/><polyline points="15,7 21,7 21,13"/></svg>
+            <span class="lbl">growth</span>
+          </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+            <span class="lbl">trends</span>
+          </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="10" y1="22" x2="14" y2="22"/></svg>
+            <span class="lbl">insight</span>
+          </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="13,2 4,14 11,14 11,22 20,10 13,10"/></svg>
+            <span class="lbl">velocity</span>
+          </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 14a9 9 0 1 1 18 0"/><line x1="12" y1="14" x2="16" y2="10"/><line x1="3" y1="14" x2="5" y2="14"/><line x1="19" y1="14" x2="21" y2="14"/></svg>
+            <span class="lbl">performance</span>
+          </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+            <span class="lbl">audience</span>
+          </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5L3 21l1-3.5A8.5 8.5 0 1 1 21 11.5z"/></svg>
+            <span class="lbl">message</span>
+          </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg>
+            <span class="lbl">trust</span>
+          </div>
+          <div class="demo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+            <span class="lbl">budget</span>
+          </div>
         </div>
       </div>
       <div class="photo-meta">
         <h5>Icon rules</h5>
         <div class="row"><span class="name">Style</span><span>Lucide / Feather, line stroke only. No filled shapes, no dual-tone, no novelty illustrations.</span></div>
-        <div class="row"><span class="name">Color (light bg)</span><span>Teal (#008C95) for accent / category-marker roles. Black (#0D0D0D) for content / structural roles where icons read like text. Pick one per grid and hold it.</span></div>
+        <div class="row"><span class="name">Color (light bg)</span><span>Black (#0D0D0D) is the default &mdash; icons read like content. Teal (#008C95) is the opt-in accent for category-marker / hero roles. Pick one per grid and hold it.</span></div>
         <div class="row"><span class="name">Color (dark bg)</span><span>White. Always. Teal-on-dark goes muddy; black-on-dark disappears.</span></div>
         <div class="row"><span class="name">Stroke</span><span>1.5px, no fill. Corners are square or barely rounded &mdash; no soft consumer shapes.</span></div>
         <div class="row"><span class="name">Size</span><span>~32px on slides, ~24px in compact rows. Optical-sized in pairs, never stretched.</span></div>
@@ -2399,7 +2451,7 @@
   <div class="container">
     <div class="bar-dot"><span class="bar"></span><span class="dot"></span></div>
     Blackbird PPC Design System
-    <div class="mono">v3.0 &middot; Core Six: brand = teal + red; surface = FAFAFA; structure/ink = slate, black, dark slate (#1E293B); off-black #0D0D0D = dark ground. No bars on cards. FFFFFF cards, 1px slate-200 outline, 10px radius, no shadows</div>
+    <div class="mono">v3.1 &middot; Core Six: brand = teal + red; surface = FAFAFA; structure/ink = slate, black, dark slate (#1E293B); off-black #0D0D0D = dark ground. No bars on cards. FFFFFF cards, 1px slate-200 outline, 10px radius, no shadows</div>
   </div>
 </footer>
 

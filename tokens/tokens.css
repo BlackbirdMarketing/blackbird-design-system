@@ -57,6 +57,8 @@
     --color-brand-deep:          var(--teal-900);
     --color-signal:              var(--red-500);
     --color-signal-subtle:       var(--red-50);
+    --color-signal-hover:        var(--red-600);
+    --color-signal-active:       var(--red-700);
     --color-brand-slate:         var(--neutral-500);  /* structural spine (not a brand color); cool neutral, a peer in weight not identity */
     --color-brand-slate-deep:    var(--neutral-700);
 
@@ -66,6 +68,7 @@
     --color-text-muted:          var(--neutral-500);
     --color-text-faint:          var(--neutral-400);
     --color-text-inverse:        #ffffff;
+    --color-text-signal:         var(--red-500);   /* red as a sanctioned text color — headlines, eyebrows, key stats, pull quotes. red-500 on FAFAFA is ~8.3:1, passes WCAG AA at any size. Not for long body runs. */
 
     --color-surface:             #fafafa;             /* off-white, matches live site */
     --color-surface-pure:        #ffffff;             /* true white for cards-on-bg, popovers */
@@ -76,6 +79,8 @@
     --color-surface-slate-dark:  var(--neutral-500);         /* slate emphasis surface — slate-500 anchor; medium cool gray, not "dark" */
     --color-surface-card-dark:   var(--dark-card1);
     --color-surface-card-dark-cool: var(--dark-card-cool);   /* cool dark-card — slate-800, matches the live-site .bb-card */
+
+    --color-icon:                var(--dark-bg);   /* default icon stroke on light bg — off-black #0D0D0D. Icons read like content. Teal/red are opt-in accent roles. */
 
     --color-border:              var(--neutral-200);
     --color-border-strong:       var(--neutral-300);

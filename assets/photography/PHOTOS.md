@@ -19,6 +19,16 @@ All new v3.0 additions are CC0, Public Domain Mark, or CC BY 2.0. CC BY requires
 | corvid-raven-profile.jpg | Raven head profile, monochrome | OliBac | CC BY 2.0 | https://www.flickr.com/photos/olibac/2472896028 |
 | corvid-raven-portrait.jpg | Raven portrait, close-up | sektordua | CC BY 2.0 | https://www.flickr.com/photos/sektordua/226227989 |
 | corvid-branch-storm.jpg | Crow on bare branch, storm sky | Steve Wilson | CC BY 2.0 | https://www.flickr.com/photos/pokerbrit/11567761085 |
+| sf-night-baybridge-lightrails.jpg | Bay Bridge at night, long-exposure light rails | Artur Westergren (ampedimagery) | CC0 | https://commons.wikimedia.org/wiki/File:Light_rails_on_a_San_Francisco_bridge_(Unsplash).jpg |
+| sf-night-bay-reflections.jpg | Bay Bridge and downtown skyline under a starry night sky | From81 | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Night_in_San_Francisco_Bay_2016-04-29.jpg |
+| sf-night-skyline-overview.jpg | Downtown skyline at night from the hills | Loic Le Meur | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:San_Francisco_by_night_(3339866299).jpg |
+| sf-night-baybridge-yerbabuena.jpg | Bay Bridge and skyline at night, black-and-white, from Yerba Buena Island | Gerrythrash | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Bay_Bride_from_Yerba_Buena_Island.JPG |
+| sf-night-goldengate-citylights.jpg | Golden Gate tower at night above the city lights | Alister C | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:City_Lights_(124640285).jpeg |
+| corvid-silhouette-branches.jpg | Corvid silhouette perched among bare branches, pale sky | photochem_PA | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Bird_in_branches,_silhouette_(17282523985).jpg |
+| corvid-silhouette-dusk.jpg | Bird silhouette in branches against a blue-hour dusk sky | Garry Knight | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Bird_Silhouette_(3365884849).jpg |
+| corvid-blackbird-silhouette.jpg | Blackbird silhouette perched in tangled branches | Erich Ferdinand | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Black_Bird_(15815947990).jpg |
+| corvid-silhouette-dusk-clouds.jpg | Lone corvid in flight, silhouette against a dusk cloudscape | www.Pixel.la Free Stock Photos | CC0 | https://commons.wikimedia.org/wiki/File:Bird-flying-clouds-cloudy_(23698069513).jpg |
+| corvid-raven-in-flight.jpg | Common raven in flight, wings spread | Mike Prince | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Common_Raven_(33938590855).jpg |
 
 ## Rules
 

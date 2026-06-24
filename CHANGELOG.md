@@ -2,6 +2,13 @@
 
 Repo-level history. The spec keeps its own detailed changelog in `spec/powerpoint-brand-skill.md`.
 
+## 3.1.0 (June 2026)
+
+- Red promoted to a full co-accent and a sanctioned text color. Allowed weight raised from 8-10% to 12-18%; new `--color-text-signal` (red-500) token plus `--color-signal-hover`/`--color-signal-active`. Red `862633` on `FAFAFA` is ~8.3:1, passing WCAG AA at any size, so red is legal for headlines, eyebrows, key stats, and pull quotes. Guardrails kept: not for long body runs, never a full content background. Bar+dot signature unchanged.
+- Icons default to black. New `--color-icon` token (off-black `0D0D0D`); `.icon-row svg` and demo icon strokes moved off teal. Teal is now an opt-in accent stroke. Nine new line icons added (growth, trends, insight, velocity, performance, audience, message, trust, budget).
+- Photography library grown to 24 cleared images (14 SF nightscapes, 10 corvids), each with a `PHOTOS.md` manifest row. Nightscape-only rule unchanged.
+- Spec, styleguide, and tokens synced to 3.1.0.
+
 ## 3.0.0 (June 2026)
 
 - Single system version: `VERSION` file governs `index.html` and the spec; CI enforces it along with asset existence and core-six hex parity (`scripts/validate_assets.py`, `.github/workflows/validate.yml`).

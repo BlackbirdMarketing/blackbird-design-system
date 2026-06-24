@@ -33,7 +33,7 @@ index.html        The styleguide. Open it in a browser.
 spec/             The canonical written spec (PowerPoint brand skill).
 skill/            The packaged skill: SKILL.md + bundled logo assets, ready to upload.
 assets/logos/     All six lockups plus deck-ready crops (tight + pre-faded).
-assets/photography/  14 cleared images (9 SF nightscapes, 5 corvids) + PHOTOS.md license manifest.
+assets/photography/  24 cleared images (14 SF nightscapes, 10 corvids) + PHOTOS.md license manifest.
 assets/clients/   Client logos used by the case-study examples.
 assets/meta/      Favicons and the social-share card.
 tokens/           tokens.css and tokens.json. Drop into any project.
