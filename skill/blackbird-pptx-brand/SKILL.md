@@ -1,11 +1,11 @@
 ---
 name: blackbird-pptx-brand
-description: "Blackbird PPC PowerPoint brand guidelines (v3.0, June 2026). Use this skill whenever creating, editing, or reviewing a PowerPoint presentation for Blackbird PPC or any Blackbird client deliverable. Triggers include: any request to make a deck, slides, or presentation mentioning Blackbird; any pptx creation where the user is Jay or a Blackbird team member (Hillary, Thomas, Gabby, Jack); any request to 'make it on-brand' or 'use our brand' in a presentation context; any request referencing 'our deck style' or 'Blackbird template'. This skill defines Blackbird's identity layer (mission, pillars), color system, typography, layout patterns, slide anatomy, voice, and a pre-ship checklist for slide decks. Always read this skill BEFORE the general pptx skill when both apply. If this skill conflicts with the general pptx skill, this skill wins."
+description: "Blackbird PPC PowerPoint brand guidelines (v3.1, June 2026). Use this skill whenever creating, editing, or reviewing a PowerPoint presentation for Blackbird PPC or any Blackbird client deliverable. Triggers include: any request to make a deck, slides, or presentation mentioning Blackbird; any pptx creation where the user is Jay or a Blackbird team member (Hillary, Thomas, Gabby, Jack); any request to 'make it on-brand' or 'use our brand' in a presentation context; any request referencing 'our deck style' or 'Blackbird template'. This skill defines Blackbird's identity layer (mission, pillars), color system, typography, layout patterns, slide anatomy, voice, and a pre-ship checklist for slide decks. Always read this skill BEFORE the general pptx skill when both apply. If this skill conflicts with the general pptx skill, this skill wins."
 ---
 
-# Blackbird PPC -- PowerPoint Brand Guidelines (v3.0)
+# Blackbird PPC -- PowerPoint Brand Guidelines (v3.1)
 
-Source of truth: the `blackbird-design-system` repo, system version 3.0.0 (see `VERSION` at repo root). The styleguide (`index.html`) and this skill now carry one shared version number. **v3.0 ships canonical assets: the logo pack (`assets/logos/`) and the cleared photography library (`assets/photography/` + `PHOTOS.md`), plus a python-pptx implementation appendix.** **v2.8 relabels slate as structure, not a brand color (teal and red are the only brand colors).** **v2.7 adds Dark Slate `1E293B` as the sixth Core anchor** — the reading-text and cool-dark-card color, kept distinct from Black `000000`, which stays display-only (headlines, max-contrast marks, small UI). **v2.6 settled the dark-surface question across the deck skill, the design-system HTML, and the live site.** One dark section ground: off-black `0D0D0D` (default) or slate-500 `64748B` for warm/structural emphasis — both Core anchors. Pure black `000000` is text/UI only and is **never a section surface**. Slate-800 `1E293B` is now a **sanctioned cool dark-card token** (card on a dark ground), but is **never a full-bleed section ground**. Cards on a dark ground: neutral `1C1C1C`/`222222`, or cool slate-800 `1E293B` (white text). v2.5 had removed slate-800 from every surface; v2.6 brings it back for cards only, to legalize the live site's dark cards without blessing pure-black grounds. v2.4 closed the "no top-edge bars on cards" rule. v2.3 enforces 10px radius on every card-like container. When the general pptx skill conflicts with anything here, these rules override.
+Source of truth: the `blackbird-design-system` repo, system version 3.1.0 (see `VERSION` at repo root). The styleguide (`index.html`) and this skill now carry one shared version number. **v3.1 promotes red to a full co-accent (12-18%) and a sanctioned text color, switches icons to black by default with an expanded icon set, and grows the photography library to 24 cleared images (14 SF nightscapes, 10 corvids).** **v3.0 ships canonical assets: the logo pack (`assets/logos/`) and the cleared photography library (`assets/photography/` + `PHOTOS.md`), plus a python-pptx implementation appendix.** **v2.8 relabels slate as structure, not a brand color (teal and red are the only brand colors).** **v2.7 adds Dark Slate `1E293B` as the sixth Core anchor** — the reading-text and cool-dark-card color, kept distinct from Black `000000`, which stays display-only (headlines, max-contrast marks, small UI). **v2.6 settled the dark-surface question across the deck skill, the design-system HTML, and the live site.** One dark section ground: off-black `0D0D0D` (default) or slate-500 `64748B` for warm/structural emphasis — both Core anchors. Pure black `000000` is text/UI only and is **never a section surface**. Slate-800 `1E293B` is now a **sanctioned cool dark-card token** (card on a dark ground), but is **never a full-bleed section ground**. Cards on a dark ground: neutral `1C1C1C`/`222222`, or cool slate-800 `1E293B` (white text). v2.5 had removed slate-800 from every surface; v2.6 brings it back for cards only, to legalize the live site's dark cards without blessing pure-black grounds. v2.4 closed the "no top-edge bars on cards" rule. v2.3 enforces 10px radius on every card-like container. When the general pptx skill conflicts with anything here, these rules override.
 
 ## Quick Reference
 
@@ -68,7 +68,7 @@ Use this trio as a structural anchor on capabilities slides, executive summaries
 |-------|-----|------|---------------------|
 | Surface | `FAFAFA` | **Primary.** Off-white page. Matches the live site. | 50-55% |
 | Brand accent (Teal) | `008C95` | **Primary accent.** Section numbers, the bottom-of-slide accent bar, bullets, links, primary buttons, key data, chart primary series. | 12-15% |
-| Signal (Red) | `862633` | **Second accent.** Counterweight to teal — declarative, brand-anchored. Headlines and section eyebrows, secondary CTAs, output/risk/optionality columns, award badges, the bar+dot motif, key stats and pull quotes, hairline accents on dark surfaces, one-per-deck critical callouts. | 8-10% |
+| Signal (Red) | `862633` | **Co-accent.** Counterweight to teal — declarative, brand-anchored. Headlines and section eyebrows, secondary CTAs, output/risk/optionality columns, award badges, the bar+dot motif, key stats and pull quotes, hairline accents on dark surfaces, critical callouts. **Sanctioned as a text color** (red-500 on FAFAFA is ~8.3:1, AA at any size) for headlines, eyebrows, stats, and pull quotes. | 12-18% |
 | Slate (structure) | `64748B` | **Structural spine, not a brand color.** Icons on light bg, secondary CTAs, dividers, the warm/structural emphasis ground, caption/secondary text. | 12-15% |
 | Black | `000000` | **Display anchor.** Headlines, section titles, big stat numbers, maximum-contrast display type; small solid black UI (dark buttons, pills); content-role icons. Short, high-salience marks — never long body runs, never a surface. | 5-7% |
 | Dark Slate (6th anchor) | `1E293B` | **Reading + cool-dark anchor.** Body/reading copy on light (where pure black glares) and table text; plus the cool dark-card surface on a dark ground (white text). The softened counterpart to Black. Never a section ground. | 5-8% |
@@ -141,7 +141,7 @@ Use this trio as a structural anchor on capabilities slides, executive summaries
 3. **No pastel cards.** Blush, Mint, Cream, Ice are dead. If a card needs tint, use `teal-50` or `red-50` with matching border, and only when the meaning calls for it.
 4. **Slate is the structural spine, not a brand color.** Teal and red are the only brand colors. Slate carries structure and recedes: tertiary CTAs, icon strokes on light bg, dividers between major sections, the warm emphasis ground.
 5. **Teal as primary accent, not punctuation.** Target 12-15% of any view. Surfaces, fills, links, CTAs, dividers. The constraint is meaning: teal carries positive/primary signal.
-6. **Red is the second accent, not signal-only.** Target 8-10% per deck. Counterweight to teal — declarative, confident, brand-anchored. Use for headlines and section eyebrows, secondary CTAs and pill buttons, output/risk/optionality columns, award badges, the bar+dot motif, key stats and pull quotes, hairline accents on dark surfaces, one critical callout per deck. Pair intentionally against teal so the meanings stay distinct: teal = primary/positive, red = emphasis/counterpoint. Avoid red as a full content background, as body copy, or in long runs of solid fill.
+6. **Red is a full co-accent, not signal-only.** Target 12-18% per deck. Counterweight to teal — declarative, confident, brand-anchored. Use for headlines and section eyebrows, secondary CTAs and pill buttons, output/risk/optionality columns, award badges, the bar+dot motif, key stats and pull quotes, hairline accents on dark surfaces, critical callouts. Red is also a **sanctioned text color** — red-500 on the FAFAFA surface is ~8.3:1 and passes WCAG AA at any size, so it may set headlines, eyebrows, key stats, and pull quotes. Pair intentionally against teal so the meanings stay distinct: teal = primary/positive, red = emphasis/counterpoint. The only limits: avoid red as a full content background, as long runs of body copy, or in long runs of solid fill.
 7. **Emphasis surfaces.** Two anchored options, both Core anchors: off-black `0D0D0D` for heavy/dark emphasis, slate-500 `64748B` for warm/structural emphasis (medium cool-gray, not "dark"). Pick by the feeling you want. No slate-700/-800 section grounds (slate-800 is the cool dark-card, not a ground).
 8. **No gradients.** Flat color only. Exception: the roadmap connector line (teal-500 → red-500 hairline, see Roadmap pattern).
 9. **No new colors without a token.** If you reach for a seventh hex, ask if it earned its place. The answer is almost always no.
@@ -539,15 +539,15 @@ Bold uppercase headline (Futura Bold 18pt) with a thin matching colored line ben
 
 **Never:** Generic stock, daylight skylines, abstract gradients, AI-generated cityscapes or birds.
 
-**The library (v3.0):** Fourteen cleared images at `assets/photography/`: nine SF nightscapes (Twin Peaks skyline, Bay Bridge trails and dusk span, downtown blue hour, Bernal light field, Sutro above fog, Golden Gate tower and night fog, Chinatown) and five corvids (pair on wire, wings silhouette, branch against storm sky, raven profile, raven portrait). Pull covers, dividers, and closings from this folder first. Every file has a license row in `assets/photography/PHOTOS.md`; an image without a manifest row does not ship. One flag: `sf-night-skyline-twinpeaks.jpg` predates v3.0 with an unverified license; confirm or replace it for client-facing work.
+**The library (v3.1):** Twenty-four cleared images at `assets/photography/`: fourteen SF nightscapes (Twin Peaks skyline, Bay Bridge trails / dusk span / light rails / starry-sky / black-and-white from Yerba Buena, downtown blue hour and skyline overview, Bernal light field, Sutro above fog, Golden Gate tower / night fog / city lights, Chinatown) and ten corvids (pair on wire, wings silhouette, branch against storm sky, raven profile, raven portrait, raven in flight, dusk-cloud silhouette, blue-hour silhouette, bare-branch silhouette, blackbird silhouette). Pull covers, dividers, and closings from this folder first. Every file has a license row in `assets/photography/PHOTOS.md`; an image without a manifest row does not ship. One flag: `sf-night-skyline-twinpeaks.jpg` predates v3.0 with an unverified license; confirm or replace it for client-facing work.
 
 ### Icons
 
 **Style:** Lucide / Feather, line stroke only. No filled shapes, no dual-tone, no novelty illustrations.
 
 **Color (light bg):**
-- **Teal `008C95`** for accent / category-marker roles — icons that read as accents alongside headlines.
-- **Black `0D0D0D`** for content / structural roles — icons that line up next to body copy and shouldn't compete with the headline color hierarchy.
+- **Black `0D0D0D`** is the default — icons read like content and line up next to copy without competing for the eye. Use it unless you have a reason not to.
+- **Teal `008C95`** is the opt-in accent for category-marker / hero roles — icons meant to read as accents alongside headlines.
 - Pick one color per grid and hold it. Mixed-color icons in a single grid look like a mistake, not a choice.
 
 **Color (dark bg):** White. Always. Teal-on-dark goes muddy; black-on-dark disappears.
@@ -560,13 +560,13 @@ Bold uppercase headline (Futura Bold 18pt) with a thin matching colored line ben
 
 **Where not:** Section dividers, quote slides, data tables, cover, closing.
 
-**Consistency:** If one item in a grid has an icon, all do. If one is teal, all are teal. One color per grid.
+**Consistency:** If one item in a grid has an icon, all do. If one is black, all are black (default); if one is teal, all are teal. One color per grid.
 
 **Container:** Bare on white cards. Optional filled-circle treatment (teal-500 circle with white icon) for hero rows — pick one or the other across the deck, never both in the same deck.
 
 ### Implementation in pptxgenjs
 
-Build line-stroke icons from native shapes (lines, ovals, rectangles) with `line` properties only, no fills. Or use SVG-equivalent shape sequences inside the teal accent color.
+Build line-stroke icons from native shapes (lines, ovals, rectangles) with `line` properties only, no fills. Stroke them in black `0D0D0D` by default; switch to the teal accent color only for category-marker / hero grids.
 
 ```javascript
 // Simple line icon: search (circle + handle line)
@@ -1034,7 +1034,7 @@ Asset paths resolve relative to the skill folder, which bundles `assets/` next t
 2. **Reference semantic intent, not just hex.** The semantic intent (brand-accent, signal, slate-structural) is the contract. Pick the closest semantic role first; the hex follows from that.
 3. **Don't hardcode a seventh hex.** If you reach for a color outside the system, ask whether it earned its place. Almost always no.
 4. **Teal as primary accent, not punctuation.** 12-15% of any view. Surfaces, fills, links, CTAs, dividers.
-5. **Red is the second accent, not signal-only.** 8-10% per deck. Counterweight to teal — headlines, secondary CTAs, output/risk columns, key stats, pull quotes, hairline accents on dark surfaces, one critical callout. Avoid red as a full content background or in long runs of solid fill.
+5. **Red is a full co-accent, not signal-only.** 12-18% per deck. Counterweight to teal — headlines, secondary CTAs, output/risk columns, key stats, pull quotes, hairline accents on dark surfaces, critical callouts. Sanctioned as a text color (red-500 on FAFAFA is ~8.3:1, AA at any size). Avoid red as a full content background or in long runs of solid fill/body copy.
 6. **Don't add gradients or saturated extras.** Flat color. The roadmap connector is the only sanctioned gradient.
 7. **Don't use filled containers for content.** No pastel cards. Containers are outlined+tinted (teal-50/red-50 with matching border) or absent.
 8. **No top-edge bars on cards. Ever.** Cards stand on their outline, not on a colored bar. The bottom-of-slide accent and the bar+dot signature are the only sanctioned horizontal bars in the system. A teal bar across the top of a card duplicates one of those signatures inside a container.
@@ -1070,7 +1070,7 @@ Final-pass review. Walk every slide top-to-bottom against this list before the d
 
 | Check | What to verify |
 |-------|-----------------|
-| **Color budget** | Each slide reads as ~50-55% surface, 12-15% teal, 8-10% red, 12-15% slate, 5-7% black, 5-8% dark slate. No seventh hex. |
+| **Color budget** | Each slide reads as ~50-55% surface, 12-15% teal, 12-18% red, 12-15% slate, 5-7% black, 5-8% dark slate. No seventh hex. |
 | **Cards** | No top-edge bars. White cards have a slate-200 outline; tinted cards use matching teal-200 or red-200 borders. |
 | **Bar + dot motif** | Maximum one per slide. Roughly 1 in 3-4 slides across the deck. Never inside a container. |
 | **Titles** | Each carries the conclusion, not the topic. Scan-only readers should follow the argument. |
@@ -1109,6 +1109,11 @@ Final-pass review. Walk every slide top-to-bottom against this list before the d
 ---
 
 ## Changelog
+
+**v3.1 (June 2026)** — red co-accent + text role, black icons, bigger photo library
+- **Red is now a full co-accent (12-18%) and a sanctioned text color.** Red `862633` on `FAFAFA` is ~8.3:1, passing WCAG AA at any size, so red is legal for headlines, eyebrows, key stats, and pull quotes. The old "second accent, 8-10%, avoid long runs" framing is replaced: red can carry more of the page. The one guardrail that stays: not for long body runs, and never a full content background. The bar+dot signature is unchanged.
+- **Icons default to black.** Line icons now stroke in off-black `0D0D0D` by default on light grounds; teal is an opt-in accent stroke, not the default. Icons read as content, not decoration. New icons added to the set (growth, trends, insight, velocity, performance, audience, message, trust, budget).
+- **Photography library grown to 24 cleared images** (14 SF nightscapes, 10 corvids), each with a `PHOTOS.md` manifest row. Nightscape-only rule unchanged: dusk/after-dark/atmospheric/low-key, no daylight, no AI-generated.
 
 **v3.0 (June 2026)** — assets shipped, single system version
 - **Single system version.** The repo `VERSION` file (3.0.0) now governs both the styleguide (`index.html`) and this skill. The two-number era (site v2.1, skill v2.8) ends here; CI fails the build if either artifact drops the shared version.
