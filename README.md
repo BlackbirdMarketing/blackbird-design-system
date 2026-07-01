@@ -12,7 +12,7 @@ The main artifact is [`index.html`](index.html), a self-contained styleguide you
 |-------|-----|------|--------|
 | Surface | `#FAFAFA` | Off-white page, never pure white | 50-55% |
 | Teal | `#008C95` | Brand accent. Fills, bars, chart series, large numerals | 12-15% |
-| Red (Signal) | `#862633` | Second accent. Headlines, key stats, the bar+dot | 8-10% |
+| Red (Signal) | `#862633` | Co-accent + sanctioned text color. Headlines, eyebrows, key stats, the bar+dot | 12-18% |
 | Slate | `#64748B` | Structure. Dividers, captions, icon strokes | 12-15% |
 | Black | `#000000` | Display. Headlines and big stat numbers | 5-7% |
 | Dark Slate | `#1E293B` | Reading. Body copy, table text, cool dark cards | 5-8% |

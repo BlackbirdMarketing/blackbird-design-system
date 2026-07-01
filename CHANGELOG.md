@@ -2,6 +2,13 @@
 
 Repo-level history. The spec keeps its own detailed changelog in `spec/powerpoint-brand-skill.md`.
 
+## 3.2.0 (July 2026)
+
+- Merges the two v3.1 forks (both shipped as 3.1.0). Deck fork (June 11, deployed skill, never pushed): red eyebrow labels replace content-slide section numbers, channel-coded table header fills, Layout F2 narrative + mini-trend band (discussion notes retired), corner bird mark retired, Layout P performance trend, pie/donut rules, flat red dot. Repo fork (June 24, pushed, never deployed): red co-accent (12-18%) + sanctioned text role, black-default icons, 24-image photography library. 3.2.0 carries both; conflicts resolved toward the deliberate decision in each case.
+- README red row synced to the co-accent promotion (went stale in 3.1.0).
+- Known gap: the styleguide slide gallery still renders v3.0 content-slide chrome (teal section number, corner mark). Refresh queued.
+- Spec, packaged skill, and styleguide all carry 3.2.0.
+
 ## 3.1.0 (June 2026)
 
 - Red promoted to a full co-accent and a sanctioned text color. Allowed weight raised from 8-10% to 12-18%; new `--color-text-signal` (red-500) token plus `--color-signal-hover`/`--color-signal-active`. Red `862633` on `FAFAFA` is ~8.3:1, passing WCAG AA at any size, so red is legal for headlines, eyebrows, key stats, and pull quotes. Guardrails kept: not for long body runs, never a full content background. Bar+dot signature unchanged.
