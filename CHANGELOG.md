@@ -2,6 +2,12 @@
 
 Repo-level history. The spec keeps its own detailed changelog in `spec/powerpoint-brand-skill.md`.
 
+## 3.2.1 (July 2026)
+
+- Section numbers live on dividers only (founder call): TOC cards are unnumbered; content slides already carried the red eyebrow. The 88pt divider number is the deck's only section number.
+- Styleguide slide gallery refreshed to current chrome: red eyebrows replace teal corner numbers, corner bird marks removed, TOC frame unnumbered.
+- index.html prose synced to the spec (logo section still mandated corner marks; red sections still read 8-10% second accent).
+
 ## 3.2.0 (July 2026)
 
 - Merges the two v3.1 forks (both shipped as 3.1.0). Deck fork (June 11, deployed skill, never pushed): red eyebrow labels replace content-slide section numbers, channel-coded table header fills, Layout F2 narrative + mini-trend band (discussion notes retired), corner bird mark retired, Layout P performance trend, pie/donut rules, flat red dot. Repo fork (June 24, pushed, never deployed): red co-accent (12-18%) + sanctioned text role, black-default icons, 24-image photography library. 3.2.0 carries both; conflicts resolved toward the deliberate decision in each case.
