@@ -1,11 +1,11 @@
 ---
 name: blackbird-pptx-brand
-description: "Blackbird PPC PowerPoint brand guidelines (v3.1, June 2026). Use this skill whenever creating, editing, or reviewing a PowerPoint presentation for Blackbird PPC or any Blackbird client deliverable. Triggers include: any request to make a deck, slides, or presentation mentioning Blackbird; any pptx creation where the user is Jay or a Blackbird team member (Hillary, Thomas, Gabby, Jack); any request to 'make it on-brand' or 'use our brand' in a presentation context; any request referencing 'our deck style' or 'Blackbird template'. This skill defines Blackbird's identity layer (mission, pillars), color system, typography, layout patterns, slide anatomy, voice, and a pre-ship checklist for slide decks. Always read this skill BEFORE the general pptx skill when both apply. If this skill conflicts with the general pptx skill, this skill wins."
+description: "Blackbird PPC PowerPoint brand guidelines (v3.2, July 2026). Use this skill whenever creating, editing, or reviewing a PowerPoint presentation for Blackbird PPC or any Blackbird client deliverable. Triggers include: any request to make a deck, slides, or presentation mentioning Blackbird; any pptx creation where the user is Jay or a Blackbird team member (Hillary, Thomas, Gabby, Jack); any request to 'make it on-brand' or 'use our brand' in a presentation context; any request referencing 'our deck style' or 'Blackbird template'. This skill defines Blackbird's identity layer (mission, pillars), color system, typography, layout patterns, slide anatomy, voice, and a pre-ship checklist for slide decks. Always read this skill BEFORE the general pptx skill when both apply. If this skill conflicts with the general pptx skill, this skill wins."
 ---
 
-# Blackbird PPC -- PowerPoint Brand Guidelines (v3.1)
+# Blackbird PPC -- PowerPoint Brand Guidelines (v3.2)
 
-Source of truth: the `blackbird-design-system` repo, system version 3.1.0 (see `VERSION` at repo root). The styleguide (`index.html`) and this skill now carry one shared version number. **v3.1 promotes red to a full co-accent (12-18%) and a sanctioned text color, switches icons to black by default with an expanded icon set, and grows the photography library to 24 cleared images (14 SF nightscapes, 10 corvids).** **v3.0 ships canonical assets: the logo pack (`assets/logos/`) and the cleared photography library (`assets/photography/` + `PHOTOS.md`), plus a python-pptx implementation appendix.** **v2.8 relabels slate as structure, not a brand color (teal and red are the only brand colors).** **v2.7 adds Dark Slate `1E293B` as the sixth Core anchor** — the reading-text and cool-dark-card color, kept distinct from Black `000000`, which stays display-only (headlines, max-contrast marks, small UI). **v2.6 settled the dark-surface question across the deck skill, the design-system HTML, and the live site.** One dark section ground: off-black `0D0D0D` (default) or slate-500 `64748B` for warm/structural emphasis — both Core anchors. Pure black `000000` is text/UI only and is **never a section surface**. Slate-800 `1E293B` is now a **sanctioned cool dark-card token** (card on a dark ground), but is **never a full-bleed section ground**. Cards on a dark ground: neutral `1C1C1C`/`222222`, or cool slate-800 `1E293B` (white text). v2.5 had removed slate-800 from every surface; v2.6 brings it back for cards only, to legalize the live site's dark cards without blessing pure-black grounds. v2.4 closed the "no top-edge bars on cards" rule. v2.3 enforces 10px radius on every card-like container. When the general pptx skill conflicts with anything here, these rules override.
+Source of truth: the `blackbird-design-system` repo, system version 3.2.0 (see `VERSION` at repo root). The styleguide (`index.html`) and this skill now carry one shared version number. **v3.2 (July 2026) merges the two v3.1 forks into one line; see the changelog.** **v3.1 (June 2026), both forks combined: content slides replace the 13pt teal section number with a red eyebrow label (numbers live on dividers and the TOC only); data-table header fills are channel-coded (teal = Google, slate-800 = LinkedIn, slate-500 = Reddit); discussion-notes boxes are retired -- every reporting table pairs with a narrative + mini-trend band (Layout F2); filled icon circles are black, not teal; the bar+dot's red dot is never outlined; red is promoted to a full co-accent (12-18%) and a sanctioned text color; icons default to black with an expanded set; the photography library grows to 24 cleared images.** **v3.0 ships canonical assets: the logo pack (`assets/logos/`) and the cleared photography library (`assets/photography/` + `PHOTOS.md`), plus a python-pptx implementation appendix.** **v2.8 relabels slate as structure, not a brand color (teal and red are the only brand colors).** **v2.7 adds Dark Slate `1E293B` as the sixth Core anchor** — the reading-text and cool-dark-card color, kept distinct from Black `000000`, which stays display-only (headlines, max-contrast marks, small UI). **v2.6 settled the dark-surface question across the deck skill, the design-system HTML, and the live site.** One dark section ground: off-black `0D0D0D` (default) or slate-500 `64748B` for warm/structural emphasis — both Core anchors. Pure black `000000` is text/UI only and is **never a section surface**. Slate-800 `1E293B` is now a **sanctioned cool dark-card token** (card on a dark ground), but is **never a full-bleed section ground**. Cards on a dark ground: neutral `1C1C1C`/`222222`, or cool slate-800 `1E293B` (white text). v2.5 had removed slate-800 from every surface; v2.6 brings it back for cards only, to legalize the live site's dark cards without blessing pure-black grounds. v2.4 closed the "no top-edge bars on cards" rule. v2.3 enforces 10px radius on every card-like container. When the general pptx skill conflicts with anything here, these rules override.
 
 ## Quick Reference
 
@@ -21,7 +21,7 @@ Source of truth: the `blackbird-design-system` repo, system version 3.1.0 (see `
 | Headline font | Futura (Mac) / embed Futura on Win, fallback Bahnschrift > Trebuchet MS |
 | Body font | Avenir (Mac) / embed Avenir on Win, fallback Calibri |
 | Bottom accent bar | Teal `008C95`, 0.10" tall, full width, y=5.53" |
-| Top margin (section number) | 0.28" |
+| Top margin (eyebrow / divider number) | 0.28" |
 | Left margin (text) | 0.45" |
 | Left margin (card edges) | 0.38" |
 
@@ -67,7 +67,7 @@ Use this trio as a structural anchor on capabilities slides, executive summaries
 | Token | Hex | Role | Approx Deck Weight |
 |-------|-----|------|---------------------|
 | Surface | `FAFAFA` | **Primary.** Off-white page. Matches the live site. | 50-55% |
-| Brand accent (Teal) | `008C95` | **Primary accent.** Section numbers, the bottom-of-slide accent bar, bullets, links, primary buttons, key data, chart primary series. | 12-15% |
+| Brand accent (Teal) | `008C95` | **Primary accent.** Section numbers on dividers, the bottom-of-slide accent bar, bullets, links, primary buttons, key data, chart primary series. | 12-15% |
 | Signal (Red) | `862633` | **Co-accent.** Counterweight to teal — declarative, brand-anchored. Headlines and section eyebrows, secondary CTAs, output/risk/optionality columns, award badges, the bar+dot motif, key stats and pull quotes, hairline accents on dark surfaces, critical callouts. **Sanctioned as a text color** (red-500 on FAFAFA is ~8.3:1, AA at any size) for headlines, eyebrows, stats, and pull quotes. | 12-18% |
 | Slate (structure) | `64748B` | **Structural spine, not a brand color.** Icons on light bg, secondary CTAs, dividers, the warm/structural emphasis ground, caption/secondary text. | 12-15% |
 | Black | `000000` | **Display anchor.** Headlines, section titles, big stat numbers, maximum-contrast display type; small solid black UI (dark buttons, pills); content-role icons. Short, high-salience marks — never long body runs, never a surface. | 5-7% |
@@ -183,6 +183,7 @@ The strongest Blackbird visual signature.
 - Inside cards (gets lost)
 - On every slide. Roughly 1 in 3-4
 - **Multiple times on one slide. Maximum once per slide, no exceptions.** Two on one slide reads as pattern, not punctuation — and the second one weakens the first. If you need a second separator, use whitespace or the bottom accent bar.
+- **Ringed or outlined (v3.1).** The dot is a flat `862633` fill on every ground, light or dark. No white stroke, no glow. If the dot reads dim on a dark photo, adjust the overlay opacity; don't decorate the dot.
 
 ```javascript
 function addTealBarRedDot(slide, pres, x, y, barWidth) {
@@ -220,7 +221,7 @@ function addTealBarRedDot(slide, pres, x, y, barWidth) {
 | Element | Size | Font | Color | Notes |
 |---------|------|------|-------|-------|
 | Cover headline | 48pt | Futura Bold | White | Uppercase, letter-spaced |
-| Section number (top-left) | 13pt | Futura Bold | Teal `008C95` | Always two digits ("01") |
+| Eyebrow (content slides) | 10pt | Futura Bold | Red `862633` | ALL CAPS, ~2pt tracking. Replaces the v3.0 content-slide section number (v3.1) |
 | Section number (divider slide) | 88pt | Futura Bold | Teal `008C95` | Photo-backed dividers |
 | Page title | 24pt | Futura Bold | Black `000000` | Left-aligned, below section number |
 | Subtitle / lead-in | 18pt | Futura Bold | Slate-700 `334155` | Short statement under page title |
@@ -236,7 +237,7 @@ function addTealBarRedDot(slide, pres, x, y, barWidth) {
 1. **Left-align everything.** Three exceptions only: cover slide, quote interstitial, and roadmap card text (component-scoped exception).
 2. **No underlines.** Emphasis through weight or color, never underlines. Two motif exceptions: the teal bar+red dot signature and the section-header underline (matches headline width).
 3. **Futura for hierarchy, Avenir for reading.** Heading/label/category = Futura. Paragraph/description = Avenir.
-4. **Two-digit section numbering.** Always "01" not "1". Futura Bold.
+4. **Two-digit section numbering.** Always "01" not "1". Futura Bold. Numbers appear on dividers and the TOC only; content slides carry a red eyebrow label instead (v3.1).
 5. **Mix the rhythm.** A good content slide has 2-3 different text formats running through it. Mix fonts (Futura headers, Avenir body), weights (bold key terms inside running prose), color (one teal phrase per paragraph), and bullet styles. A bad slide has eight identical rows.
 
 ---
@@ -249,16 +250,16 @@ Three lockups. Black on light, white on dark. Never recolor.
 |--------|----------|---------|
 | **Horizontal lockup** | 120px wide on screen | Default. TOC slide right-center (~2.5" wide), footers, signatures. |
 | **Circular badge** | 48px wide | Profile photos, app icons, sticker moments. |
-| **Bird mark** | 24px wide | Watermarks, content slide bottom-right corner, tight contexts. |
+| **Bird mark** | 24px wide | Watermarks, badges, tight contexts. |
 
 ### Logo placement on decks
 
 - **Cover slide:** No logo. The project/client name does the work.
-- **TOC slide:** Horizontal lockup, right-center area, ~2.5" wide.
-- **Every content slide:** Bird mark in bottom-right corner, ~0.32" tall, opacity ~0.9.
+- **TOC / Agenda slide:** Horizontal lockup, right-center area, ~2.5-2.9" wide. The deck's one logo moment.
+- **Content slides:** No logo (v3.1). The corner bird mark is retired: its mandated geometry collided with the Layout F2 band, and a logo on every slide reads as insecurity, not presence.
 - **Closing slide:** No logo. Just "Thank you" centered.
 
-The pattern is bird mark = quiet brand presence on the most-used layout; horizontal lockup = louder statement, used sparingly.
+The pattern is one logo home per deck: the horizontal lockup on the TOC/Agenda. The bird mark stays in the kit for watermarks, badges, and favicons.
 
 ### Canonical asset files (v3.0)
 
@@ -269,11 +270,11 @@ All lockups live in the repo at `assets/logos/` and are bundled inside this skil
 | `bb-horizontal-lockup.png` / `_white.png` | Horizontal lockup, 820x312 | TOC right-center at ~2.5" wide |
 | `bb-circular-badge.png` / `_white.png` | Circular badge, 800x800 | Profile photos, favicons, stickers |
 | `bb-bird-mark.png` / `_white.png` | Bird mark on full 1148x774 canvas | Watermarks, large placements |
-| `bb-bird-mark-deck.png` | Bird mark, tight crop 633x597 (aspect 1.06) | The content-slide corner mark |
+| `bb-bird-mark-deck.png` | Bird mark, tight crop 633x597 (aspect 1.06) | Watermarks, badges (corner-mark use retired v3.1) |
 | `bb-bird-mark-deck-faded.png` | Same crop with 90% alpha baked in | Use in python-pptx, which cannot set picture opacity |
-| `bb-bird-mark-deck_white.png` | White tight crop | Corner mark on sanctioned dark content layouts |
+| `bb-bird-mark-deck_white.png` | White tight crop | Dark-ground watermarks and badges |
 
-Corner-mark geometry on the 10.00" x 5.625" slide: height 0.32", width 0.34" (preserve the 1.06 aspect; the old padded file forced a squish at w=0.40), x=9.34", y=5.05".
+(Retired v3.1) The corner-mark geometry — 0.34" x 0.32" at x=9.34", y=5.05" — is kept here for reading historical decks only. New decks place no corner mark.
 
 ### Logo rules
 
@@ -323,11 +324,10 @@ For decks: prefer the surface-contrast (FAFAFA page + FFFFFF cards) over shadows
 ### Global Structure (every white content slide)
 
 ```
-y=0.28"  Section number ("01") — Futura 13pt, teal
+y=0.28"  Eyebrow label ("WEEKLY · GOOGLE BRAND") — Futura Bold 10pt, red, all caps, tracked (v3.1)
 y=0.55"  Page title — Futura 24pt, black
 y=1.10-1.22"  Content area begins
 y=5.53"  Bottom accent bar — teal, full width, 0.10" tall
-bottom-right Bird mark in corner — ~0.32" tall, opacity ~0.9
 ```
 
 Left margin (text): **0.45"**
@@ -345,7 +345,6 @@ The default content slide. Image left, text right.
   - `ts-header` (Avenir Bold, 18pt, black) at top
   - 2-4 short body paragraphs (Avenir 13pt, slate-800)
   - **Bold key terms** within running prose for emphasis
-- Bird mark in bottom-right corner
 
 ### Layout B: Two-Column Cards (2x2 Grid)
 
@@ -387,12 +386,23 @@ Two parallel columns of numbered items, outlined and tinted.
 
 ### Layout F: Data Table
 
-- Header row: Teal `008C95` fill, white text, Futura Bold 10pt
+- Header row: white text, Futura Bold 10pt. **Header fill is channel-coded in multi-channel reporting decks (v3.1):** Teal `008C95` = Google (primary channel), Slate-800 `1E293B` = LinkedIn, Slate-500 `64748B` = Reddit and tertiary channels. One fill per channel, held consistent across weekly, monthly, and deep-dive sections, so a reader can place any table by header color alone. Single-channel decks keep teal.
 - Data rows: alternating `FFFFFF` and `F8FAFC` (slate-50)
-- Highlighted row: teal-100 (`CFEEF0`) fill, or teal left-edge accent (0.06" wide)
-- The key cell gets a teal left-edge accent, bold weight, or teal-100 fill — something that says "this is the point"
-- Row height: 0.44"
+- Highlighted row (latest period): teal-50 fill plus a teal left-edge accent (0.06" wide) placed just outside the table edge so it never crowds the row label
+- Delta / total row: slate-200 `E2E8F0` fill, bold
+- The key cell gets bold weight, or red `862633` when it is the flagged regression — something that says "this is the point"
+- Row height: 0.44" (compress to ~0.24-0.32" for reporting tables of 8+ rows)
 - Footer: 9pt Avenir, slate-500
+- **A reporting table never ships alone (v3.1).** Pair it with the narrative + mini-trend band (Layout F2). Discussion-notes boxes are retired.
+
+### Layout F2: Narrative + Mini-Trend Band (v3.1)
+
+The standard bottom band under any reporting table. Two cards side by side:
+
+- **Narrative card (left, ~5.5" wide):** label "WHAT THE NUMBERS SAY" (Futura Bold 9pt, slate, tracked), then 2-3 sentences of Avenir 9.5pt running prose interpreting the table in business language. Mix the rhythm: bold key figures in dark slate, one teal phrase per paragraph (teal-600 for AA at small sizes), red only for the flagged regression.
+- **Mini-trend card (right, ~3.55" wide):** label names the salient metric ("DEMOS BY WEEK"). Shape-built vertical bars, one per period: prior periods slate-300 `CBD5E1`, latest period teal — or red when the latest period is the problem the narrative flags. Latest value labeled above its bar (Avenir Bold 7.5pt, same color); period ticks below (6.5pt, slate). Bars scale from zero; never truncate the axis to inflate variation.
+- Both cards take the standard white card treatment: slate-200 outline, 10px radius, no top bars.
+- This pair replaces the v2-era "DISCUSSION NOTES" box, which is retired deck-wide. Empty note boxes read as unfinished slides and spend the deck's best real estate on nothing.
 
 ### Layout G: Photo Section Divider
 
@@ -497,6 +507,17 @@ Used for case studies, key findings, executive callouts. Two emphasis surfaces, 
 
 ---
 
+### Layout P: Performance Trend (line chart by channel) (v3.1)
+
+The high-level reporting view: one line chart, months on the x-axis, one series per channel or campaign, for spend, CPA, or ROAS.
+
+- Works light or dark. Light: chart sits in a card-like panel (slate-200 outline, 0.10" radius). Dark (`0D0D0D`): chart floats on the ground, gridlines `2A2A2A`.
+- Series colors: light = teal, slate-500, black; dark = white, teal, slate-300. **Three series max**; a fourth means split the slide.
+- Currency axes carry the unit (`$#,##0` format code). Months abbreviated.
+- **Exclude partial periods (MTD) from trend lines** and say so in a footnote. A partial month fakes an inflection.
+- Title states the finding ("Demo CPA converged to $369-$437 in May"); a narrative panel right or below interprets in business language per Layout F2 rules.
+- Annotate the inflection that matters directly on the chart where the tooling allows; otherwise bold it in the narrative.
+
 ## 6. Signature Motifs
 
 Five small marks that make a page read as Blackbird.
@@ -562,7 +583,7 @@ Bold uppercase headline (Futura Bold 18pt) with a thin matching colored line ben
 
 **Consistency:** If one item in a grid has an icon, all do. If one is black, all are black (default); if one is teal, all are teal. One color per grid.
 
-**Container:** Bare on white cards. Optional filled-circle treatment (teal-500 circle with white icon) for hero rows — pick one or the other across the deck, never both in the same deck.
+**Container:** Bare on white cards. Optional filled-circle treatment (black `000000` circle with white glyph) for hero rows — pick one or the other across the deck, never both in the same deck. (v3.1: filled circles moved from teal to black. Teal circles competed with the headline color hierarchy and read as buttons; black sits in the display-anchor role it already owns.)
 
 ### Implementation in pptxgenjs
 
@@ -600,6 +621,16 @@ For grids that need icons but want simpler implementation, use a line-stroke tea
 3. **Annotate, do not decorate.** Label inflection points directly on charts (Avenir 9pt, teal or slate-700).
 
 Plus: **ask if every number pushes the narrative.** Five stats on one slide make four of them noise.
+
+### Pie / Donut Charts (v3.1)
+
+Sanctioned when composition is the single point of the visual: share of spend, share of conversions, budget mix.
+
+- Donut preferred over pie; put the total in the hole (Futura Bold, teal).
+- Six slices max; bucket the tail into "Other". If two slices are within a few points and that comparison matters, use bars — angles hide small differences.
+- Colors: teal-500 for the lead slice, then the slate ramp (slate-400, slate-300, slate-200) descending by size. Red only if one slice is the flagged problem.
+- Label slices with name + % (Avenir 9pt). No 3D, no exploded slices, no more than one composition chart per slide.
+- Recurring composition belongs in a table, not a parade of pies.
 
 ### Data Callout Pattern
 
@@ -705,9 +736,9 @@ Cover (H, no logo)
 > Closing (J, "Thank you" only)
 ```
 
-Section numbers: "01" through N, two-digit. Appears on divider slide (88pt), content slide top-left (13pt), and TOC cards.
+Section numbers: "01" through N, two-digit. Appears on divider slides (88pt) and TOC cards only. Content slides carry a red eyebrow label instead -- Futura Bold 10pt, all caps, tracked, naming section and subject: "WEEKLY · GOOGLE BRAND" (v3.1).
 
-Bird mark in bottom-right corner of every content slide. Skipped on cover, dividers, quote interstitials, and closing.
+No corner mark on content slides (retired v3.1). The Agenda/TOC lockup is the deck's only logo placement.
 
 ---
 
@@ -804,31 +835,23 @@ function addBottomBar(slide, pres) {
   });
 }
 
-// Section number + page title header
-function addSectionHeader(slide, number, title) {
-  slide.addText(number, {
-    x: 0.45, y: 0.28, w: 1.0, h: 0.30,
-    fontFace: FONT_HEADLINE, fontSize: 13,
-    color: COLORS.TEAL, bold: true, margin: 0,
+// Eyebrow + page title header (v3.1 -- content slides carry no section number)
+function addContentHeader(slide, eyebrow, title) {
+  slide.addText(eyebrow.toUpperCase(), {
+    x: 0.45, y: 0.30, w: 9.10, h: 0.24,
+    fontFace: FONT_HEADLINE, fontSize: 10,
+    color: COLORS.RED, bold: true, charSpacing: 2, margin: 0,
   });
+  // valign top so a two-line title grows down, never up into the eyebrow
   slide.addText(title, {
-    x: 0.45, y: 0.55, w: 8.50, h: 0.50,
-    fontFace: FONT_HEADLINE, fontSize: 24,
-    color: COLORS.BLACK, bold: true, margin: 0,
+    x: 0.45, y: 0.58, w: 9.10, h: 0.50,
+    fontFace: FONT_HEADLINE, fontSize: title.length > 44 ? 19 : 24,
+    color: COLORS.BLACK, bold: true, margin: 0, valign: 'top',
   });
 }
 
-// Bird mark in bottom-right corner (every content slide)
-// v3.0: use the canonical tight crop. The old padded 1148x774 file at w=0.40
-// both squished the mark (true aspect is 1.06, not 1.25) and rendered the
-// visible bird smaller than spec because of canvas padding.
-function addBirdMarkCorner(slide, pres) {
-  slide.addImage({
-    path: "assets/bb-bird-mark-deck.png",
-    x: 9.34, y: 5.05, w: 0.34, h: 0.32,
-    transparency: 10,  // pptxgenjs supports 0-100 on addImage
-  });
-}
+// Corner bird mark: retired in v3.1. Content slides carry no logo; the
+// Agenda/TOC horizontal lockup is the deck's single logo placement.
 
 // Card on FAFAFA surface — white fill, slate-200 outline, 10px radius.
 // NO top-edge bar (v2.1 rule: no bars on cards, ever). The card stands on its outline alone.
@@ -998,15 +1021,8 @@ SURFACE   = RGBColor(0xFA, 0xFA, 0xFA)
 
 SLIDE_W, SLIDE_H = Inches(10.0), Inches(5.625)
 
-def add_bird_mark_corner(slide):
-    """Bird mark, bottom-right of every content slide.
-    Skipped on cover, dividers, quote interstitials, and closing.
-    python-pptx cannot set picture transparency, so the asset itself
-    carries the 90% alpha (bb-bird-mark-deck-faded.png)."""
-    slide.shapes.add_picture(
-        "assets/bb-bird-mark-deck-faded.png",
-        left=Inches(9.34), top=Inches(5.05), height=Inches(0.32),
-    )  # width follows the 1.06 aspect automatically: ~0.34"
+# Corner bird mark: retired in v3.1 — content slides carry no logo.
+# bb-bird-mark-deck-faded.png remains in assets/ for watermark use.
 
 def add_bottom_accent_bar(slide):
     """Full-width teal bar, 0.10\" tall, on every white content slide."""
@@ -1072,15 +1088,16 @@ Final-pass review. Walk every slide top-to-bottom against this list before the d
 |-------|-----------------|
 | **Color budget** | Each slide reads as ~50-55% surface, 12-15% teal, 12-18% red, 12-15% slate, 5-7% black, 5-8% dark slate. No seventh hex. |
 | **Cards** | No top-edge bars. White cards have a slate-200 outline; tinted cards use matching teal-200 or red-200 borders. |
-| **Bar + dot motif** | Maximum one per slide. Roughly 1 in 3-4 slides across the deck. Never inside a container. |
+| **Bar + dot motif** | Maximum one per slide. Roughly 1 in 3-4 slides across the deck. Never inside a container. Dot is a flat fill -- never ringed or outlined. |
 | **Titles** | Each carries the conclusion, not the topic. Scan-only readers should follow the argument. |
 | **Images** | Check every image for stretching, squishing, or skew. Aspect ratios preserved. Spacing around images consistent slide-to-slide. No image touches a slide edge unless it's a full-bleed cover or divider. |
 | **Spacing** | Margins consistent across slides. Card padding matches the spec. No element jammed against another or floating in dead space. |
-| **Icons** | One color per grid — either all teal or all black. Line stroke only, 1.5px, no fill. If one card has an icon, all cards in that grid have icons. |
+| **Icons** | One color per grid — either all teal or all black. Line stroke only, 1.5px, no fill. If one card has an icon, all cards in that grid have icons. Filled-circle containers are black with white glyphs. |
 | **Dark rhythm** | One dark slide every 3-5 slides. Section ground is off-black `0D0D0D` by default (Core Five anchor) or slate-500 `64748B` for warm emphasis — never pure black `000000`, never slate-800 `1E293B`. Dark cards may be neutral `1C1C1C`/`222222` or cool slate-800 `1E293B`. |
 | **Fonts** | Futura and Avenir embedded in shared .pptx files. Cross-platform fallbacks set. |
-| **Logo placement** | Bird mark in bottom-right of every content slide. No logo on cover or closing. Horizontal lockup reserved for TOC. |
+| **Logo placement** | One logo per deck: horizontal lockup on the Agenda/TOC. No corner marks on content slides (retired v3.1). No logo on cover or closing. |
 | **Numbers** | Every stat advances the argument. Cut interesting-but-irrelevant. Sources cited where claimed. |
+| **Tables** | Header fills channel-coded (teal = Google, slate-800 = LinkedIn, slate-500 = Reddit). Every reporting table pairs with the narrative + mini-trend band (F2). No empty notes boxes anywhere in the deck. |
 | **Voice** | No hype words ("revolutionary", "best-in-class", "passionate"). Declarative sentences. No exclamation marks. |
 
 ---
@@ -1100,20 +1117,39 @@ Final-pass review. Walk every slide top-to-bottom against this list before the d
 11. **Teal outline on a teal-tinted card.** Tinted cards (teal-50 background) use teal-200 borders, not slate-200. Match the tint family. Same for red.
 12. **Mixed-color icons in a grid.** If one icon is teal and another is black in the same grid, it looks like a mistake. Pick one color per grid.
 13. **Card-like containers with non-10px radii.** Every visually card-shaped element — stat cards, callouts (teal-50/red-50 and solid), dark emphasis containers, roadmap step cards, image panels in slide mockups — uses 0.10" radius. Don't use 4px or 6px on anything card-like. The eye registers radius inconsistencies as carelessness before it registers them as variety.
-14. **Logo on cover or closing.** Cover and closing carry no logo. TOC carries the horizontal lockup. Every other content slide carries the bird mark in the bottom-right corner.
-15. **Filling chart with multiple colors.** Three series max: Teal, Slate, Black. More series = data density problem.
+14. **Logo on cover, closing, or content slides.** The Agenda/TOC carries the horizontal lockup; nothing else carries a logo. The per-slide corner bird mark was retired in v3.1 after its geometry collided with the Layout F2 band.
+15. **Filling chart with multiple colors.** Three series max for lines and bars: Teal, Slate, Black. More series = data density problem. Donut slices may walk down the slate ramp (see Pie / Donut rules).
 16. **Skipping font embed when sharing.** Always embed Futura and Avenir in shared `.pptx` files. ~200KB cost.
 17. **Two solid color callouts on one slide.** Use Layout M once per slide max.
 18. **Roadmap with 6+ steps.** 3-5 only. More is a checklist (Layout K), not a roadmap.
+19. **Empty "discussion notes" boxes on data slides (v3.1).** Retired. A blank box reads as an unfinished slide. Use the narrative + mini-trend band (Layout F2): interpret the numbers in business language and show the salient trend.
+20. **Ringing the red dot (v3.1).** No white outline on the bar+dot's dot, on any ground. Fix dim dots by adjusting the photo overlay, not by decorating the signature.
+21. **Section numbers on content slides (v3.1).** Numbers belong to dividers and the TOC. Content slides carry the red eyebrow label.
 
 ---
 
 ## Changelog
 
-**v3.1 (June 2026)** — red co-accent + text role, black icons, bigger photo library
+**v3.2 (July 2026)** — fork merge
+- **Merges the two v3.1 lines that developed in parallel, both calling themselves system 3.1.0.** The deck fork (June 11, deployed as the working skill but never pushed to the repo) and the repo fork (June 24, pushed but never deployed). v3.2 carries both change sets.
+- **Conflicts resolved toward the deliberate decision.** Red is a co-accent at 12-18% with the sanctioned text role (supersedes the 8-10% framing the deck fork inherited from v3.0). Icons default to black with teal opt-in (formalizing what the deck fork's black filled circles implied). Content slides keep the red eyebrow, not the teal section number. The corner bird mark stays retired.
+- Known gap: the styleguide's ten-frame slide gallery still renders v3.0 content-slide chrome (teal section number, corner mark). Refresh queued.
+
+**v3.1, repo fork (June 24, 2026)** — red co-accent + text role, black icons, bigger photo library
 - **Red is now a full co-accent (12-18%) and a sanctioned text color.** Red `862633` on `FAFAFA` is ~8.3:1, passing WCAG AA at any size, so red is legal for headlines, eyebrows, key stats, and pull quotes. The old "second accent, 8-10%, avoid long runs" framing is replaced: red can carry more of the page. The one guardrail that stays: not for long body runs, and never a full content background. The bar+dot signature is unchanged.
 - **Icons default to black.** Line icons now stroke in off-black `0D0D0D` by default on light grounds; teal is an opt-in accent stroke, not the default. Icons read as content, not decoration. New icons added to the set (growth, trends, insight, velocity, performance, audience, message, trust, budget).
 - **Photography library grown to 24 cleared images** (14 SF nightscapes, 10 corvids), each with a `PHOTOS.md` manifest row. Nightscape-only rule unchanged: dusk/after-dark/atmospheric/low-key, no daylight, no AI-generated.
+
+**v3.1, deck fork (June 11, 2026)** — reporting-deck refinements from the Customer.io weekly agenda build
+- **Content slides drop the section number for a red eyebrow.** Futura Bold 10pt, all caps, ~2pt tracking, naming section and subject ("WEEKLY · GOOGLE BRAND"). Two-digit numbers remain on dividers (88pt) and TOC cards. Rationale: the 13pt teal number on every content slide repeated information the divider already carried, and the eyebrow slot does double duty as the red color budget's workhorse.
+- **Data-table headers are channel-coded.** Teal `008C95` = Google, slate-800 `1E293B` = LinkedIn, slate-500 `64748B` = Reddit/tertiary. Held consistent across weekly, monthly, and deep-dive sections so header color alone places the table.
+- **Discussion-notes boxes retired; Layout F2 added.** Every reporting table pairs with a narrative card ("WHAT THE NUMBERS SAY", mixed bold/teal/red runs in business language) and a mini-trend card (shape-built bars, prior periods slate-300, latest period teal or red, latest value labeled). Empty note boxes read as unfinished slides.
+- **Filled icon circles are black, not teal.** Teal circles competed with the headline hierarchy and read as buttons. Line-stroke icon guidance unchanged.
+- **The red dot is never outlined.** Flat `862633` fill on every ground. Dim-on-dark is an overlay problem, not a dot problem.
+- **Corner bird mark retired.** Its mandated geometry (x=9.34", y=5.05") collided with the Layout F2 band, and a per-slide logo reads as insecurity. One logo home per deck: the horizontal lockup on the Agenda/TOC.
+- **Layout P added: Performance Trend.** Line chart by channel by month for spend, CPA, or ROAS. Three series max, currency-formatted axes, partial months excluded from trends.
+- **Pie/donut charts sanctioned** for composition-only stories: donut preferred, total in the hole, six slices max, teal lead + slate ramp, no 3D.
+- Reference implementation: the Customer.io weekly agenda generator (`build_deck_v3.js`, kept with the deck, not in this repo).
 
 **v3.0 (June 2026)** — assets shipped, single system version
 - **Single system version.** The repo `VERSION` file (3.0.0) now governs both the styleguide (`index.html`) and this skill. The two-number era (site v2.1, skill v2.8) ends here; CI fails the build if either artifact drops the shared version.
