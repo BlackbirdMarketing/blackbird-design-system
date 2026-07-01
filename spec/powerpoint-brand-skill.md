@@ -1,11 +1,11 @@
 ---
 name: blackbird-pptx-brand
-description: "Blackbird PPC PowerPoint brand guidelines (v3.2, July 2026). Use this skill whenever creating, editing, or reviewing a PowerPoint presentation for Blackbird PPC or any Blackbird client deliverable. Triggers include: any request to make a deck, slides, or presentation mentioning Blackbird; any pptx creation where the user is Jay or a Blackbird team member (Hillary, Thomas, Gabby, Jack); any request to 'make it on-brand' or 'use our brand' in a presentation context; any request referencing 'our deck style' or 'Blackbird template'. This skill defines Blackbird's identity layer (mission, pillars), color system, typography, layout patterns, slide anatomy, voice, and a pre-ship checklist for slide decks. Always read this skill BEFORE the general pptx skill when both apply. If this skill conflicts with the general pptx skill, this skill wins."
+description: "Blackbird PPC PowerPoint brand guidelines (v3.2.1, July 2026). Use this skill whenever creating, editing, or reviewing a PowerPoint presentation for Blackbird PPC or any Blackbird client deliverable. Triggers include: any request to make a deck, slides, or presentation mentioning Blackbird; any pptx creation where the user is Jay or a Blackbird team member (Hillary, Thomas, Gabby, Jack); any request to 'make it on-brand' or 'use our brand' in a presentation context; any request referencing 'our deck style' or 'Blackbird template'. This skill defines Blackbird's identity layer (mission, pillars), color system, typography, layout patterns, slide anatomy, voice, and a pre-ship checklist for slide decks. Always read this skill BEFORE the general pptx skill when both apply. If this skill conflicts with the general pptx skill, this skill wins."
 ---
 
-# Blackbird PPC -- PowerPoint Brand Guidelines (v3.2)
+# Blackbird PPC -- PowerPoint Brand Guidelines (v3.2.1)
 
-Source of truth: the `blackbird-design-system` repo, system version 3.2.0 (see `VERSION` at repo root). The styleguide (`index.html`) and this skill now carry one shared version number. **v3.2 (July 2026) merges the two v3.1 forks into one line; see the changelog.** **v3.1 (June 2026), both forks combined: content slides replace the 13pt teal section number with a red eyebrow label (numbers live on dividers and the TOC only); data-table header fills are channel-coded (teal = Google, slate-800 = LinkedIn, slate-500 = Reddit); discussion-notes boxes are retired -- every reporting table pairs with a narrative + mini-trend band (Layout F2); filled icon circles are black, not teal; the bar+dot's red dot is never outlined; red is promoted to a full co-accent (12-18%) and a sanctioned text color; icons default to black with an expanded set; the photography library grows to 24 cleared images.** **v3.0 ships canonical assets: the logo pack (`assets/logos/`) and the cleared photography library (`assets/photography/` + `PHOTOS.md`), plus a python-pptx implementation appendix.** **v2.8 relabels slate as structure, not a brand color (teal and red are the only brand colors).** **v2.7 adds Dark Slate `1E293B` as the sixth Core anchor** — the reading-text and cool-dark-card color, kept distinct from Black `000000`, which stays display-only (headlines, max-contrast marks, small UI). **v2.6 settled the dark-surface question across the deck skill, the design-system HTML, and the live site.** One dark section ground: off-black `0D0D0D` (default) or slate-500 `64748B` for warm/structural emphasis — both Core anchors. Pure black `000000` is text/UI only and is **never a section surface**. Slate-800 `1E293B` is now a **sanctioned cool dark-card token** (card on a dark ground), but is **never a full-bleed section ground**. Cards on a dark ground: neutral `1C1C1C`/`222222`, or cool slate-800 `1E293B` (white text). v2.5 had removed slate-800 from every surface; v2.6 brings it back for cards only, to legalize the live site's dark cards without blessing pure-black grounds. v2.4 closed the "no top-edge bars on cards" rule. v2.3 enforces 10px radius on every card-like container. When the general pptx skill conflicts with anything here, these rules override.
+Source of truth: the `blackbird-design-system` repo, system version 3.2.1 (see `VERSION` at repo root). The styleguide (`index.html`) and this skill now carry one shared version number. **v3.2.1 (July 2026): section numbers live on dividers only -- TOC cards are unnumbered; the styleguide gallery and prose are synced to current chrome.** **v3.2 (July 2026) merges the two v3.1 forks into one line; see the changelog.** **v3.1 (June 2026), both forks combined: content slides replace the 13pt teal section number with a red eyebrow label (numbers live on dividers and the TOC only); data-table header fills are channel-coded (teal = Google, slate-800 = LinkedIn, slate-500 = Reddit); discussion-notes boxes are retired -- every reporting table pairs with a narrative + mini-trend band (Layout F2); filled icon circles are black, not teal; the bar+dot's red dot is never outlined; red is promoted to a full co-accent (12-18%) and a sanctioned text color; icons default to black with an expanded set; the photography library grows to 24 cleared images.** **v3.0 ships canonical assets: the logo pack (`assets/logos/`) and the cleared photography library (`assets/photography/` + `PHOTOS.md`), plus a python-pptx implementation appendix.** **v2.8 relabels slate as structure, not a brand color (teal and red are the only brand colors).** **v2.7 adds Dark Slate `1E293B` as the sixth Core anchor** — the reading-text and cool-dark-card color, kept distinct from Black `000000`, which stays display-only (headlines, max-contrast marks, small UI). **v2.6 settled the dark-surface question across the deck skill, the design-system HTML, and the live site.** One dark section ground: off-black `0D0D0D` (default) or slate-500 `64748B` for warm/structural emphasis — both Core anchors. Pure black `000000` is text/UI only and is **never a section surface**. Slate-800 `1E293B` is now a **sanctioned cool dark-card token** (card on a dark ground), but is **never a full-bleed section ground**. Cards on a dark ground: neutral `1C1C1C`/`222222`, or cool slate-800 `1E293B` (white text). v2.5 had removed slate-800 from every surface; v2.6 brings it back for cards only, to legalize the live site's dark cards without blessing pure-black grounds. v2.4 closed the "no top-edge bars on cards" rule. v2.3 enforces 10px radius on every card-like container. When the general pptx skill conflicts with anything here, these rules override.
 
 ## Quick Reference
 
@@ -237,7 +237,7 @@ function addTealBarRedDot(slide, pres, x, y, barWidth) {
 1. **Left-align everything.** Three exceptions only: cover slide, quote interstitial, and roadmap card text (component-scoped exception).
 2. **No underlines.** Emphasis through weight or color, never underlines. Two motif exceptions: the teal bar+red dot signature and the section-header underline (matches headline width).
 3. **Futura for hierarchy, Avenir for reading.** Heading/label/category = Futura. Paragraph/description = Avenir.
-4. **Two-digit section numbering.** Always "01" not "1". Futura Bold. Numbers appear on dividers and the TOC only; content slides carry a red eyebrow label instead (v3.1).
+4. **Two-digit section numbering.** Always "01" not "1". Futura Bold. Numbers appear on section dividers only -- TOC cards are unnumbered (v3.2.1); content slides carry a red eyebrow label instead (v3.1).
 5. **Mix the rhythm.** A good content slide has 2-3 different text formats running through it. Mix fonts (Futura headers, Avenir body), weights (bold key terms inside running prose), color (one teal phrase per paragraph), and bullet styles. A bad slide has eight identical rows.
 
 ---
@@ -361,6 +361,7 @@ Used on Executive Summary, capabilities grids.
 ### Layout C: Three-Column Cards (3x2 Grid)
 
 Used on Contents (TOC), Services.
+- TOC cards are unnumbered (v3.2.1): title + description only; the divider owns the section number.
 - Three columns, each 3.00" wide at x=0.38", x=3.60", x=6.82"
 - Same card styling as B
 - Internal text width 2.65-2.70"
@@ -736,7 +737,7 @@ Cover (H, no logo)
 > Closing (J, "Thank you" only)
 ```
 
-Section numbers: "01" through N, two-digit. Appears on divider slides (88pt) and TOC cards only. Content slides carry a red eyebrow label instead -- Futura Bold 10pt, all caps, tracked, naming section and subject: "WEEKLY · GOOGLE BRAND" (v3.1).
+Section numbers: "01" through N, two-digit. Appears on divider slides (88pt) only; TOC cards are unnumbered (v3.2.1). Content slides carry a red eyebrow label instead -- Futura Bold 10pt, all caps, tracked, naming section and subject: "WEEKLY · GOOGLE BRAND" (v3.1).
 
 No corner mark on content slides (retired v3.1). The Agenda/TOC lockup is the deck's only logo placement.
 
@@ -1124,11 +1125,16 @@ Final-pass review. Walk every slide top-to-bottom against this list before the d
 18. **Roadmap with 6+ steps.** 3-5 only. More is a checklist (Layout K), not a roadmap.
 19. **Empty "discussion notes" boxes on data slides (v3.1).** Retired. A blank box reads as an unfinished slide. Use the narrative + mini-trend band (Layout F2): interpret the numbers in business language and show the salient trend.
 20. **Ringing the red dot (v3.1).** No white outline on the bar+dot's dot, on any ground. Fix dim dots by adjusting the photo overlay, not by decorating the signature.
-21. **Section numbers on content slides (v3.1).** Numbers belong to dividers and the TOC. Content slides carry the red eyebrow label.
+21. **Section numbers anywhere but dividers (v3.2.1).** The 88pt divider number is the only section number in the deck; TOC cards are unnumbered. Content slides carry the red eyebrow label.
 
 ---
 
 ## Changelog
+
+**v3.2.1 (July 2026)** — numbers on dividers only (founder call); styleguide de-staled
+- **TOC cards are unnumbered.** The section number now lives in exactly one place: the 88pt teal number on photo dividers. The TOC's two-digit labels repeated the divider and kept indices in a corner the system had just cleaned. Ships as system 3.2.1 (from 3.2.0).
+- **Styleguide gallery refreshed to current chrome.** The ten-frame gallery still showed v3.0 anatomy — teal corner section numbers and corner bird marks on content frames, numbered TOC rows. Content frames now carry the red eyebrow, corner marks are gone everywhere, and the TOC frame is unnumbered.
+- **index.html prose synced to the spec.** The logo section still mandated a per-slide corner bird mark, and the red sections still read "second accent, 8-10%" — stale since the v3.1 repo fork updated tokens but not prose. Both now match: no content-slide logo; red as 12-18% co-accent and sanctioned text color.
 
 **v3.2 (July 2026)** — fork merge
 - **Merges the two v3.1 lines that developed in parallel, both calling themselves system 3.1.0.** The deck fork (June 11, deployed as the working skill but never pushed to the repo) and the repo fork (June 24, pushed but never deployed). v3.2 carries both change sets.
