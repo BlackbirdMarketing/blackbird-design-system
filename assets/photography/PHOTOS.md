@@ -1,6 +1,6 @@
 # Photography Manifest
 
-Every image in this folder, its source, photographer, and license. Nothing ships in a client deck without a row here.
+Every image in this folder, its source, photographer, and license. Every image used in a client deck must have a row in this manifest.
 All new v3.0 additions are CC0, Public Domain Mark, or CC BY 2.0. CC BY requires photographer credit; satisfy it by keeping this manifest in the repo and crediting in deck appendices when an image is used externally.
 
 | File | Subject | Photographer | License | Source |

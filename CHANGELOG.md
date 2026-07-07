@@ -2,6 +2,16 @@
 
 Repo-level history. The spec keeps its own detailed changelog in `spec/powerpoint-brand-skill.md`.
 
+## 3.3.0 (July 2026)
+
+- Plain-language voice overhaul (founder call). Em dashes are banned in all deck copy and in every file in this repo; the sweep removed them from the spec, index.html, tokens.css, and all docs.
+- Spec Section 9 (Voice) rewritten: 13 principles, including no em dashes, complete ordinary sentences, no aphorisms, no personification, no second-person sales hooks, no manufactured candor, and no invented quotes. Voice examples replaced with plain reporting statements; the Don't list now carries the founder's flagged examples.
+- Layout I (quote interstitial) now requires a real quote from a named person or cited source, attributed with name, title, and organization. No real quote means no quote slide; use Layout O with a stated finding instead.
+- Conclusion-style slide titles kept, with guardrails: a title is a statement of fact with a subject and a verb. No imperatives, no second person, no questions as hooks, no inverted-promise framing.
+- Mission wording changed from "tell the truth about what is working" to "report what is working and what is not."
+- Pre-Ship Checklist rows for Titles and Voice expanded; Common Mistakes 22-24 added (em dashes, invented quotes, slogan copy).
+- Styleguide (index.html) prose swept to match: hero, section titles, voice examples, and the slide-gallery quote (now an attributed-client placeholder).
+
 ## 3.2.1 (July 2026)
 
 - Section numbers live on dividers only (founder call): TOC cards are unnumbered; content slides already carried the red eyebrow. The 88pt divider number is the deck's only section number.

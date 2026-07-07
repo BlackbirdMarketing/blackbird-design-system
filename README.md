@@ -24,7 +24,7 @@ The main artifact is [`index.html`](index.html), a self-contained styleguide you
 
 **One signature.** The teal bar with the red dot. Maximum once per page.
 
-**One hard rule.** No bars on cards. Ever. Cards stand on their outline alone.
+**One hard rule.** No bars on cards, no exceptions. Cards stand on their outline alone.
 
 ## What is in this repo
 

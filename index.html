@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Blackbird PPC Design System v3.2.1</title>
-<meta name="description" content="The Blackbird PPC design system. Six tokens, two fonts, one signature. Colors, typography, logo, motifs, imagery, slide layouts, and code in one versioned styleguide." />
+<title>Blackbird PPC Design System v3.3.0</title>
+<meta name="description" content="The Blackbird PPC design system: colors, typography, logo, motifs, imagery, slide layouts, and code in one versioned styleguide." />
 <link rel="icon" type="image/png" sizes="48x48" href="assets/meta/favicon-48.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/meta/favicon-32.png" />
 <link rel="apple-touch-icon" href="assets/meta/apple-touch-icon.png" />
-<meta property="og:title" content="Blackbird PPC Design System v3.2.1" />
-<meta property="og:description" content="White first. Teal carries. Slate frames. Red signals. The single source of truth for the Blackbird PPC brand." />
+<meta property="og:title" content="Blackbird PPC Design System v3.3.0" />
+<meta property="og:description" content="The single source of truth for the Blackbird PPC brand: six color tokens, two fonts, one signature motif." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="assets/meta/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -19,33 +19,33 @@
 <style>
   /* ===== PRIMITIVES ===== */
   :root{
-    /* Teal (brand accent) — anchored on Blackbird Teal #008C95 at 500 */
+    /* Teal (brand accent): anchored on Blackbird Teal #008C95 at 500 */
     --teal-50:  #ecf7f8;
     --teal-100: #cfeef0;
     --teal-200: #a0dce0;
     --teal-300: #6ec6cb;
     --teal-400: #36aab1;
-    --teal-500: #008c95;   /* BRAND ACCENT — Blackbird Teal */
+    --teal-500: #008c95;   /* BRAND ACCENT, Blackbird Teal */
     --teal-600: #007078;
     --teal-700: #00565d;
     --teal-800: #003e43;
     --teal-900: #00282c;
     --teal-950: #001316;
 
-    /* Red (signal) — anchored on Blackbird Red #862633 at 500 */
+    /* Red (signal): anchored on Blackbird Red #862633 at 500 */
     --red-50:  #f8e9ec;
     --red-100: #efc9cf;
     --red-200: #dd9aa3;
     --red-300: #c96872;
     --red-400: #b14250;
-    --red-500: #862633;    /* SIGNAL — Blackbird Red */
+    --red-500: #862633;    /* SIGNAL, Blackbird Red */
     --red-600: #6e1f2a;
     --red-700: #561821;
     --red-800: #3e1118;
     --red-900: #260a0f;
     --red-950: #160508;
 
-    /* Neutrals — cool slate. Harmonizes with brand teal. */
+    /* Neutrals, cool slate. Harmonizes with brand teal. */
     --neutral-50:  #f8fafc;
     --neutral-100: #f1f5f9;
     --neutral-200: #e2e8f0;
@@ -56,13 +56,13 @@
     --neutral-700: #334155;
     --neutral-800: #1e293b;
     --neutral-900: #0f172a;
-    --neutral-950: #000000;   /* Black — brand anchor */
+    --neutral-950: #000000;   /* Black, brand anchor */
 
     /* Dark slide surfaces */
-    --dark-bg:    #0d0d0d;    /* Off-black — the dark SECTION ground (pure black #000000 is text/UI only, never a surface) */
+    --dark-bg:    #0d0d0d;    /* Off-black: the dark SECTION ground (pure black #000000 is text/UI only, never a surface) */
     --dark-card1: #1c1c1c;    /* Neutral card on off-black */
     --dark-card2: #222222;    /* Neutral card on off-black (alt) */
-    --dark-card-cool: #1e293b; /* slate-800 — sanctioned cool dark-card (v1.9). White text, slate-500 @40% border. Never a section ground. */
+    --dark-card-cool: #1e293b; /* slate-800, sanctioned cool dark-card (v1.9). White text, slate-500 @40% border. Never a section ground. */
     --dark-row:   #2a2a2a;    /* Alternating rows */
     --dark-line:  #333333;    /* Internal dividers */
 
@@ -76,7 +76,7 @@
     --color-signal-subtle:       var(--red-50);
     --color-brand-slate:         var(--neutral-500);  /* structural spine (not a brand color); cool neutral, a peer in weight not identity */
     --color-brand-slate-deep:    var(--neutral-700);
-    --color-link:                var(--teal-600);    /* v3.0 — AA-safe small-text accent. teal-500 on FAFAFA is 3.88:1; teal-600 is 5.61:1. */
+    --color-link:                var(--teal-600);    /* v3.0, AA-safe small-text accent. teal-500 on FAFAFA is 3.88:1; teal-600 is 5.61:1. */
     --color-link-hover:          var(--teal-700);
 
     --color-text-default:        var(--neutral-950);
@@ -91,18 +91,18 @@
     --color-surface-soft:        var(--neutral-50);
     --color-surface-muted:       var(--neutral-100);
     --color-surface-structural:  var(--neutral-200);
-    --color-surface-deep:        var(--dark-bg);            /* DEFAULT DARK — Core dark-surface anchor #0D0D0D */
-    --color-surface-slate-dark:  var(--neutral-500);         /* slate emphasis surface — slate-500 anchor; medium cool gray, not "dark" */
+    --color-surface-deep:        var(--dark-bg);            /* DEFAULT DARK, Core dark-surface anchor #0D0D0D */
+    --color-surface-slate-dark:  var(--neutral-500);         /* slate emphasis surface, slate-500 anchor; medium cool gray, not "dark" */
     --color-surface-card-dark:   var(--dark-card1);
-    --color-surface-card-dark-cool: var(--dark-card-cool);   /* cool dark-card — slate-800, matches the live-site .bb-card */
+    --color-surface-card-dark-cool: var(--dark-card-cool);   /* cool dark-card, slate-800, matches the live-site .bb-card */
 
-    --color-icon:                var(--dark-bg);   /* default icon stroke on light bg — off-black #0D0D0D. Icons read like content; teal/red are opt-in accent roles. */
+    --color-icon:                var(--dark-bg);   /* default icon stroke on light bg, off-black #0D0D0D. Icons read like content; teal/red are opt-in accent roles. */
 
     --color-border:              var(--neutral-200);
     --color-border-strong:       var(--neutral-300);
     --color-border-dark:         var(--dark-line);
 
-    /* Spacing — 4px base, tight at the small end, generous at the large */
+    /* Spacing, 4px base, tight at the small end, generous at the large */
     --space-1:  4px;
     --space-2:  8px;
     --space-3:  12px;
@@ -113,22 +113,22 @@
     --space-8:  64px;
     --space-9:  96px;
 
-    /* Radii — small for buttons/pills, modest for cards. No big rounded corners. */
+    /* Radii, small for buttons/pills, modest for cards. No big rounded corners. */
     --radius-xs: 2px;
     --radius-sm: 4px;
     --radius-md: 6px;
     --radius-lg: 10px;
     --radius-pill: 999px;
 
-    /* Shadows — restrained. Mostly hairlines, not big drops. */
+    /* Shadows, restrained. Mostly hairlines, not big drops. */
     --shadow-1: 0 1px 2px rgba(0,0,0,0.04);
     --shadow-2: 0 4px 12px rgba(0,0,0,0.06);
     --shadow-3: 0 12px 32px rgba(0,0,0,0.10);
 
-    /* Type stacks — only Futura and Avenir per brand spec. No mono. */
+    /* Type stacks, only Futura and Avenir per brand spec. No mono. */
     --font-headline: "Futura", "futura-pt", "Jost", "Trebuchet MS", system-ui, sans-serif;
     --font-body:     "Avenir", "europa", "Nunito Sans", "Calibri", system-ui, sans-serif;
-    --font-mono:     var(--font-body);   /* alias for legacy CSS — all "mono" usage now Avenir */
+    --font-mono:     var(--font-body);   /* alias for legacy CSS, all "mono" usage now Avenir */
   }
 
   *{box-sizing:border-box}
@@ -209,7 +209,7 @@
   .section-end-mark .bar{width:64px;height:4px;background:var(--color-brand-accent)}
   .section-end-mark .dot{width:10px;height:10px;border-radius:50%;background:var(--color-signal);margin-left:9px;align-self:center}
 
-  /* CORE 6 — the six hex values that carry the brand */
+  /* CORE 6: the six hex values that carry the brand */
   .core-5{
     display:grid;grid-template-columns:repeat(6, 1fr);gap:2px;
     border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;
@@ -503,7 +503,7 @@
     padding:32px;position:relative;overflow:hidden;
   }
   .dark-surface.slate{background:var(--color-surface-slate-dark)}
-  /* v2.0: bar removed — no bars tied to cards/surfaces. Depth comes from surface contrast; dark surfaces also skip the bottom accent bar. */
+  /* v2.0: bar removed, no bars tied to cards/surfaces. Depth comes from surface contrast; dark surfaces also skip the bottom accent bar. */
   .dark-surface .num{font-family:var(--font-headline);font-size:13px;font-weight:700;color:var(--color-brand-accent);letter-spacing:0.04em;margin-bottom:8px}
   .dark-surface h4{font-family:var(--font-headline);font-size:24px;font-weight:700;color:#fff;margin:0 0 8px;text-transform:uppercase;letter-spacing:-0.01em}
   .dark-surface p{font-size:13px;color:var(--neutral-300);margin:0;line-height:1.55}
@@ -578,7 +578,7 @@
   .logo-clear .clear-text h6{font-family:var(--font-headline);font-size:14px;font-weight:700;text-transform:uppercase;margin:0 0 8px;letter-spacing:0.02em}
   .logo-clear .clear-text p{font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.55}
 
-  /* CARD PATTERN — spec example */
+  /* CARD PATTERN, spec example */
   .card-spec-row{
     background:#FAFAFA;padding:32px;border-radius:var(--radius-lg);
     display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;
@@ -613,7 +613,7 @@
     color:var(--color-text-body);font-family:var(--font-body);
   }
 
-  /* DARK EMPHASIS SECTION — case studies, key findings, executive callouts */
+  /* DARK EMPHASIS SECTION, case studies, key findings, executive callouts */
   .dark-emphasis{
     background:var(--dark-bg);color:#fff;border-radius:var(--radius-lg);
     padding:48px 40px 40px;position:relative;
@@ -638,11 +638,11 @@
   }
   @media (max-width:760px){ .stat-strip{grid-template-columns:repeat(2, 1fr)} }
   .stat-card{
-    background:var(--dark-card-cool);border-radius:var(--radius-lg);  /* slate-800 #1E293B cool dark-card — matches live site .bb-card */
+    background:var(--dark-card-cool);border-radius:var(--radius-lg);  /* slate-800 #1E293B cool dark-card, matches live site .bb-card */
     padding:0 0 22px;display:flex;flex-direction:column;align-items:center;
     text-align:center;position:relative;overflow:hidden;min-height:340px;
   }
-  /* v2.0: top bar removed — no top-edge bars on cards, ever. The big teal stat number carries the brand inside the card. */
+  /* v2.0: top bar removed, no top-edge bars on cards, no exceptions. The big teal stat number carries the brand inside the card. */
   .stat-card .logo-frame{
     background:#fff;width:calc(100% - 24px);margin:14px 12px 0;
     border-radius:var(--radius-xs);padding:14px 18px;display:flex;
@@ -667,7 +667,7 @@
     font-style:italic;margin:24px 16px 0;
   }
 
-  /* IMAGE + TEXT TWO-COLUMN — most-used slide layout */
+  /* IMAGE + TEXT TWO-COLUMN, most-used slide layout */
   .slide-mock{
     background:var(--color-surface-pure);border:1px solid var(--color-border);
     border-radius:var(--radius-lg);padding:36px 40px 24px;position:relative;
@@ -781,7 +781,7 @@
   .photo-mock::before{
     content:"";position:absolute;inset:0;background:rgba(0,0,0,0.7);
   }
-  /* v2.0: photo-mock bottom bar removed — photo slides skip the bottom accent bar, and nothing carries a stray teal bar. */
+  /* v2.0: photo-mock bottom bar removed, photo slides skip the bottom accent bar, and nothing carries a stray teal bar. */
   .photo-mock .label{
     position:absolute;top:20px;left:28px;font-family:var(--font-headline);font-size:11px;
     color:rgba(255,255,255,0.65);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;
@@ -936,7 +936,7 @@
   <div class="container head-inner">
     <div class="doc-brand">
       <div class="doc-brand-mark"><img src="assets/logos/bb-bird-mark.png" alt="Blackbird" /></div>
-      <h1>Blackbird Design System<span class="v">v3.2.1</span></h1>
+      <h1>Blackbird Design System<span class="v">v3.3.0</span></h1>
     </div>
     <nav class="doc-nav">
       <a href="#foundations">01 Foundations</a>
@@ -955,14 +955,13 @@
 <section class="doc-hero">
   <div class="container">
     <div class="eyebrow">Brand · Color · Type · Components</div>
-    <h2 class="doc-h">White first<br/>Teal carries<br/>Slate frames<br/>Red signals</h2>
+    <h2 class="doc-h">The Blackbird<br/>design system</h2>
     <div class="bar-dot"><span class="bar"></span><span class="dot"></span></div>
     <p class="doc-sub">
-      Blackbird&rsquo;s digital system runs on six tokens. Off-white (#FAFAFA) carries the page.
-      Teal does heavy lifting on accents, fills, and links. Red is the second accent &mdash;
-      stronger, more declarative &mdash; carrying signal, callouts, headlines, and counterweight
-      moments. Slate anchors structural neutrals and the warm emphasis surface. Black carries
-      display type; dark slate (#1E293B) carries reading text and the cool dark-card. Two layers:
+      Blackbird&rsquo;s digital system runs on six color tokens. Off-white (#FAFAFA) is the page surface.
+      Teal is the primary accent for fills, links, and accents. Red is the co-accent, used for signal,
+      callouts, and headlines. Slate is used for structural neutrals and the warm emphasis surface. Black is
+      for display type; dark slate (#1E293B) is for reading text and the cool dark card. Two layers:
       raw primitives at the bottom, semantic roles on top. Components
       only ever reference the semantic layer.
     </p>
@@ -972,10 +971,10 @@
 <section class="block" id="foundations">
   <div class="container">
     <div class="section-num">01 &middot; Foundations</div>
-    <h3 class="section-title">Six tokens, two fonts, no decoration</h3>
+    <h3 class="section-title">Foundations: six tokens, two fonts</h3>
     <p class="section-desc">
       Off-white surface, black content, two brand colors that each carry meaning. Teal is
-      the workhorse: surfaces, fills, links, dividers. Red is a full co-accent &mdash; it
+      the workhorse: surfaces, fills, links, dividers. Red is a full co-accent; it
       carries emphasis, headlines, counterweight callouts, key stats, pull quotes, and is a
       sanctioned <em>text</em> color (red-500 on the off-white surface is ~8.3:1, AA at any
       size). Reach for it freely where teal would feel too soft; just keep it off long runs
@@ -1075,8 +1074,7 @@
       </div>
     </div>
 
-    <h4 class="h4-accent">Lockup rules</h4>
-    <div class="h4-underline"></div>
+    <h4 class="h4-accent">Lockup rules</h4><div class="h4-underline"></div>
     <div class="sem-table" style="margin-bottom:24px">
       <div class="sem-row head"><div></div><div>Variant</div><div>Min size</div><div>Use for</div></div>
       <div class="sem-row" style="grid-template-columns:48px 1fr 220px 1fr">
@@ -1114,7 +1112,7 @@
       </div>
       <div class="rule">
         <h5><span class="tag dont">Don&rsquo;t</span> Place on busy backgrounds without overlay</h5>
-        <p>If the logo sits on a photo, the photo must carry a dark overlay heavy enough that the logo reads cleanly &mdash; check contrast, don&rsquo;t hit a number. If on a colored surface, only #FAFAFA, #FFFFFF, slate-700/800, or off-black are valid hosts.</p>
+        <p>If the logo sits on a photo, the photo must carry a dark overlay heavy enough that the logo reads cleanly; check contrast, don&rsquo;t hit a number. If on a colored surface, only #FAFAFA, #FFFFFF, slate-700/800, or off-black are valid hosts.</p>
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Choose the lockup that fits the container</h5>
@@ -1122,7 +1120,7 @@
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Bird mark on content slides, horizontal lockup on TOC + cover</h5>
-        <p>Cover slide carries no logo (the project name does the work). The TOC/Agenda slide carries the horizontal lockup, right-center area, ~2.5" wide &mdash; the deck&rsquo;s one logo moment. Content slides carry no logo (the corner bird mark was retired in v3.1); the bird mark stays in the kit for watermarks, badges, and favicons.</p>
+        <p>Cover slide carries no logo; the project name identifies the deck. The TOC/Agenda slide carries the horizontal lockup, right-center area, ~2.5" wide: the deck&rsquo;s one logo moment. Content slides carry no logo (the corner bird mark was retired in v3.1); the bird mark stays in the kit for watermarks, badges, and favicons.</p>
       </div>
     </div>
   </div>
@@ -1131,16 +1129,15 @@
 <section class="block" id="color">
   <div class="container">
     <div class="section-num">03 &middot; Color</div>
-    <h3 class="section-title">Six hex values do 90% of the work</h3>
+    <h3 class="section-title">Color: six core hex values</h3>
     <p class="section-desc">
       Two layers. Primitives are raw values, never referenced by components directly. The
       semantic layer assigns each role to a primitive. When the brand teal shifts, one line
-      updates and everything follows. But before any of that &mdash; six hex values carry
+      updates and everything follows. But before any of that: six hex values carry
       the majority of every surface, every accent, every section.
     </p>
 
-    <h4 class="h4-accent" style="margin-top:0">The core six</h4>
-    <div class="h4-underline"></div>
+    <h4 class="h4-accent" style="margin-top:0">The core six</h4><div class="h4-underline"></div>
     <div class="core-5">
       <div class="core-cell lt" style="background:#FAFAFA">
         <span class="role">Surface</span>
@@ -1186,19 +1183,16 @@
       </div>
     </div>
     <div class="core-5-callout">
-      <strong>These six hex values carry the majority of brand color.</strong> Black <span class="mono">#000000</span> is the display ink (headlines, max-contrast marks); dark slate <span class="mono">#1E293B</span> is the reading ink and the cool dark-card; off-black <span class="mono">#0D0D0D</span> is the dark section ground &mdash; the dark twin of the surface, shown in the dark set below. The 11-step scales
-      below exist so you can pick supporting tints &mdash; hover states, subtle backgrounds,
-      dark-section depth, hairline dividers &mdash; but every value in those scales derives from
-      these six anchors. If a design uses a seventh hex, ask whether it earned its place. The
-      answer is almost always no.
+      <strong>These six hex values carry the majority of brand color.</strong> Black <span class="mono">#000000</span> is the display ink (headlines, max-contrast marks); dark slate <span class="mono">#1E293B</span> is the reading ink and the cool dark-card; off-black <span class="mono">#0D0D0D</span> is the dark section ground: the dark twin of the surface, shown in the dark set below. The 11-step scales
+      below exist so you can pick supporting tints, hover states, subtle backgrounds,
+      dark-section depth, hairline dividers, but every value in those scales derives from
+      these six anchors. If a design uses a seventh hex, replace it with the closest existing token.
     </div>
 
-    <h4 class="h4-accent">Full scales</h4>
-    <div class="h4-underline"></div>
+    <h4 class="h4-accent">Full scales</h4><div class="h4-underline"></div>
 
     <div class="scale-label">
-      <h4>Teal &mdash; brand accent</h4>
-      <span class="note">11 steps &middot; brand at 500 (#008C95)</span>
+      <h4>Teal, brand accent</h4><span class="note">11 steps &middot; brand at 500 (#008C95)</span>
     </div>
     <div class="scale">
       <div class="swatch" style="background:var(--teal-50)"><div class="step">50</div><div class="hex">#ECF7F8</div></div>
@@ -1215,8 +1209,7 @@
     </div>
 
     <div class="scale-label">
-      <h4>Red &mdash; signal</h4>
-      <span class="note">11 steps &middot; signal at 500 (#862633)</span>
+      <h4>Red, signal</h4><span class="note">11 steps &middot; signal at 500 (#862633)</span>
     </div>
     <div class="scale">
       <div class="swatch" style="background:var(--red-50)"><div class="step">50</div><div class="hex">#F8E9EC</div></div>
@@ -1233,8 +1226,7 @@
     </div>
 
     <div class="scale-label">
-      <h4>Slate / structural spine (not a brand color)</h4>
-      <span class="note">11 steps &middot; structural anchor at 500 (matches site #65758B), black at 950</span>
+      <h4>Slate / structural spine (not a brand color)</h4><span class="note">11 steps &middot; structural anchor at 500 (matches site #65758B), black at 950</span>
     </div>
     <div class="scale">
       <div class="swatch" style="background:var(--neutral-50)"><div class="step">50</div><div class="hex">#F8FAFC</div></div>
@@ -1251,8 +1243,7 @@
     </div>
 
     <div class="scale-label">
-      <h4>Dark surfaces</h4>
-      <span class="note">section dividers, dark content slides, footer bands</span>
+      <h4>Dark surfaces</h4><span class="note">section dividers, dark content slides, footer bands</span>
     </div>
     <div class="scale cols-5">
       <div class="swatch dark" style="background:var(--dark-bg)"><div class="step">dark-bg</div><div class="hex">#0D0D0D</div></div>
@@ -1262,8 +1253,7 @@
       <div class="swatch dark" style="background:var(--dark-line)"><div class="step">dark-line</div><div class="hex">#333333</div></div>
     </div>
 
-    <h4 class="h4-accent" style="font-size:20px">Semantic layer</h4>
-    <div class="h4-underline"></div>
+    <h4 class="h4-accent" style="font-size:20px">Semantic layer</h4><div class="h4-underline"></div>
     <p class="section-desc" style="margin-bottom:24px">Components reference these tokens, never the primitives directly.</p>
     <div class="sem-table">
       <div class="sem-row head"><div></div><div>Token</div><div>Maps to</div><div>Used for</div></div>
@@ -1302,7 +1292,7 @@
         <div class="sem-chip" style="background:var(--color-signal)"></div>
         <div class="sem-name">--color-signal</div>
         <div class="sem-prim">red-500 &middot; #862633</div>
-        <div class="sem-use">Co-accent and sanctioned text color (12-18%). Headlines and eyebrows, secondary CTAs and pill buttons, output/risk/optionality columns, award badges, the bar+dot motif, key stats and pull quotes, hairline accents on dark surfaces, critical callouts. Counterweight to teal &mdash; use when teal would feel too soft.</div>
+        <div class="sem-use">Co-accent and sanctioned text color (12-18%). Headlines and eyebrows, secondary CTAs and pill buttons, output/risk/optionality columns, award badges, the bar+dot motif, key stats and pull quotes, hairline accents on dark surfaces, critical callouts. Counterweight to teal; use when teal would feel too soft.</div>
       </div>
       <div class="sem-row">
         <div class="sem-chip" style="background:var(--color-signal-subtle);border-color:var(--red-200)"></div>
@@ -1320,7 +1310,7 @@
         <div class="sem-chip" style="background:var(--color-brand-slate-deep)"></div>
         <div class="sem-name">--color-brand-slate-deep</div>
         <div class="sem-prim">slate-700 &middot; #334155</div>
-        <div class="sem-use">Secondary text on white, dark slate accents. Not a dark-surface anchor &mdash; for dark sections use off-black (the Core dark-surface).</div>
+        <div class="sem-use">Secondary text on white, dark slate accents. Not a dark-surface anchor; for dark sections use off-black (the Core dark-surface).</div>
       </div>
       <div class="sem-row">
         <div class="sem-chip" style="background:var(--color-text-default)"></div>
@@ -1413,12 +1403,12 @@
 <section class="block" id="type">
   <div class="container">
     <div class="section-num">04 &middot; Type</div>
-    <h3 class="section-title">Futura builds the structure, Avenir does the reading</h3>
+    <h3 class="section-title">Typography: Futura for headings, Avenir for body</h3>
     <p class="section-desc">
       Futura Bold for every headline, label, section number, and stat callout. Avenir for body
       copy, descriptions, captions, and quote text. Avenir is the brand standard. The live
       Squarespace site falls through to europa because Avenir isn&rsquo;t licensed via Adobe
-      Fonts &mdash; europa is the closest free substitute. Per-platform fallback chains below.
+      Fonts, europa is the closest free substitute. Per-platform fallback chains below.
       Left-align everything except three contexts: site/landing-page hero blocks (centered
       headline + tagline over a full-bleed photo), the deck cover slide, and quote
       interstitial slides.
@@ -1438,7 +1428,7 @@
         <div class="meta">Page title<br/>Futura Bold &middot; 24pt</div>
       </div>
       <div class="type-row">
-        <div class="t-subtitle">Holdout testing reveals the truth your dashboard hides</div>
+        <div class="t-subtitle">Holdout tests show a 4x gap between reported and incremental CPA</div>
         <div class="meta">Subtitle / lead-in<br/>Futura Bold &middot; 18pt</div>
       </div>
       <div class="type-row">
@@ -1446,7 +1436,7 @@
         <div class="meta">Card title<br/>Futura Bold &middot; 14pt &middot; uppercase</div>
       </div>
       <div class="type-row">
-        <div class="t-body">We do not hide behind dashboards. We tell the truth about what is working and show the math behind it. When the data says a campaign is wasting money, the deck says so on slide three.</div>
+        <div class="t-body">We report what is working and what is not, and we show the math behind it. When a campaign is not producing incremental results, the deck states that early and plainly.</div>
         <div class="meta">Body copy<br/>Avenir &middot; 15px</div>
       </div>
       <div class="type-row">
@@ -1463,8 +1453,7 @@
       </div>
     </div>
 
-    <h4 class="h4-accent" style="font-size:20px;margin-top:48px">Cross-platform fallback chains</h4>
-    <div class="h4-underline"></div>
+    <h4 class="h4-accent" style="font-size:20px;margin-top:48px">Cross-platform fallback chains</h4><div class="h4-underline"></div>
     <p class="section-desc" style="margin-bottom:24px">
       Futura + Avenir are the brand standard. They render natively on Mac (both ship with
       macOS). Other platforms each have a constraint: Squarespace can&rsquo;t license Avenir,
@@ -1513,7 +1502,7 @@
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Use Jost + Nunito Sans for Google Slides</h5>
-        <p>Both are in the Google Fonts library, both are the closest free matches. Don&rsquo;t fight Slides &mdash; pick the substitutes once and apply consistently.</p>
+        <p>Both are in the Google Fonts library, both are the closest free matches. Don&rsquo;t fight Slides; pick the substitutes once and apply consistently.</p>
       </div>
     </div>
   </div>
@@ -1522,7 +1511,7 @@
 <section class="block" id="motifs">
   <div class="container">
     <div class="section-num">05 &middot; Signature Motifs</div>
-    <h3 class="section-title">Five small marks that make a page read as Blackbird</h3>
+    <h3 class="section-title">Signature motifs: five small marks</h3>
     <p class="section-desc">
       The teal bar with the red dot is the strongest signature. The bottom accent bar grounds
       every white content slide. Numbered prefixes carry color meaning. Section headers earn
@@ -1533,7 +1522,7 @@
       <div class="motif">
         <h6>Teal bar &middot; red dot</h6>
         <div class="motif-bar-dot"><span class="bar"></span><span class="dot"></span></div>
-        <p class="desc">Sits directly <strong>below the title</strong> it punctuates, never above. Also used under quotes and as section-end punctuation. Roughly 1 in 3-4 slides. Never inside containers. <strong>Maximum once per slide</strong> &mdash; the motif is a signature, not a repeating decoration. Two on one slide reads as pattern, not punctuation.</p>
+        <p class="desc">Sits directly <strong>below the title</strong> it punctuates, never above. Also used under quotes and as section-end punctuation. Roughly 1 in 3-4 slides. Never inside containers. <strong>Maximum once per slide</strong>: the motif is a signature, not a repeating decoration. Two on one slide read as a repeating decoration, and each weakens the other.</p>
       </div>
       <div class="motif">
         <h6>Bottom accent bar</h6>
@@ -1565,7 +1554,7 @@
         <div class="motif-bullet-row"><span class="b"></span><span class="text">Holdout testing across paid channels</span></div>
         <div class="motif-bullet-row"><span class="b"></span><span class="text">Marginal CPA modeling per spend tier</span></div>
         <div class="motif-bullet-row"><span class="b"></span><span class="text">Weekly incrementality readouts</span></div>
-        <p class="desc">8px filled circle, brand teal. Replaces standard bullet characters in lists. No nested bullets &mdash; if you need hierarchy, restructure.</p>
+        <p class="desc">8px filled circle, brand teal. Replaces standard bullet characters in lists. No nested bullets; if you need hierarchy, restructure.</p>
       </div>
     </div>
   </div>
@@ -1587,14 +1576,13 @@
     <p class="section-desc">
       Photography lives in two subjects: San Francisco (skyline, urban detail, the bay,
       shot at dusk or after dark) and bird imagery (blackbirds, ravens, crows, silhouettes
-      against sky). Aesthetic is nightscape &mdash; dark, moody, atmospheric. Overlay treatment
+      against sky). Aesthetic is nightscape, dark, moody, atmospheric. Overlay treatment
       varies by use; the goal is mood, not a fixed opacity number. Photos appear on the
       cover, section dividers, and closing slide. Icons are line-stroke black by default, on
       every content card and list row, never on photo slides.
     </p>
 
-    <h4 class="h4-accent" style="margin-top:0">Photography</h4>
-    <div class="h4-underline"></div>
+    <h4 class="h4-accent" style="margin-top:0">Photography</h4><div class="h4-underline"></div>
     <div class="imagery-grid" style="margin-bottom:48px">
       <div class="photo-mock">
         <span class="label">SF nightscape &middot; dark overlay to taste</span>
@@ -1607,7 +1595,7 @@
       <div class="photo-meta">
         <h5>Photography rules</h5>
         <div class="row"><span class="name">Subjects</span><span>SF cityscape and skyline; bird imagery (blackbirds, ravens, crows, silhouettes)</span></div>
-        <div class="row"><span class="name">Mood</span><span>Nightscape &mdash; dusk, after-dark, atmospheric, low-key</span></div>
+        <div class="row"><span class="name">Mood</span><span>Nightscape, dusk, after-dark, atmospheric, low-key</span></div>
         <div class="row"><span class="name">Treatment</span><span>Dark overlay to taste; goal is mood, not a fixed opacity</span></div>
         <div class="row"><span class="name">Where</span><span>Cover, section dividers, closing slide, hero blocks</span></div>
         <div class="row"><span class="name">Where not</span><span>Content slides, cards, dividers within sections</span></div>
@@ -1615,8 +1603,7 @@
       </div>
     </div>
 
-    <h4 class="h4-accent" style="margin-top:0">The library</h4>
-    <div class="h4-underline"></div>
+    <h4 class="h4-accent" style="margin-top:0">The library</h4><div class="h4-underline"></div>
     <p class="section-desc" style="margin-bottom:20px">Twenty-four cleared images live in <code style="font-family:var(--font-mono);font-size:13px">assets/photography/</code>: fourteen San Francisco nightscapes and ten corvids. Every file has a row in PHOTOS.md recording photographer, license, and source. If an image is not in the manifest, it does not ship.</p>
     <div class="photo-lib">
       <figure><img src="assets/photography/sf-night-skyline-twinpeaks.jpg" alt="Twin Peaks skyline, blue hour" loading="lazy" /><figcaption>Twin Peaks skyline, blue hour</figcaption></figure>
@@ -1646,8 +1633,7 @@
     </div>
     <p class="lib-note">Licenses: CC0, Public Domain Mark, or CC BY 2.0 (credit kept in <code>PHOTOS.md</code>). One exception: the Twin Peaks hero predates v3.0 and its license is unverified. Confirm or replace before client-facing use.</p>
 
-    <h4 class="h4-accent" style="margin-top:0">Overlay treatment</h4>
-    <div class="h4-underline"></div>
+    <h4 class="h4-accent" style="margin-top:0">Overlay treatment</h4><div class="h4-underline"></div>
     <div class="triptych">
       <figure>
         <div class="panel" style="background-image:url('assets/photography/sf-night-chinatown.jpg')"></div>
@@ -1665,8 +1651,7 @@
       </figure>
     </div>
 
-    <h4 class="h4-accent" style="margin-top:0">Icons</h4>
-    <div class="h4-underline"></div>
+    <h4 class="h4-accent" style="margin-top:0">Icons</h4><div class="h4-underline"></div>
     <div class="imagery-grid">
       <div class="comp" style="padding:32px">
         <div class="comp-label">Line-stroke black (default) &middot; ~32px on slides, 1.5px stroke</div>
@@ -1736,14 +1721,14 @@
       <div class="photo-meta">
         <h5>Icon rules</h5>
         <div class="row"><span class="name">Style</span><span>Lucide / Feather, line stroke only. No filled shapes, no dual-tone, no novelty illustrations.</span></div>
-        <div class="row"><span class="name">Color (light bg)</span><span>Black (#0D0D0D) is the default &mdash; icons read like content. Teal (#008C95) is the opt-in accent for category-marker / hero roles. Pick one per grid and hold it.</span></div>
+        <div class="row"><span class="name">Color (light bg)</span><span>Black (#0D0D0D) is the default, icons read like content. Teal (#008C95) is the opt-in accent for category-marker / hero roles. Pick one per grid and hold it.</span></div>
         <div class="row"><span class="name">Color (dark bg)</span><span>White. Always. Teal-on-dark goes muddy; black-on-dark disappears.</span></div>
-        <div class="row"><span class="name">Stroke</span><span>1.5px, no fill. Corners are square or barely rounded &mdash; no soft consumer shapes.</span></div>
+        <div class="row"><span class="name">Stroke</span><span>1.5px, no fill. Corners are square or barely rounded, no soft consumer shapes.</span></div>
         <div class="row"><span class="name">Size</span><span>~32px on slides, ~24px in compact rows. Optical-sized in pairs, never stretched.</span></div>
         <div class="row"><span class="name">Position</span><span>Top-left of card, or left of row. Aligned to the cap-height of the headline next to them.</span></div>
         <div class="row"><span class="name">Where not</span><span>Section dividers, quote slides, data tables, cover, closing.</span></div>
         <div class="row"><span class="name">Consistency</span><span>If one item in a grid has an icon, all do. If one is teal, all are teal. No mixed colors in a single grid.</span></div>
-        <div class="row"><span class="name">Container</span><span>Bare on white cards. Optional filled-circle treatment (teal-500 with white icon) for hero rows &mdash; pick one or the other across the deck, not both.</span></div>
+        <div class="row"><span class="name">Container</span><span>Bare on white cards. Optional filled-circle treatment (teal-500 with white icon) for hero rows; pick one or the other across the deck, not both.</span></div>
       </div>
     </div>
   </div>
@@ -1761,7 +1746,7 @@
 <section class="block" id="rules">
   <div class="container">
     <div class="section-num">07 &middot; Rules</div>
-    <h3 class="section-title">How to keep it tight</h3>
+    <h3 class="section-title">Layout rules</h3>
     <p class="section-desc">Eighteen system rules, four slide-composition rules, and a pre-ship checklist. Break these and the system drifts.</p>
 
     <div class="rules">
@@ -1779,11 +1764,11 @@
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Use teal as a primary accent, not a punctuation mark</h5>
-        <p>Teal can fill surfaces, anchor sections, color CTAs, and underline links &mdash; not just dot bullets. Target 10-15% of any view. The constraint is meaning, not count: teal carries positive/primary signal. When everything is teal, that signal stops working.</p>
+        <p>Teal can fill surfaces, anchor sections, color CTAs, and underline links, not just dot bullets. Target 10-15% of any view. The constraint is meaning, not count: teal carries positive/primary signal. When everything is teal, that signal stops working.</p>
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Use red as a second accent, not just a signal</h5>
-        <p>Red is the counterweight to teal &mdash; declarative, confident, and brand-anchored, and since v3.1 a full co-accent and sanctioned text color (red-500 on the surface is ~8.3:1, AA at any size). Target 12-18% of any view. Use it for headlines and section eyebrows, secondary CTAs and pill buttons, output/risk/optionality columns, award badges, the bar+dot motif, key stats and pull quotes, hairline accents on dark surfaces, and critical callouts. Pair it intentionally against teal so the meanings stay distinct: teal carries primary/positive, red carries emphasis/counterpoint. Avoid red as a full content background or in long runs of body copy or solid fill.</p>
+        <p>Red is the counterweight to teal, declarative, confident, and brand-anchored, and since v3.1 a full co-accent and sanctioned text color (red-500 on the surface is ~8.3:1, AA at any size). Target 12-18% of any view. Use it for headlines and section eyebrows, secondary CTAs and pill buttons, output/risk/optionality columns, award badges, the bar+dot motif, key stats and pull quotes, hairline accents on dark surfaces, and critical callouts. Pair it intentionally against teal so the meanings stay distinct: teal carries primary/positive, red carries emphasis/counterpoint. Avoid red as a full content background or in long runs of body copy or solid fill.</p>
       </div>
       <div class="rule">
         <h5><span class="tag dont">Don't</span> Add gradients or saturated extras</h5>
@@ -1803,7 +1788,7 @@
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Drop into a dark section every few slides for emphasis</h5>
-        <p>Off-black (#0D0D0D) is the default for dark emphasis &mdash; it's the Core dark-surface anchor and carries the brand directly. Use it every 3-5 slides to break the white rhythm and signal "this matters" &mdash; case-study stat strips, key findings, executive callouts, quote interstitials. Slate-500 (#64748B) is the alternative emphasis surface: a medium cool-gray structural surface (the Core slate anchor itself), used when you want the slate structural color to carry a section, warm and structural rather than heavy. Two emphasis surfaces, both anchored. Dark-section grounds are never slate-700/-800 &mdash; those are tone derivatives (slate-800 is the cool dark-card, not a ground).</p>
+        <p>Off-black (#0D0D0D) is the default for dark emphasis; it's the Core dark-surface anchor and carries the brand directly. Use it every 3-5 slides to break the white rhythm and signal "this matters", case-study stat strips, key findings, executive callouts, quote interstitials. Slate-500 (#64748B) is the alternative emphasis surface: a medium cool-gray structural surface (the Core slate anchor itself), used when you want the slate structural color to carry a section, warm and structural rather than heavy. Two emphasis surfaces, both anchored. Dark-section grounds are never slate-700/-800; those are tone derivatives (slate-800 is the cool dark-card, not a ground).</p>
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Treat slate as the structural spine, not a brand color</h5>
@@ -1811,7 +1796,7 @@
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Use teal, red, and slate-500 together in stat grids</h5>
-        <p>Stat cards can carry all three core colors (teal, red, slate) at once, grouped by intent. Teal carries the primary figures, red the headline/signal numbers (the stats that genuinely "wow"), slate-500 the secondary or contextual stats. Band by row or column so the grouping reads as hierarchy. The thing to avoid is random cell-by-cell alternation, not multi-color stat grids themselves. A 2-teal / 2-red / 2-slate grid is on-brand; a teal/red/teal/red checkerboard is not.</p>
+        <p>Stat cards can carry all three core colors (teal, red, slate) at once, grouped by intent. Teal carries the primary figures, red the headline/signal numbers (the headline figures), slate-500 the secondary or contextual stats. Band by row or column so the grouping reads as hierarchy. The thing to avoid is random cell-by-cell alternation, not multi-color stat grids themselves. A 2-teal / 2-red / 2-slate grid is on-brand; a teal/red/teal/red checkerboard is not.</p>
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Vary the rhythm of every list and text wall</h5>
@@ -1819,15 +1804,15 @@
       </div>
       <div class="rule">
         <h5><span class="tag dont">Don't</span> Bullet every line</h5>
-        <p>If everything is a bullet, the structure stops working &mdash; the eye reads the dots, not the meaning. Mix bullet lists with prose paragraphs, callout blocks, stat strips, and icon rows. The variety is the structure. Two consecutive bullet lists on one slide is a smell; rewrite one as prose.</p>
+        <p>If everything is a bullet, the structure stops working: the eye reads the dots, not the meaning. Mix bullet lists with prose paragraphs, callout blocks, stat strips, and icon rows. The variety is the structure. Two consecutive bullet lists on one slide is a smell; rewrite one as prose.</p>
       </div>
       <div class="rule">
         <h5><span class="tag dont">Don't</span> Put a top-edge bar on a card</h5>
-        <p>Cards stand on their outline, not on a colored bar. The bottom-of-slide accent and the bar+dot signature are the only sanctioned horizontal bars in the system. A teal bar across the top of a card duplicates one of those signatures inside a container &mdash; the eye reads the bar, not the card title. White cards get a slate-200 hairline outline. Tinted cards (teal-50, red-50) get a matching tinted border. Nothing on top.</p>
+        <p>Cards stand on their outline, not on a colored bar. The bottom-of-slide accent and the bar+dot signature are the only sanctioned horizontal bars in the system. A teal bar across the top of a card duplicates one of those signatures inside a container: the eye reads the bar, not the card title. White cards get a slate-200 hairline outline. Tinted cards (teal-50, red-50) get a matching tinted border. Nothing on top.</p>
       </div>
       <div class="rule">
         <h5><span class="tag dont">Don't</span> Repeat the bar+dot motif on one slide</h5>
-        <p>Maximum once per slide. The bar+dot is a signature, not a divider you sprinkle. Two on one slide reads as decorative pattern, not punctuation &mdash; and the second one weakens the first. If you need a second separator, use whitespace or the bottom accent bar.</p>
+        <p>Maximum once per slide. The bar+dot is a signature, not a general-purpose divider. Two on one slide read as a repeating decoration, and the second one weakens the first. If you need a second separator, use whitespace or the bottom accent bar.</p>
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Place the bar+dot below the title</h5>
@@ -1835,16 +1820,15 @@
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Use black icons when icons play a content role</h5>
-        <p>Teal icons read as accents and category markers. Black icons read as content &mdash; like text. Use black when icons line up next to body copy and shouldn't compete with the headline color hierarchy. Pick one color per grid and hold it across every item; mixed-color icons in a single grid look like a mistake, not a choice.</p>
+        <p>Teal icons read as accents and category markers. Black icons read as content, like text. Use black when icons line up next to body copy and shouldn't compete with the headline color hierarchy. Pick one color per grid and hold it across every item; mixed-color icons in a single grid look like a mistake, not a choice.</p>
       </div>
     </div>
 
-    <h4 class="h4-accent" style="margin-top:48px">Slide composition</h4>
-    <div class="h4-underline"></div>
+    <h4 class="h4-accent" style="margin-top:48px">Slide composition</h4><div class="h4-underline"></div>
     <div class="rules">
       <div class="rule">
         <h5><span class="tag do">Do</span> Let images carry the message when they can</h5>
-        <p>A slide can be a single full-bleed image with no text overlay if the image makes the point. SF skyline at dusk after a section divider doesn&rsquo;t need a caption. Don&rsquo;t add text to "balance" the slide &mdash; the absence of text is the choice.</p>
+        <p>A slide can be a single full-bleed image with no text overlay if the image makes the point. SF skyline at dusk after a section divider doesn&rsquo;t need a caption. Don&rsquo;t add text to "balance" the slide: the absence of text is the choice.</p>
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Make the title the message, not the topic</h5>
@@ -1852,16 +1836,15 @@
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Direct the eye in tables of numbers</h5>
-        <p>A table is a tool for proof, not a data dump. The key cell gets a teal left-edge accent, a bold weight, or a teal-100 fill &mdash; something that says "this is the point." If nothing on the table is highlighted, the audience doesn&rsquo;t know why the table is there.</p>
+        <p>A table is a tool for proof, not a data dump. The key cell gets a teal left-edge accent, a bold weight, or a teal-100 fill: something that says "this is the point." If nothing on the table is highlighted, the audience doesn&rsquo;t know why the table is there.</p>
       </div>
       <div class="rule">
         <h5><span class="tag do">Do</span> Ask if every number pushes the narrative</h5>
-        <p>Each number on a slide must advance the argument. If a stat is interesting but irrelevant, cut it. Numbers compound &mdash; five of them on one slide make four of them noise. Rigor is what we sell; selective is the discipline that proves it.</p>
+        <p>Each number on a slide must advance the argument. If a stat is interesting but irrelevant, cut it. Numbers compound; five of them on one slide make four of them noise. Rigor is what we sell; selective is the discipline that proves it.</p>
       </div>
     </div>
 
-    <h4 class="h4-accent" style="margin-top:48px">Before you ship</h4>
-    <div class="h4-underline"></div>
+    <h4 class="h4-accent" style="margin-top:48px">Before you ship</h4><div class="h4-underline"></div>
     <p style="font-size:14px;color:var(--color-text-body);margin:0 0 16px;line-height:1.6">Final-pass review. Walk every slide top-to-bottom against this list before the deck leaves your hands. Most brand drift is caught here, not in early drafts.</p>
     <div class="card-spec-table" style="margin-top:0">
       <div class="row"><span class="name">Color budget</span><span class="val">Each slide reads as ~50&ndash;55% surface, 12&ndash;15% teal, 8&ndash;10% red, 12&ndash;15% slate, 5&ndash;7% black, 5&ndash;8% dark slate. No seventh hex.</span></div>
@@ -1870,7 +1853,7 @@
       <div class="row"><span class="name">Titles</span><span class="val">Each carries the conclusion, not the topic. Scan-only readers should follow the argument.</span></div>
       <div class="row"><span class="name">Images</span><span class="val">Check every image for stretching, squishing, or skew. Aspect ratios preserved. Spacing around images consistent slide-to-slide. No image touches a slide edge unless it's a full-bleed cover or divider.</span></div>
       <div class="row"><span class="name">Spacing</span><span class="val">Margins consistent across slides. Card padding matches the spec. No element jammed against another or floating in dead space.</span></div>
-      <div class="row"><span class="name">Icons</span><span class="val">One color per grid &mdash; either all teal or all black. Line stroke only, 1.5px, no fill. If one card has an icon, all cards in that grid have icons.</span></div>
+      <div class="row"><span class="name">Icons</span><span class="val">One color per grid: either all teal or all black. Line stroke only, 1.5px, no fill. If one card has an icon, all cards in that grid have icons.</span></div>
       <div class="row"><span class="name">Dark rhythm</span><span class="val">One dark slide every 3-5 slides. Slate-800 by default; off-black only for code or closing.</span></div>
       <div class="row"><span class="name">Fonts</span><span class="val">Futura and Avenir embedded in shared .pptx files. Cross-platform fallbacks set.</span></div>
       <div class="row"><span class="name">Logo placement</span><span class="val">Bird mark in bottom-right of every content slide. No logo on cover or closing. Horizontal lockup reserved for TOC.</span></div>
@@ -1884,12 +1867,12 @@
 <section class="block" id="code">
   <div class="container">
     <div class="section-num">08 &middot; Code</div>
-    <h3 class="section-title">Drop into any project</h3>
+    <h3 class="section-title">Code: tokens for any project</h3>
     <p class="section-desc">Two CSS variable blocks. Primitives at the bottom, semantic on top. Ship as <span class="mono">tokens.css</span>.</p>
 
-    <pre class="code"><span class="c">/* primitives.css &mdash; raw values, never referenced by components */</span>
+    <pre class="code"><span class="c">/* primitives.css: raw values, never referenced by components */</span>
 <span class="h">:root</span> {
-  <span class="c">/* Teal &mdash; brand accent, anchored on Blackbird Teal #008C95 */</span>
+  <span class="c">/* Teal, brand accent, anchored on Blackbird Teal #008C95 */</span>
   <span class="v">--teal-50</span>:  #ECF7F8;
   <span class="v">--teal-100</span>: #CFEEF0;
   <span class="v">--teal-200</span>: #A0DCE0;
@@ -1902,13 +1885,13 @@
   <span class="v">--teal-900</span>: #00282C;
   <span class="v">--teal-950</span>: #001316;
 
-  <span class="c">/* Red &mdash; signal, anchored on #862633 */</span>
+  <span class="c">/* Red, signal, anchored on #862633 */</span>
   <span class="v">--red-50</span>:  #F8E9EC;
   <span class="v">--red-500</span>: #862633;  <span class="c">/* SIGNAL */</span>
   <span class="v">--red-700</span>: #561821;
   <span class="c">/* ...full 11-step scale */</span>
 
-  <span class="c">/* Neutrals &mdash; cool slate, harmonizes with brand teal */</span>
+  <span class="c">/* Neutrals, cool slate, harmonizes with brand teal */</span>
   <span class="v">--neutral-50</span>:  #F8FAFC;
   <span class="v">--neutral-100</span>: #F1F5F9;
   <span class="v">--neutral-200</span>: #E2E8F0;
@@ -1925,7 +1908,7 @@
   <span class="v">--dark-card2</span>: #222222;
 }
 
-<span class="c">/* semantic.css &mdash; the active system. Components only use these. */</span>
+<span class="c">/* semantic.css: the active system. Components only use these. */</span>
 <span class="h">:root</span> {
   <span class="v">--color-brand-accent</span>:        <span class="h">var</span>(--teal-500);
   <span class="v">--color-brand-accent-hover</span>:  <span class="h">var</span>(--teal-600);
@@ -1948,18 +1931,18 @@
   <span class="v">--color-surface-soft</span>:        <span class="h">var</span>(--neutral-50);
   <span class="v">--color-surface-muted</span>:       <span class="h">var</span>(--neutral-100);
   <span class="v">--color-surface-structural</span>:  <span class="h">var</span>(--neutral-200);
-  <span class="v">--color-surface-deep</span>:        <span class="h">var</span>(--dark-bg);     <span class="c">/* DEFAULT DARK — Core anchor (dark ground) #0D0D0D */</span>
-  <span class="v">--color-surface-slate-dark</span>:  <span class="h">var</span>(--neutral-500);   <span class="c">/* slate emphasis surface — slate-500 anchor (Core) */</span>
+  <span class="v">--color-surface-deep</span>:        <span class="h">var</span>(--dark-bg);     <span class="c">/* DEFAULT DARK, Core anchor (dark ground) #0D0D0D */</span>
+  <span class="v">--color-surface-slate-dark</span>:  <span class="h">var</span>(--neutral-500);   <span class="c">/* slate emphasis surface, slate-500 anchor (Core) */</span>
 
   <span class="v">--color-border</span>:              <span class="h">var</span>(--neutral-200);
   <span class="v">--color-border-strong</span>:       <span class="h">var</span>(--neutral-300);
 
-  <span class="c">/* v3.0 — AA-safe small-text accent. Use for links, eyebrows, section
+  <span class="c">/* v3.0, AA-safe small-text accent. Use for links, eyebrows, section
      numbers, and any teal text below 18px on light surfaces. */</span>
   <span class="v">--color-link</span>:                <span class="h">var</span>(--teal-600);
   <span class="v">--color-link-hover</span>:          <span class="h">var</span>(--teal-700);
 
-  <span class="c">/* Type stacks &mdash; Avenir is brand standard. europa is the Squarespace
+  <span class="c">/* Type stacks, Avenir is brand standard. europa is the Squarespace
      fallback (Avenir not licensed via Adobe Fonts). See section 03 for per-platform map. */</span>
   <span class="v">--font-headline</span>: <span class="v">"Futura"</span>, <span class="v">"futura-pt"</span>, <span class="v">"Jost"</span>, <span class="v">"Trebuchet MS"</span>, system-ui, sans-serif;
   <span class="v">--font-body</span>:     <span class="v">"Avenir"</span>, <span class="v">"europa"</span>, <span class="v">"Nunito Sans"</span>, <span class="v">"Calibri"</span>, system-ui, sans-serif;
@@ -1973,8 +1956,7 @@
     <h3 class="section-title">The system in components</h3>
     <p class="section-desc">Every element here references semantic tokens. Swap teal-500 to a different hex and watch all of these update at once.</p>
 
-    <h4 class="h4-accent" style="margin-top:0">The deck at a glance</h4>
-    <div class="h4-underline"></div>
+    <h4 class="h4-accent" style="margin-top:0">The deck at a glance</h4><div class="h4-underline"></div>
     <div class="rhythm-strip">
       <div class="tile photo" style="background-image:url('assets/photography/sf-night-sutro-fog.jpg')"><span>Cover</span></div>
       <div class="tile"><span>TOC</span></div>
@@ -1991,8 +1973,7 @@
     </div>
     <p class="rhythm-caption">The canonical sequence from the spec: cover, TOC, content, a photo divider per section, a dark break every 3 to 5 slides, closing on off-black. White carries; photo and dark slides are the punctuation.</p>
 
-    <h4 class="h4-accent" style="margin-top:0">Slide gallery</h4>
-    <div class="h4-underline"></div>
+    <h4 class="h4-accent" style="margin-top:0">Slide gallery</h4><div class="h4-underline"></div>
     <p class="section-desc" style="margin-bottom:24px">Each layout in the spec, rendered at slide scale. The chart slide below this gallery is Layout A; Inputs/Outputs, POD/POP, Solid Callout, Roadmap, and the Dark Emphasis Strip are specced as full components further down.</p>
 
     <div class="sg-grid">
@@ -2005,7 +1986,7 @@
             <p style="font-family:var(--font-headline);font-size:21px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:-0.01em;margin:0;line-height:1.05">Client Name</p>
           </div>
         </div>
-        <figcaption><b>H &middot; Cover</b> &mdash; full-bleed nightscape, pure black overlay, no logo, no bottom bar. The client name does the work.</figcaption>
+        <figcaption><b>H &middot; Cover</b>, full-bleed nightscape, pure black overlay, no logo, no bottom bar. The client name identifies the deck.</figcaption>
       </figure>
 
       <figure class="sg-item">
@@ -2023,7 +2004,7 @@
             </div>
           </div>
         </div>
-        <figcaption><b>TOC</b> &mdash; the one slide that carries the horizontal lockup, right-center. Rows are unnumbered (v3.2.1); the section number lives on the divider.</figcaption>
+        <figcaption><b>TOC</b>: the one slide that carries the horizontal lockup, right-center. Rows are unnumbered (v3.2.1); the section number lives on the divider.</figcaption>
       </figure>
 
       <figure class="sg-item">
@@ -2037,20 +2018,20 @@
             <div class="sf-card"><p class="ct">Analytics</p><p>CRM-tied dashboards, <b>pipeline over leads</b>.</p></div>
           </div>
         </div>
-        <figcaption><b>B &middot; Two-column cards</b> &mdash; 2x2 grid, white cards on the off-white surface, no top-edge bars, one teal phrase per card.</figcaption>
+        <figcaption><b>B &middot; Two-column cards</b>, 2x2 grid, white cards on the off-white surface, no top-edge bars, one teal phrase per card.</figcaption>
       </figure>
 
       <figure class="sg-item">
         <div class="slide-frame">
           <p class="sf-eyebrow">FINDINGS &middot; MEASUREMENT</p>
-          <p class="sf-title">Three things the dashboard hides</p>
+          <p class="sf-title">Saturation, halo, and lag are missing from platform reporting</p>
           <div class="sf-cards" style="grid-template-columns:1fr 1fr 1fr">
             <div class="sf-card"><p class="ct">Saturation</p><p>Brand search converts at <b>4x lower</b> marginal efficiency above $50K.</p></div>
             <div class="sf-card"><p class="ct">Halo</p><p>Paid social lifts branded queries <b>+18%</b> in holdout geos.</p></div>
             <div class="sf-card"><p class="ct">Lag</p><p>Pipeline impact lands <b>6 to 8 weeks</b> after spend.</p></div>
           </div>
         </div>
-        <figcaption><b>C &middot; Three-column cards</b> &mdash; same card spec, three across. Title carries the conclusion, not the topic.</figcaption>
+        <figcaption><b>C &middot; Three-column cards</b>, same card spec, three across. Title carries the conclusion, not the topic.</figcaption>
       </figure>
 
       <figure class="sg-item">
@@ -2058,14 +2039,14 @@
           <p class="sf-eyebrow">APPROACH &middot; PILLARS</p>
           <p class="sf-title">Five pillars</p>
           <div class="sf-cards" style="grid-template-columns:repeat(5,1fr);gap:6px">
-            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Ambition</p><p style="font-size:7.5px">Targets worth chasing.</p></div>
-            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Analytics</p><p style="font-size:7.5px">Math behind every call.</p></div>
-            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Artistry</p><p style="font-size:7.5px">Craft in the creative.</p></div>
-            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Candor</p><p style="font-size:7.5px">The deck says so.</p></div>
-            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Stewardship</p><p style="font-size:7.5px">Spend like it is ours.</p></div>
+            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Ambition</p><p style="font-size:7.5px">Growth targets set with the client.</p></div>
+            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Analytics</p><p style="font-size:7.5px">Every recommendation shows its math.</p></div>
+            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Artistry</p><p style="font-size:7.5px">Craft discipline in execution.</p></div>
+            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Candor</p><p style="font-size:7.5px">We report negative results.</p></div>
+            <div class="sf-card" style="padding:9px 8px"><p class="ct" style="font-size:7.5px">Stewardship</p><p style="font-size:7.5px">Budgets managed as a duty.</p></div>
           </div>
         </div>
-        <figcaption><b>D &middot; Pillars</b> &mdash; five narrow cards. The only layout that runs five across; copy stays under ten words per card.</figcaption>
+        <figcaption><b>D &middot; Pillars</b>; five narrow cards. The only layout that runs five across; copy stays under ten words per card.</figcaption>
       </figure>
 
       <figure class="sg-item">
@@ -2079,7 +2060,7 @@
             <tr><td>Paid social</td><td>$41K</td><td class="num">$307</td><td class="num">$355</td></tr>
           </table>
         </div>
-        <figcaption><b>F &middot; Data table</b> &mdash; a table is for proof, not a dump. Teal left-edge accent marks the row that is the point; red on the number that hurts.</figcaption>
+        <figcaption><b>F &middot; Data table</b>, a table is for proof, not a dump. Teal left-edge accent marks the row that is the point; red on the number that hurts.</figcaption>
       </figure>
 
       <figure class="sg-item">
@@ -2090,17 +2071,17 @@
             <p style="font-family:var(--font-headline);font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;margin:2px 0 0">Performance</p>
           </div>
         </div>
-        <figcaption><b>G &middot; Photo divider</b> &mdash; section number at 88pt-equivalent in teal, title in white, overlay to taste. No logo, no bar.</figcaption>
+        <figcaption><b>G &middot; Photo divider</b>, section number at 88pt-equivalent in teal, title in white, overlay to taste. No logo, no bar.</figcaption>
       </figure>
 
       <figure class="sg-item">
         <div class="slide-frame dark no-bar" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
           <div style="padding:0 14px;max-width:86%">
-            <p style="font-family:var(--font-headline);font-size:15px;font-weight:700;color:#fff;line-height:1.35;margin:0 0 8px">&ldquo;When the data says a campaign is wasting money, the deck says so on slide three.&rdquo;</p>
-            <p style="font-family:var(--font-body);font-size:7.5px;color:var(--color-brand-accent);margin:0;text-transform:uppercase;letter-spacing:0.1em;font-weight:700">Blackbird PPC &middot; Measurement principles</p>
+            <p style="font-family:var(--font-headline);font-size:15px;font-weight:700;color:#fff;line-height:1.35;margin:0 0 8px">&ldquo;Blackbird flagged the wasted spend in the first month and showed us the holdout math behind it.&rdquo;</p>
+            <p style="font-family:var(--font-body);font-size:7.5px;color:var(--color-brand-accent);margin:0;text-transform:uppercase;letter-spacing:0.1em;font-weight:700">Jane Doe &middot; VP Marketing &middot; Client Co.</p>
           </div>
         </div>
-        <figcaption><b>I &middot; Quote interstitial</b> &mdash; off-black, one quote, teal attribution. No logo; the quote is the slide.</figcaption>
+        <figcaption><b>I &middot; Quote interstitial</b>, off-black, one quote, teal attribution (name, title, organization). Real quotes only; with no real quote, use the dark emphasis layout instead.</figcaption>
       </figure>
 
       <figure class="sg-item">
@@ -2113,14 +2094,14 @@
             <div class="nlist-row" style="border-bottom:0"><span class="n">03</span><div><b>Wire pipeline to the dashboard</b>CRM join lands revenue, not leads, on every view.</div></div>
           </div>
         </div>
-        <figcaption><b>K &middot; Numbered list</b> &mdash; teal two-digit prefixes replace bullets. Bold lead, one supporting line, never more than five rows.</figcaption>
+        <figcaption><b>K &middot; Numbered list</b>, teal two-digit prefixes replace bullets. Bold lead, one supporting line, never more than five rows.</figcaption>
       </figure>
 
       <figure class="sg-item">
         <div class="slide-frame dark no-bar" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
           <p style="font-family:var(--font-headline);font-size:19px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.01em;margin:0">Thank you</p>
         </div>
-        <figcaption><b>J &middot; Closing</b> &mdash; off-black, two words, centered. No logo, no contact block; contact details belong in the email.</figcaption>
+        <figcaption><b>J &middot; Closing</b>, off-black, two words, centered. No logo, no contact block; contact details belong in the email.</figcaption>
       </figure>
 
     </div>
@@ -2174,11 +2155,10 @@
       <div class="slide-footer">
       </div>
     </div>
-    <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 32px;line-height:1.55"><strong style="color:var(--color-text-default)">Most-used slide layout, 16:9 PowerPoint widescreen.</strong> Chart left, text right, two fonts plus bold weight for emphasis. Title carries the message. Chart uses the canonical series &mdash; teal for the top three qualities (the ones the title elevates), slate for the rest. No logo on content slides (the corner mark was retired in v3.1); the horizontal lockup on the Agenda/TOC is the deck&rsquo;s one logo moment. Teal bar grounds the bottom edge.</p>
+    <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 32px;line-height:1.55"><strong style="color:var(--color-text-default)">Most-used slide layout, 16:9 PowerPoint widescreen.</strong> Chart left, text right, two fonts plus bold weight for emphasis. Title carries the message. Chart uses the canonical series, teal for the top three qualities (the ones the title elevates), slate for the rest. No logo on content slides (the corner mark was retired in v3.1); the horizontal lockup on the Agenda/TOC is the deck&rsquo;s one logo moment. Teal bar grounds the bottom edge.</p>
 
-    <h4 class="h4-accent" style="margin-top:0">Card pattern</h4>
-    <div class="h4-underline"></div>
-    <p style="font-size:14px;color:var(--color-text-body);margin:0 0 16px;line-height:1.6">When a layout calls for cards, this is the spec. Page surface stays #FAFAFA. White cards sit on top in pure white with a thin slate-200 outline and a 10px radius &mdash; just enough contrast to lift the card off the page without shadow. The slate-200 outline is specifically for white cards on the off-white surface; tinted cards (teal-50, red-50) use matching tinted borders (teal-200, red-200), and dark cards skip the outline entirely. <strong>No top-edge accent bars on cards.</strong> Ever.</p>
+    <h4 class="h4-accent" style="margin-top:0">Card pattern</h4><div class="h4-underline"></div>
+    <p style="font-size:14px;color:var(--color-text-body);margin:0 0 16px;line-height:1.6">When a layout calls for cards, this is the spec. Page surface stays #FAFAFA. White cards sit on top in pure white with a thin slate-200 outline and a 10px radius, just enough contrast to lift the card off the page without shadow. The slate-200 outline is specifically for white cards on the off-white surface; tinted cards (teal-50, red-50) use matching tinted borders (teal-200, red-200), and dark cards skip the outline entirely. <strong>No top-edge accent bars on cards, no exceptions.</strong></p>
 
     <div class="card-spec-row">
       <div class="card-spec">
@@ -2191,30 +2171,30 @@
       </div>
       <div class="card-spec">
         <h6>Card 03</h6>
-        <p>1px outline in slate-200 (#E2E8F0). The lightest visible step in the slate scale &mdash; reads as a hairline, not a frame.</p>
+        <p>1px outline in slate-200 (#E2E8F0). The lightest visible step in the slate scale, reads as a hairline, not a frame.</p>
       </div>
     </div>
 
     <div class="card-spec-table">
-      <div class="row"><span class="name">Page surface</span><span class="val">#FAFAFA &mdash; the off-white that matches the live site</span></div>
-      <div class="row"><span class="name">Card background</span><span class="val">#FFFFFF &mdash; pure white, lifted above the page</span></div>
-      <div class="row"><span class="name">Outline color</span><span class="val">#E2E8F0 (slate-200) &mdash; for white cards on FAFAFA. Tinted cards use teal-200 or red-200 to match the tint.</span></div>
+      <div class="row"><span class="name">Page surface</span><span class="val">#FAFAFA: the off-white that matches the live site</span></div>
+      <div class="row"><span class="name">Card background</span><span class="val">#FFFFFF, pure white, lifted above the page</span></div>
+      <div class="row"><span class="name">Outline color</span><span class="val">#E2E8F0 (slate-200); for white cards on FAFAFA. Tinted cards use teal-200 or red-200 to match the tint.</span></div>
       <div class="row"><span class="name">Outline width</span><span class="val">1px</span></div>
       <div class="row"><span class="name">Border radius</span><span class="val">10px (--radius-lg)</span></div>
       <div class="row"><span class="name">Padding</span><span class="val">24px default. 18-22px tight, 32px generous</span></div>
-      <div class="row"><span class="name">Top accent bar</span><span class="val">None. Ever. Cards never carry top-edge teal bars &mdash; that pattern is reserved for the bottom-of-slide accent and the bar+dot motif.</span></div>
+      <div class="row"><span class="name">Top accent bar</span><span class="val">None, no exceptions. Cards never carry top-edge teal bars; that pattern is reserved for the bottom-of-slide accent and the bar+dot motif.</span></div>
       <div class="row"><span class="name">Shadow</span><span class="val">None. Depth comes from the surface contrast, not drop shadows</span></div>
     </div>
-    <p style="font-size:13px;color:var(--color-text-secondary);margin:16px 0 32px;line-height:1.55">Every card in this design system follows this spec &mdash; rule cards, motif cards, component examples, token tables. Reuse the pattern instead of inventing a new container.</p>
+    <p style="font-size:13px;color:var(--color-text-secondary);margin:16px 0 32px;line-height:1.55">Every card in this design system follows this spec, rule cards, motif cards, component examples, token tables. Reuse the pattern instead of inventing a new container.</p>
 
     <div class="comps">
       <div class="comp">
-        <div class="comp-label">Buttons &mdash; default uppercase rectangular</div>
+        <div class="comp-label">Buttons, default uppercase rectangular</div>
         <button class="btn btn-primary">Get a proposal</button>
         <button class="btn btn-dark">Talk to us</button>
         <button class="btn btn-ghost">Case studies</button>
         <div style="height:14px"></div>
-        <div style="font-family:var(--font-headline);font-size:11px;color:var(--color-brand-accent);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px">Pill outline &mdash; form CTAs</div>
+        <div style="font-family:var(--font-headline);font-size:11px;color:var(--color-brand-accent);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px">Pill outline, form CTAs</div>
         <button class="btn-pill-outline">Submit</button>
         <button class="btn-pill-outline accent">Send message</button>
       </div>
@@ -2236,7 +2216,7 @@
       </div>
 
       <div class="comp">
-        <div class="comp-label">Brand-only state dots &mdash; teal positive, slate neutral, red negative</div>
+        <div class="comp-label">Brand-only state dots, teal positive, slate neutral, red negative</div>
         <div class="state-row">
           <span class="state"><span class="dot" style="background:var(--color-brand-accent)"></span> Pacing on track</span>
           <span class="state"><span class="dot" style="background:var(--color-brand-slate)"></span> Budget at 85%</span>
@@ -2248,11 +2228,10 @@
     <div style="height:16px"></div>
 
     <div class="comp">
-      <div class="comp-label">Inputs / Outputs &mdash; numbered list, outlined + tinted</div>
+      <div class="comp-label">Inputs / Outputs, numbered list, outlined + tinted</div>
       <div class="io-grid">
         <div class="io-col teal">
-          <h4>Inputs</h4>
-          <div class="underline"></div>
+          <h4>Inputs</h4><div class="underline"></div>
           <div class="io-item"><span class="num">01</span> Initial Website Review</div>
           <div class="io-item"><span class="num">02</span> Competitor Positioning</div>
           <div class="io-item"><span class="num">03</span> Kickoff Meeting</div>
@@ -2260,8 +2239,7 @@
           <div class="io-item"><span class="num">05</span> Competitors Visual Audit</div>
         </div>
         <div class="io-col red">
-          <h4>Outputs</h4>
-          <div class="underline"></div>
+          <h4>Outputs</h4><div class="underline"></div>
           <div class="io-item"><span class="num">01</span> Feature &rArr; Benefits Mapping</div>
           <div class="io-item"><span class="num">02</span> Benefit Ranking</div>
           <div class="io-item"><span class="num">03</span> Core Offering Identification</div>
@@ -2274,7 +2252,7 @@
     <div style="height:16px"></div>
 
     <div class="comp">
-      <div class="comp-label">Icon list &mdash; line-stroke teal icons, bold headline + gray description</div>
+      <div class="comp-label">Icon list, line-stroke teal icons, bold headline + gray description</div>
       <div class="icon-list">
         <div class="icon-row">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="14" width="3" height="7"/><rect x="9" y="9" width="3" height="12"/><rect x="15" y="4" width="3" height="17"/></svg>
@@ -2311,29 +2289,26 @@
 
     <div class="comps">
       <div class="comp">
-        <div class="comp-label">POD / POP / Optionality stack &mdash; colored labels, teal dividers</div>
+        <div class="comp-label">POD / POP / Optionality stack, colored labels, teal dividers</div>
         <div class="pod-stack">
           <div class="item">
             <p class="label pod">Point of Difference</p>
-            <h4 class="h">~94% lower compute cost vs Spark</h4>
-            <p class="d">The only LakeSail prop with quantified, buyer-verifiable magnitude. ClickBench-anchored. Survives 12-18 months as the lead.</p>
+            <h4 class="h">~94% lower compute cost vs Spark</h4><p class="d">The only LakeSail prop with quantified, buyer-verifiable magnitude. ClickBench-anchored. Survives 12-18 months as the lead.</p>
           </div>
           <div class="item">
             <p class="label pop">Point of Parity</p>
-            <h4 class="h">Open lakehouse compatibility</h4>
-            <p class="d">Spark Connect protocol. Iceberg and Delta. Drop-in for existing Spark code. Removes the switching objection.</p>
+            <h4 class="h">Open lakehouse compatibility</h4><p class="d">Spark Connect protocol. Iceberg and Delta. Drop-in for existing Spark code. Removes the switching objection.</p>
           </div>
           <div class="item">
             <p class="label opt">Optionality</p>
-            <h4 class="h">Agent-native architecture</h4>
-            <p class="d">Long-game moat, not the 2026 sale. Hedged bet. If the agent thesis lands, the resonating focus shifts here in 3-5 years.</p>
+            <h4 class="h">Agent-native architecture</h4><p class="d">Long-game moat, not the 2026 sale. Hedged bet. If the agent thesis lands, the resonating focus shifts here in 3-5 years.</p>
           </div>
         </div>
       </div>
 
       <div class="comp">
-        <div class="comp-label">Solid color callout &mdash; teal block, bold black text</div>
-        <div class="solid-callout">Everything Spark does. Faster, cheaper, and ready for agents.</div>
+        <div class="comp-label">Solid color callout, teal block, bold black text</div>
+        <div class="solid-callout">Matches Spark on every workload at roughly 94% lower compute cost.</div>
         <p style="font-size:13px;color:var(--color-text-secondary);margin-top:16px;line-height:1.5">Replaces the typical white-card-with-quote pattern. The block IS the emphasis. Use once per slide, never two solid blocks side by side.</p>
       </div>
     </div>
@@ -2341,7 +2316,7 @@
     <div style="height:16px"></div>
 
     <div class="comp">
-      <div class="comp-label">Roadmap slide &mdash; example of a good slide</div>
+      <div class="comp-label">Roadmap slide, example of a good slide</div>
       <div class="roadmap" style="margin:24px 0 8px">
         <div class="step s1">
           <div class="circle">01</div>
@@ -2376,7 +2351,7 @@
           </div>
         </div>
       </div>
-      <p style="font-size:13px;color:var(--color-text-secondary);margin:16px 0 0;line-height:1.55">Numbered circles in horizontal sequence, color-graded from teal (now, first) to red (later, future). 3&ndash;5 steps; more than 5 reads as a checklist. Use for next-steps, project phases, sequenced processes. Titles are the verb of the work, not "Next Steps." Card text is centered &mdash; the one place we break left-align, mirroring the symmetry of the circle above.</p>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:16px 0 0;line-height:1.55">Numbered circles in horizontal sequence, color-graded from teal (now, first) to red (later, future). 3&ndash;5 steps; more than 5 reads as a checklist. Use for next-steps, project phases, sequenced processes. Titles are the verb of the work, not "Next Steps." Card text is centered: the one place we break left-align, mirroring the symmetry of the circle above.</p>
     </div>
 
     <div style="height:16px"></div>
@@ -2384,8 +2359,7 @@
     <div class="dark-surface">
       <span class="surface-label">off-black #0D0D0D &middot; default dark</span>
       <div class="num">07</div>
-      <h4>Off-black is the default dark surface</h4>
-      <p>The Core dark-surface anchor (the dark section ground). Use for every dark rhythm break: section divider emphasis, case-study stat strips, key findings, executive callouts, quote interstitials, code blocks, closing slide. Teal accents carry across cleanly; dark surfaces skip the bottom accent bar and carry no card bars.</p>
+      <h4>Off-black is the default dark surface</h4><p>The Core dark-surface anchor (the dark section ground). Use for every dark rhythm break: section divider emphasis, case-study stat strips, key findings, executive callouts, quote interstitials, code blocks, closing slide. Teal accents carry across cleanly; dark surfaces skip the bottom accent bar and carry no card bars.</p>
     </div>
 
     <div style="height:12px"></div>
@@ -2393,8 +2367,7 @@
     <div class="dark-surface slate">
       <span class="surface-label">slate-500 #64748B &middot; slate emphasis surface</span>
       <div class="num">08</div>
-      <h4>Slate-500 is the slate emphasis surface (Core anchor)</h4>
-      <p>The slate structural color (#64748B) used as a full surface. Not "dark" &mdash; medium cool-gray. Use when you want the section to feel structural and warm rather than heavy: capability dividers, slate-themed quote interstitials, the secondary kind of emphasis. Two emphasis surfaces in the system, both anchored: off-black for heavy, slate-500 for warm. No interpolated slate-700/-800 surfaces.</p>
+      <h4>Slate-500 is the slate emphasis surface (Core anchor)</h4><p>The slate structural color (#64748B) used as a full surface. Not "dark", medium cool-gray. Use when you want the section to feel structural and warm rather than heavy: capability dividers, slate-themed quote interstitials, the secondary kind of emphasis. Two emphasis surfaces in the system, both anchored: off-black for heavy, slate-500 for warm. No interpolated slate-700/-800 surfaces.</p>
     </div>
 
     <div style="height:24px"></div>
@@ -2434,7 +2407,7 @@
         </div>
       </div>
     </div>
-    <p style="font-size:13px;color:var(--color-text-secondary);margin:16px 0 0;line-height:1.55"><strong style="color:var(--color-text-default)">Dark emphasis section.</strong> Off-black background (#0D0D0D), four cool dark-cards on dark slate (#1E293B), white logo frames, big teal stats, white labels, teal italic outcomes. No bars on the cards &mdash; the stat number carries the brand. Slate-500 (#64748B) is the alternative emphasis surface for warm/structural emphasis &mdash; both are Core anchors. Use one of these every 3-5 slides to break the white rhythm.</p>
+    <p style="font-size:13px;color:var(--color-text-secondary);margin:16px 0 0;line-height:1.55"><strong style="color:var(--color-text-default)">Dark emphasis section.</strong> Off-black background (#0D0D0D), four cool dark-cards on dark slate (#1E293B), white logo frames, big teal stats, white labels, teal italic outcomes. No bars on the cards: the stat number carries the brand. Slate-500 (#64748B) is the alternative emphasis surface for warm/structural emphasis, both are Core anchors. Use one of these every 3-5 slides to break the white rhythm.</p>
 
   </div>
 </section>
@@ -2443,7 +2416,7 @@
   <div class="container">
     <div class="bar-dot"><span class="bar"></span><span class="dot"></span></div>
     Blackbird PPC Design System
-    <div class="mono">v3.2.1 &middot; Core Six: brand = teal + red; surface = FAFAFA; structure/ink = slate, black, dark slate (#1E293B); off-black #0D0D0D = dark ground. No bars on cards. FFFFFF cards, 1px slate-200 outline, 10px radius, no shadows</div>
+    <div class="mono">v3.3.0 &middot; Core Six: brand = teal + red; surface = FAFAFA; structure/ink = slate, black, dark slate (#1E293B); off-black #0D0D0D = dark ground. No bars on cards. FFFFFF cards, 1px slate-200 outline, 10px radius, no shadows</div>
   </div>
 </footer>
 
