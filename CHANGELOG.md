@@ -2,6 +2,18 @@
 
 Repo-level history. The spec keeps its own detailed changelog in `spec/powerpoint-brand-skill.md`.
 
+## 3.4.1 (August 2026)
+
+Removed `line: { width: 0 }` from all ten pptxgenjs helper call sites in
+Section 11. Measured against pptxgenjs 4.0.1, that form emits a solid 1pt
+`333333` stroke rather than suppressing the outline: the zero width is falsy
+and falls back to the 1pt default, and the absent color falls back to
+`DEF_SHAPE_LINE_COLOR = '333333'`. Every deck built from the spec's own helpers
+since v2.4 carried these outlines. Replaced with `line: { type: 'none' }`.
+`addBottomBar`, the only helper with no `line` key, now sets it explicitly.
+Section 4a's pptxgenjs guidance replaced with a measured emission table. Repo
+guard now fails on any `line: { width: 0 }` outside the changelog.
+
 ## 3.4.0 (August 2026)
 
 - New spec Section 4a (Outline Control). Default rule: every shape ships with no outline unless the spec names it. Replaces the additive model, which only held if the authoring tool defaulted to no border; none of PowerPoint, Google Slides, pptxgenjs, or python-pptx do.

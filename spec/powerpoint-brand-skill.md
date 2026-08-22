@@ -5,7 +5,7 @@ description: "Blackbird PPC PowerPoint brand guidelines (v3.3.0, July 2026). Use
 
 # Blackbird PPC PowerPoint Brand Guidelines (v3.3.0)
 
-Source of truth: the `blackbird-design-system` repo, system version 3.4.0 (see `VERSION` at repo root). The styleguide (`index.html`) and this skill carry one shared version number. **v3.4.0 (August 2026): outline control. Section 4a establishes the default rule that every shape ships with no outline unless the spec names it. Four legal strokes only (slate-200 white cards, teal-200 and red-200 tinted cards, slate-300 table separators). `333333` is banned as a stroke (it stays valid as the `dark-line` divider fill). Per-tool suppression documented for PowerPoint, Google Slides, pptxgenjs, and python-pptx. New `validate_deck_outlines.py` guard.** **v3.3.0 (July 2026): plain-language voice overhaul (founder call). Em dashes are banned in all deck copy and in this spec. Slogans, aphorisms, three-beat constructions, X-not-Y constructions, personification, second-person sales hooks, and manufactured candor are banned. Quote slides (Layout I) require a real, attributed quote; invented quotes are banned. Conclusion titles stay, with guardrails.** **v3.2.1 (July 2026): section numbers live on dividers only; TOC cards are unnumbered; the styleguide gallery and prose are synced to current chrome.** **v3.2 (July 2026) merges the two v3.1 forks into one line; see the changelog.** **v3.1 (June 2026), both forks combined: content slides replace the 13pt teal section number with a red eyebrow label (numbers live on dividers and the TOC only); data-table header fills are channel-coded (teal = Google, slate-800 = LinkedIn, slate-500 = Reddit); discussion-notes boxes are retired, every reporting table pairs with a narrative + mini-trend band (Layout F2); filled icon circles are black, not teal; the bar+dot's red dot is never outlined; red is promoted to a full co-accent (12-18%) and a sanctioned text color; icons default to black with an expanded set; the photography library grows to 24 cleared images.** **v3.0 ships canonical assets: the logo pack (`assets/logos/`) and the cleared photography library (`assets/photography/` + `PHOTOS.md`), plus a python-pptx implementation appendix.** **v2.8 relabels slate as structure, not a brand color (teal and red are the only brand colors).** **v2.7 adds Dark Slate `1E293B` as the sixth Core anchor**: the reading-text and cool-dark-card color, kept distinct from Black `000000`, which stays display-only (headlines, max-contrast marks, small UI). **v2.6 settled the dark-surface question across the deck skill, the design-system HTML, and the live site.** One dark section ground: off-black `0D0D0D` (default) or slate-500 `64748B` for warm/structural emphasis, both Core anchors. Pure black `000000` is text/UI only and is **never a section surface**. Slate-800 `1E293B` is now a **sanctioned cool dark-card token** (card on a dark ground), but is **never a full-bleed section ground**. Cards on a dark ground: neutral `1C1C1C`/`222222`, or cool slate-800 `1E293B` (white text). v2.5 had removed slate-800 from every surface; v2.6 brings it back for cards only, to legalize the live site's dark cards without blessing pure-black grounds. v2.4 closed the "no top-edge bars on cards" rule. v2.3 enforces 10px radius on every card-like container. When the general pptx skill conflicts with anything here, these rules override.
+Source of truth: the `blackbird-design-system` repo, system version 3.4.1 (see `VERSION` at repo root). The styleguide (`index.html`) and this skill carry one shared version number. **v3.4.1 (August 2026): pptxgenjs outline correction. `line: { width: 0 }` is removed from every Section 11 helper. Measured against pptxgenjs 4.0.1, that form emits a solid 1pt `333333` stroke rather than suppressing the outline. Use `line: { type: 'none' }`.** **v3.4.0 (August 2026): outline control. Section 4a establishes the default rule that every shape ships with no outline unless the spec names it. Four legal strokes only (slate-200 white cards, teal-200 and red-200 tinted cards, slate-300 table separators). `333333` is banned as a stroke (it stays valid as the `dark-line` divider fill). Per-tool suppression documented for PowerPoint, Google Slides, pptxgenjs, and python-pptx. New `validate_deck_outlines.py` guard.** **v3.3.0 (July 2026): plain-language voice overhaul (founder call). Em dashes are banned in all deck copy and in this spec. Slogans, aphorisms, three-beat constructions, X-not-Y constructions, personification, second-person sales hooks, and manufactured candor are banned. Quote slides (Layout I) require a real, attributed quote; invented quotes are banned. Conclusion titles stay, with guardrails.** **v3.2.1 (July 2026): section numbers live on dividers only; TOC cards are unnumbered; the styleguide gallery and prose are synced to current chrome.** **v3.2 (July 2026) merges the two v3.1 forks into one line; see the changelog.** **v3.1 (June 2026), both forks combined: content slides replace the 13pt teal section number with a red eyebrow label (numbers live on dividers and the TOC only); data-table header fills are channel-coded (teal = Google, slate-800 = LinkedIn, slate-500 = Reddit); discussion-notes boxes are retired, every reporting table pairs with a narrative + mini-trend band (Layout F2); filled icon circles are black, not teal; the bar+dot's red dot is never outlined; red is promoted to a full co-accent (12-18%) and a sanctioned text color; icons default to black with an expanded set; the photography library grows to 24 cleared images.** **v3.0 ships canonical assets: the logo pack (`assets/logos/`) and the cleared photography library (`assets/photography/` + `PHOTOS.md`), plus a python-pptx implementation appendix.** **v2.8 relabels slate as structure, not a brand color (teal and red are the only brand colors).** **v2.7 adds Dark Slate `1E293B` as the sixth Core anchor**: the reading-text and cool-dark-card color, kept distinct from Black `000000`, which stays display-only (headlines, max-contrast marks, small UI). **v2.6 settled the dark-surface question across the deck skill, the design-system HTML, and the live site.** One dark section ground: off-black `0D0D0D` (default) or slate-500 `64748B` for warm/structural emphasis, both Core anchors. Pure black `000000` is text/UI only and is **never a section surface**. Slate-800 `1E293B` is now a **sanctioned cool dark-card token** (card on a dark ground), but is **never a full-bleed section ground**. Cards on a dark ground: neutral `1C1C1C`/`222222`, or cool slate-800 `1E293B` (white text). v2.5 had removed slate-800 from every surface; v2.6 brings it back for cards only, to legalize the live site's dark cards without blessing pure-black grounds. v2.4 closed the "no top-edge bars on cards" rule. v2.3 enforces 10px radius on every card-like container. When the general pptx skill conflicts with anything here, these rules override.
 
 ## Quick Reference
 
@@ -190,6 +190,7 @@ function addTealBarRedDot(slide, pres, x, y, barWidth) {
   slide.addShape(pres.shapes.RECTANGLE, {
     x, y, w: barWidth, h: 0.055,
     fill: { color: COLORS.TEAL },
+    line: { type: 'none' },   // required; see Section 4a
   });
   const dotSize = 0.13;
   slide.addShape(pres.shapes.OVAL, {
@@ -197,6 +198,7 @@ function addTealBarRedDot(slide, pres, x, y, barWidth) {
     y: y + 0.055 / 2 - dotSize / 2,
     w: dotSize, h: dotSize,
     fill: { color: COLORS.RED },
+    line: { type: 'none' },   // never ring the dot; see Common Mistake 21
   });
 }
 ```
@@ -387,10 +389,29 @@ border. Suppress with `updateShapeProperties`, setting
 `fields` set to `outline.propertyState`. Weight zero is not supported and does
 not work. There is no document-level default, so the call is per shape.
 
-**pptxgenjs.** Omitting the `line` key is safe. Passing a `line` object without
-a color is not: the library falls back to `333333`. Use `line: { type: "none" }`
-when a shape must be explicit. Avoid `line: { width: 0 }`, which is ambiguous
-across renderers and reads as a hairline in some.
+**pptxgenjs.** Measured against pptxgenjs 4.0.1 by generating each variant and
+reading the emitted XML. Do not reason about this from the docs, they are wrong
+about it.
+
+| Written | Emitted | Verdict |
+|---|---|---|
+| `line` key omitted | `<a:ln></a:ln>` | Safe |
+| `line: { type: "none" }` | `<a:ln></a:ln>` | Safe, and explicit |
+| `line: { type: 'none' }` | `<a:ln w="12700"><a:solidFill><a:srgbClr val="333333"/>` | **Defect** |
+| `line: { color: "none" }` | 1pt `000000` | **Defect** |
+| `line: { dashType: "none" }` | 1pt `333333` | **Defect** |
+
+`line: { type: 'none' }` does not draw a zero-width line. The zero is falsy, so the
+library drops back to its 1pt default weight, and the absent color drops back to
+`DEF_SHAPE_LINE_COLOR`, which is `333333`. The result is a solid 1pt `333333`
+stroke: the exact value this section bans. It is the single most dangerous
+formulation in the system because it reads as a suppression and behaves as an
+addition.
+
+Write `line: { type: "none" }` on every shape that takes no outline. Never write
+`line: { type: 'none' }`. Nothing in pptxgenjs emits an explicit `<a:noFill/>`; an
+empty `<a:ln></a:ln>` with no sibling `<p:style>` is the clean result and is what
+both safe forms produce.
 
 **python-pptx.** Call `shape.line.fill.background()`, which writes
 `<a:ln><a:noFill/>`. Shapes from `shapes.add_shape()` arrive with a `<p:style>`
@@ -941,6 +962,7 @@ function addBottomBar(slide, pres) {
   slide.addShape(pres.shapes.RECTANGLE, {
     x: 0, y: 5.53, w: 10.0, h: 0.10,
     fill: { color: COLORS.TEAL },
+    line: { type: 'none' },   // required; see Section 4a
   });
 }
 
@@ -1017,7 +1039,7 @@ function addBulletDot(slide, pres, x, y) {
   slide.addShape(pres.shapes.OVAL, {
     x, y, w: 0.07, h: 0.07,
     fill: { color: COLORS.TEAL },
-    line: { width: 0 },
+    line: { type: 'none' },
   });
 }
 
@@ -1025,14 +1047,14 @@ function addBulletDot(slide, pres, x, y) {
 function addTealBarRedDot(slide, pres, x, y, barWidth) {
   slide.addShape(pres.shapes.RECTANGLE, {
     x, y, w: barWidth, h: 0.055,
-    fill: { color: COLORS.TEAL }, line: { width: 0 },
+    fill: { color: COLORS.TEAL }, line: { type: 'none' },
   });
   const dotSize = 0.13;
   slide.addShape(pres.shapes.OVAL, {
     x: x + barWidth + 0.03,
     y: y + 0.055 / 2 - dotSize / 2,
     w: dotSize, h: dotSize,
-    fill: { color: COLORS.RED }, line: { width: 0 },
+    fill: { color: COLORS.RED }, line: { type: 'none' },
   });
 }
 
@@ -1050,7 +1072,7 @@ function addSectionUnderline(slide, pres, x, y, headlineText, variant) {
   const underlineWidth = Math.min(headlineText.length * 0.10, 1.5);
   slide.addShape(pres.shapes.RECTANGLE, {
     x, y: y + 0.34, w: underlineWidth, h: 0.025,
-    fill: { color: color }, line: { width: 0 },
+    fill: { color: color }, line: { type: 'none' },
   });
 }
 
@@ -1059,7 +1081,7 @@ function addSolidCallout(slide, pres, x, y, w, h, text) {
   slide.addShape(pres.shapes.ROUNDED_RECTANGLE, {
     x, y, w, h,
     fill: { color: COLORS.TEAL },
-    line: { width: 0 },
+    line: { type: 'none' },
     rectRadius: 0.10,
   });
   slide.addText(text, {
@@ -1075,7 +1097,7 @@ function addRoadmapStep(slide, pres, x, yCircle, stepNum, fillColor, title, desc
   // Circle
   slide.addShape(pres.shapes.OVAL, {
     x, y: yCircle, w: circleSize, h: circleSize,
-    fill: { color: fillColor }, line: { width: 0 },
+    fill: { color: fillColor }, line: { type: 'none' },
   });
   slide.addText(stepNum, {
     x, y: yCircle, w: circleSize, h: circleSize,
@@ -1244,6 +1266,14 @@ Final-pass review. Walk every slide top-to-bottom against this list before the d
 
 ## Changelog
 
+**v3.4.1 (August 2026)**: pptxgenjs outline correction
+
+- **`line: { width: 0 }` removed from all ten Section 11 helper call sites.** Measured against pptxgenjs 4.0.1 by generating each variant and reading the emitted XML: that form produces `<a:ln w="12700"><a:solidFill><a:srgbClr val="333333"/></a:solidFill>`, a solid 1pt `333333` stroke. The zero width is falsy, so the library falls back to its 1pt default weight; the absent color falls back to `DEF_SHAPE_LINE_COLOR`, which is `333333`. It reads as a suppression and behaves as an addition.
+- **Scope.** Bullet dots, the teal bar + red dot signature, section-header underlines, solid callouts, buttons, pills, tags, and roadmap circles. Any deck built from the Section 11 helpers since v2.4 carried these outlines. Same `333333` stroke as the 11x recap deck, reached by a second and entirely independent path: v3.4.0 diagnosed the Google Slides route and missed the one inside our own spec.
+- **`addBottomBar` now sets `line: { type: 'none' }` explicitly.** It was the only Section 11 helper with no `line` key at all.
+- **Section 4a pptxgenjs guidance replaced with a measured emission table.** v3.4.0 called `width: 0` "ambiguous across renderers." That was both too soft and wrong. The behavior is deterministic and it is a defect.
+- **New repo guard.** `validate_spec_outline_rules.py` fails if `line: { width: 0 }` appears anywhere outside the historical changelog.
+
 **v3.4.0 (August 2026)**: outline control
 - **New Section 4a: Outline Control.** Establishes the default rule that every shape ships with no outline unless the spec names it. Replaces the additive model (name what gets a border, stay silent on the rest), which only held if the authoring tool defaulted to no border. None of the four tools we use do.
 - **Four legal strokes, nothing else.** Slate-200 `E2E8F0` on white cards, teal-200 `A0DCE0` on teal-50 cards, red-200 `DD9AA3` on red-50 cards, slate-300 `CBD5E1` on reporting table row separators.
@@ -1334,7 +1364,7 @@ Final-pass review. Walk every slide top-to-bottom against this list before the d
   - **Layout A (Image + Text):** image/chart panel now explicitly card-like, 0.10" radius, slate-200 outline on light bg, no top-edge bar.
   - **Layout D (Pillars):** added "Same card styling as B" reference plus explicit no-top-bar note. Clarified that the slide-edge teal stripe is a *slide* decoration at x=0, not a per-card decoration. This was the source of the pillar cards rendering with top bars in earlier output.
   - **Layout N (Roadmap):** roadmap step cards (tinted+outlined) now explicitly say "No top-edge accent bar, tinted cards stand on their tinted border."
-- Border audit confirmed: only cards and tinted list rows get borders. Buttons (primary/dark/signal), pills, tags, solid callouts, section bars, bullet dots, roadmap circles all have `line: { width: 0 }`. The skill does NOT add small borders to all objects.
+- Border audit confirmed: only cards and tinted list rows get borders. Buttons (primary/dark/signal), pills, tags, solid callouts, section bars, bullet dots, roadmap circles all have no outline. (Recorded at the time as `line: { width: 0 }`; corrected in v3.4.1, that form emits a `333333` stroke.) The skill does NOT add small borders to all objects.
 
 **v2.3 (May 2026)**
 - **Card radius enforced at 10px across the board.** Every card-like container, stat cards, callouts (teal-50/red-50 and solid), dark emphasis sections, roadmap step cards, image panels, uses 0.10" radius. The Radii section now explicitly enumerates which elements are "card-like" and which aren't.

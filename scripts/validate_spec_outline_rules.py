@@ -74,6 +74,51 @@ if "NOT_RENDERED" not in section:
 if "lnRef" not in section:
     errors.append("Section 4a omits the theme-inherited <a:lnRef> case")
 
+# 5b. `line: { width: 0 }` must not appear in live guidance.
+# Measured on pptxgenjs 4.0.1: that form emits <a:ln w="12700"> with a solid
+# 333333 fill. It reads as a suppression and behaves as an addition. The only
+# permitted occurrence is inside the historical changelog, where it is quoted
+# and explicitly marked as corrected.
+# Prose may quote the form in order to ban it. Code fences may not contain it,
+# because code fences are what people copy.
+import re
+
+BAD_LINE = re.compile(r"line\s*:\s*\{[^}]*width\s*:\s*0[^}]*\}")
+for fence in re.findall(r"```(?:javascript|js)\n(.*?)```", spec, re.S):
+    for m in BAD_LINE.finditer(fence):
+        errors.append(
+            f"pptxgenjs code fence contains {m.group(0)!r}; it emits a solid "
+            "1pt 333333 stroke. Use line: { type: 'none' }"
+        )
+
+# Every pptxgenjs addShape call must state its line handling one way or another.
+for fence in re.findall(r"```(?:javascript|js)\n(.*?)```", spec, re.S):
+    for call in re.findall(r"addShape\((?:[^()]|\([^()]*\))*\)", fence, re.S):
+        if "line:" not in call:
+            errors.append(
+                "pptxgenjs addShape call omits the line key entirely: "
+                f"{' '.join(call.split())[:70]}..."
+            )
+
+# 5c. Section 4a must carry the measured pptxgenjs facts, not soft language.
+if "DEF_SHAPE_LINE_COLOR" not in section:
+    errors.append(
+        "Section 4a does not name DEF_SHAPE_LINE_COLOR, the pptxgenjs fallback "
+        "that makes line: { width: 0 } emit 333333"
+    )
+
+# 5d. addBottomBar must suppress its outline explicitly. It is the helper that
+# historically shipped with no `line` key at all.
+bar_start = spec.find("function addBottomBar")
+if bar_start == -1:
+    errors.append("spec no longer defines addBottomBar")
+else:
+    bar = spec[bar_start:bar_start + 400]
+    bar_end = bar.find("}\n}")
+    bar = bar[:bar_end] if bar_end != -1 else bar
+    if "type: 'none'" not in bar and 'type: "none"' not in bar:
+        errors.append("addBottomBar does not set line: { type: 'none' }")
+
 # 6. Checklist row and common mistake must be present.
 if "**Outlines**" not in spec:
     errors.append("Pre-Ship Checklist has no Outlines row")
