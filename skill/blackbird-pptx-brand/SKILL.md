@@ -5,7 +5,7 @@ description: "Blackbird PPC PowerPoint brand guidelines (v3.3.0, July 2026). Use
 
 # Blackbird PPC PowerPoint Brand Guidelines (v3.3.0)
 
-Source of truth: the `blackbird-design-system` repo, system version 3.3.0 (see `VERSION` at repo root). The styleguide (`index.html`) and this skill carry one shared version number. **v3.3.0 (July 2026): plain-language voice overhaul (founder call). Em dashes are banned in all deck copy and in this spec. Slogans, aphorisms, three-beat constructions, X-not-Y constructions, personification, second-person sales hooks, and manufactured candor are banned. Quote slides (Layout I) require a real, attributed quote; invented quotes are banned. Conclusion titles stay, with guardrails.** **v3.2.1 (July 2026): section numbers live on dividers only; TOC cards are unnumbered; the styleguide gallery and prose are synced to current chrome.** **v3.2 (July 2026) merges the two v3.1 forks into one line; see the changelog.** **v3.1 (June 2026), both forks combined: content slides replace the 13pt teal section number with a red eyebrow label (numbers live on dividers and the TOC only); data-table header fills are channel-coded (teal = Google, slate-800 = LinkedIn, slate-500 = Reddit); discussion-notes boxes are retired, every reporting table pairs with a narrative + mini-trend band (Layout F2); filled icon circles are black, not teal; the bar+dot's red dot is never outlined; red is promoted to a full co-accent (12-18%) and a sanctioned text color; icons default to black with an expanded set; the photography library grows to 24 cleared images.** **v3.0 ships canonical assets: the logo pack (`assets/logos/`) and the cleared photography library (`assets/photography/` + `PHOTOS.md`), plus a python-pptx implementation appendix.** **v2.8 relabels slate as structure, not a brand color (teal and red are the only brand colors).** **v2.7 adds Dark Slate `1E293B` as the sixth Core anchor**: the reading-text and cool-dark-card color, kept distinct from Black `000000`, which stays display-only (headlines, max-contrast marks, small UI). **v2.6 settled the dark-surface question across the deck skill, the design-system HTML, and the live site.** One dark section ground: off-black `0D0D0D` (default) or slate-500 `64748B` for warm/structural emphasis, both Core anchors. Pure black `000000` is text/UI only and is **never a section surface**. Slate-800 `1E293B` is now a **sanctioned cool dark-card token** (card on a dark ground), but is **never a full-bleed section ground**. Cards on a dark ground: neutral `1C1C1C`/`222222`, or cool slate-800 `1E293B` (white text). v2.5 had removed slate-800 from every surface; v2.6 brings it back for cards only, to legalize the live site's dark cards without blessing pure-black grounds. v2.4 closed the "no top-edge bars on cards" rule. v2.3 enforces 10px radius on every card-like container. When the general pptx skill conflicts with anything here, these rules override.
+Source of truth: the `blackbird-design-system` repo, system version 3.4.0 (see `VERSION` at repo root). The styleguide (`index.html`) and this skill carry one shared version number. **v3.4.0 (August 2026): outline control. Section 4a establishes the default rule that every shape ships with no outline unless the spec names it. Four legal strokes only (slate-200 white cards, teal-200 and red-200 tinted cards, slate-300 table separators). `333333` is banned as a stroke (it stays valid as the `dark-line` divider fill). Per-tool suppression documented for PowerPoint, Google Slides, pptxgenjs, and python-pptx. New `validate_deck_outlines.py` guard.** **v3.3.0 (July 2026): plain-language voice overhaul (founder call). Em dashes are banned in all deck copy and in this spec. Slogans, aphorisms, three-beat constructions, X-not-Y constructions, personification, second-person sales hooks, and manufactured candor are banned. Quote slides (Layout I) require a real, attributed quote; invented quotes are banned. Conclusion titles stay, with guardrails.** **v3.2.1 (July 2026): section numbers live on dividers only; TOC cards are unnumbered; the styleguide gallery and prose are synced to current chrome.** **v3.2 (July 2026) merges the two v3.1 forks into one line; see the changelog.** **v3.1 (June 2026), both forks combined: content slides replace the 13pt teal section number with a red eyebrow label (numbers live on dividers and the TOC only); data-table header fills are channel-coded (teal = Google, slate-800 = LinkedIn, slate-500 = Reddit); discussion-notes boxes are retired, every reporting table pairs with a narrative + mini-trend band (Layout F2); filled icon circles are black, not teal; the bar+dot's red dot is never outlined; red is promoted to a full co-accent (12-18%) and a sanctioned text color; icons default to black with an expanded set; the photography library grows to 24 cleared images.** **v3.0 ships canonical assets: the logo pack (`assets/logos/`) and the cleared photography library (`assets/photography/` + `PHOTOS.md`), plus a python-pptx implementation appendix.** **v2.8 relabels slate as structure, not a brand color (teal and red are the only brand colors).** **v2.7 adds Dark Slate `1E293B` as the sixth Core anchor**: the reading-text and cool-dark-card color, kept distinct from Black `000000`, which stays display-only (headlines, max-contrast marks, small UI). **v2.6 settled the dark-surface question across the deck skill, the design-system HTML, and the live site.** One dark section ground: off-black `0D0D0D` (default) or slate-500 `64748B` for warm/structural emphasis, both Core anchors. Pure black `000000` is text/UI only and is **never a section surface**. Slate-800 `1E293B` is now a **sanctioned cool dark-card token** (card on a dark ground), but is **never a full-bleed section ground**. Cards on a dark ground: neutral `1C1C1C`/`222222`, or cool slate-800 `1E293B` (white text). v2.5 had removed slate-800 from every surface; v2.6 brings it back for cards only, to legalize the live site's dark cards without blessing pure-black grounds. v2.4 closed the "no top-edge bars on cards" rule. v2.3 enforces 10px radius on every card-like container. When the general pptx skill conflicts with anything here, these rules override.
 
 ## Quick Reference
 
@@ -316,6 +316,99 @@ Restrained. Hairlines, not big drops.
 - `shadow-3` `0 12px 32px rgba(0,0,0,0.10)`: modals only
 
 For decks: prefer the surface-contrast (FAFAFA page + FFFFFF cards) over shadows. Shadows are usually unnecessary.
+
+---
+
+## 4a. Outline Control
+
+Blackbird decks are a flat-ink system. An outline nobody chose is a defect, the
+same as a stray color.
+
+Sections 1 through 4 name the elements that get a border and stay silent on the
+rest. That silence is safe only if the authoring tool defaults to no border.
+**No tool we use does.** PowerPoint, Google Slides, pptxgenjs, and python-pptx
+each apply a stroke to a shape you did not style. Silence in this spec produces
+outlines in the output, not the absence of them.
+
+This section is the default rule that closes that gap.
+
+### The rule
+
+**Every shape ships with no outline unless this section names it.**
+
+An outline is legal on exactly four elements. Nothing else.
+
+| Element | Outline |
+|---|---|
+| White card on a light ground | 1pt slate-200 `E2E8F0` |
+| Tinted card, teal-50 | 1.5pt teal-200 `A0DCE0` |
+| Tinted card, red-50 | 1.5pt red-200 `DD9AA3` |
+| Reporting table row separator | 1pt slate-300 `CBD5E1` |
+
+Everything else is no outline. Non-exhaustive, but these are the shapes that
+break most often: bottom accent bars, the bar+dot bar, the bar+dot dot, bullet
+dots, chart bars and columns, numbered circles, roadmap circles and connectors,
+section-header underlines, full-bleed section grounds, dark cards, buttons,
+pills, tags, solid callouts, image and chart panels, logo images, and every
+text box.
+
+Text boxes are the most frequent offender. They are usually created with no
+styling call at all, and an outline around a transparent box reads as a stray
+box rather than as a border, so reviewers skip past it.
+
+### Banned stroke values
+
+Any stroke outside the four values above is a defect. Two are called out
+because they are what the tools reach for on their own.
+
+- **`333333` as a stroke.** This is the Google Slides and pptxgenjs default
+  shape border. It is never a valid outline on any shape, on any ground.
+  Note the narrow exception: `333333` is a real token (`dark-line`), but only
+  as the **fill** of an internal divider rule on a dark slide. Divider, not
+  border. If `333333` appears inside an `<a:ln>` block, it is a defect.
+- **Theme-inherited strokes.** An `<a:lnRef>` inside a `<p:style>` block with
+  no explicit `<a:ln>` override. The Office theme's `lnStyleLst` supplies a
+  filled line at all three indices, so an inheriting shape gets a visible
+  outline. This is PowerPoint's own default, not an import artifact.
+
+### Per-tool suppression
+
+**PowerPoint, drawn by hand.** A drawn shape takes the theme outline. Set Shape
+Outline to No Outline. Do not rely on the theme being clean: a deck started
+from a client template inherits that template's stroke, not ours.
+
+**PowerPoint, from a template.** Check the template's theme before building.
+If `lnStyleLst` carries a filled line, every inheriting shape is a defect
+waiting to ship.
+
+**Google Slides, including the Slides API.** New shapes get a 1pt `333333`
+border. Suppress with `updateShapeProperties`, setting
+`shapeProperties.outline.propertyState` to `NOT_RENDERED` with
+`fields` set to `outline.propertyState`. Weight zero is not supported and does
+not work. There is no document-level default, so the call is per shape.
+
+**pptxgenjs.** Omitting the `line` key is safe. Passing a `line` object without
+a color is not: the library falls back to `333333`. Use `line: { type: "none" }`
+when a shape must be explicit. Avoid `line: { width: 0 }`, which is ambiguous
+across renderers and reads as a hairline in some.
+
+**python-pptx.** Call `shape.line.fill.background()`, which writes
+`<a:ln><a:noFill/>`. Shapes from `shapes.add_shape()` arrive with a `<p:style>`
+block referencing the theme line, so the call is required, not optional.
+Setting `shape.line.width = 0` leaves the theme reference in place.
+
+### Verification
+
+Outline defects are mechanical and get caught mechanically, not by eye. A 1pt
+stroke on a 0.07" bullet dot is about a fifth of the dot's diameter. Obvious
+once you know to look, invisible at thumbnail size, and it survives every
+visual review.
+
+Run `scripts/validate_deck_outlines.py` against the .pptx before it ships. It
+unzips the deck, reads the slide XML, and fails on `333333`, on any stroke
+outside the four legal values, and on any `<a:lnRef>` not overridden by an
+explicit `<a:ln>`. Run it regardless of which tool built the deck.
+
 
 ---
 
@@ -1104,6 +1197,7 @@ Final-pass review. Walk every slide top-to-bottom against this list before the d
 |-------|-----------------|
 | **Color budget** | Each slide reads as ~50-55% surface, 12-15% teal, 12-18% red, 12-15% slate, 5-7% black, 5-8% dark slate. No seventh hex. |
 | **Cards** | No top-edge bars. White cards have a slate-200 outline; tinted cards use matching teal-200 or red-200 borders. |
+| **Outlines** | Run `validate_deck_outlines.py`. Zero hits on `333333`. Only cards and table row separators carry a stroke. Bottom bars, bullet dots, chart bars, numbered circles, section grounds, and text boxes carry none. |
 | **Bar + dot motif** | Maximum one per slide. Roughly 1 in 3-4 slides across the deck. Never inside a container. Dot is a flat fill, never ringed or outlined. |
 | **Titles** | Each carries the finding, not the topic. Scan-only readers should follow the argument. Statement of fact with a subject and verb: no imperatives, no second person, no pitch phrasing. |
 | **Images** | Check every image for stretching, squishing, or skew. Aspect ratios preserved. Spacing around images consistent slide-to-slide. No image touches a slide edge unless it's a full-bleed cover or divider. |
@@ -1127,27 +1221,38 @@ Final-pass review. Walk every slide top-to-bottom against this list before the d
 5. **Bullet-heavy slides.** Use cards, grids, structured layouts. If bullets are needed, use teal dots and mix with prose.
 6. **Hype copy.** "Revolutionary", "game-changing", "best-in-class", "passionate", "world-class" are not in Blackbird's vocabulary.
 7. **Accent lines under titles.** Hallmark of AI-generated slides. Use whitespace. Allowed exceptions: bar+dot signature, section-header underline matching headline width.
-8. **Same-color card grids.** Adjacent cards should differ, but with the new system, the answer is usually NOT pastel rotation. Use the white-on-FAFAFA card with no top bar. Variation comes from icon, content, and headline color, not card fill.
-9. **Top-edge teal bars on cards.** Removed in v2.1. Cards stand on their outline alone: the colored bar duplicates the bar+dot signature inside a container. Applies to all card layouts (B, D, O stat cards, etc.).
-10. **Two bar+dot motifs on one slide.** Maximum one per slide. The second one weakens the first.
-11. **Teal outline on a teal-tinted card.** Tinted cards (teal-50 background) use teal-200 borders, not slate-200. Match the tint family. Same for red.
-12. **Mixed-color icons in a grid.** If one icon is teal and another is black in the same grid, it looks like a mistake. Pick one color per grid.
-13. **Card-like containers with non-10px radii.** Every visually card-shaped element, stat cards, callouts (teal-50/red-50 and solid), dark emphasis containers, roadmap step cards, image panels in slide mockups, uses 0.10" radius. Don't use 4px or 6px on anything card-like. The eye registers radius inconsistencies as carelessness before it registers them as variety.
-14. **Logo on cover, closing, or content slides.** The Agenda/TOC carries the horizontal lockup; nothing else carries a logo. The per-slide corner bird mark was retired in v3.1 after its geometry collided with the Layout F2 band.
-15. **Filling chart with multiple colors.** Three series max for lines and bars: Teal, Slate, Black. More series = data density problem. Donut slices may walk down the slate ramp (see Pie / Donut rules).
-16. **Skipping font embed when sharing.** Always embed Futura and Avenir in shared `.pptx` files. ~200KB cost.
-17. **Two solid color callouts on one slide.** Use Layout M once per slide max.
-18. **Roadmap with 6+ steps.** 3-5 only. More is a checklist (Layout K), not a roadmap.
-19. **Empty "discussion notes" boxes on data slides (v3.1).** Retired. A blank box reads as an unfinished slide. Use the narrative + mini-trend band (Layout F2): interpret the numbers in business language and show the salient trend.
-20. **Ringing the red dot (v3.1).** No white outline on the bar+dot's dot, on any ground. Fix dim dots by adjusting the photo overlay, not by decorating the signature.
-21. **Section numbers anywhere but dividers (v3.2.1).** The 88pt divider number is the only section number in the deck; TOC cards are unnumbered. Content slides carry the red eyebrow label.
-22. **Em dashes (v3.3.0).** Banned in all deck copy: titles, body, labels, footnotes, chart annotations. Use a period, comma, colon, or parentheses.
-23. **Invented quotes (v3.3.0).** Quotation marks mean a real, attributed statement from a named person or cited source. An unattributed line in quotation marks is a fabrication and reads as one.
-24. **Slogan copy (v3.3.0).** Three-beat constructions, X-not-Y constructions, dramatic fragments, aphorisms, and personified methods are banned. See Section 9. The test: would the sentence read normally in an analyst's report.
+8. **Shipping tool-default outlines.** PowerPoint, Google Slides, pptxgenjs, and python-pptx each stroke shapes you did not style. Naming which elements get borders does not stop the tool from adding its own. Suppress outlines explicitly per Section 4a, then verify with `scripts/validate_deck_outlines.py`. The tell in the XML is `srgbClr val="333333"` or an `<a:lnRef>` with no `<a:ln>` override.
+9. **Same-color card grids.** Adjacent cards should differ, but with the new system, the answer is usually NOT pastel rotation. Use the white-on-FAFAFA card with no top bar. Variation comes from icon, content, and headline color, not card fill.
+10. **Top-edge teal bars on cards.** Removed in v2.1. Cards stand on their outline alone: the colored bar duplicates the bar+dot signature inside a container. Applies to all card layouts (B, D, O stat cards, etc.).
+11. **Two bar+dot motifs on one slide.** Maximum one per slide. The second one weakens the first.
+12. **Teal outline on a teal-tinted card.** Tinted cards (teal-50 background) use teal-200 borders, not slate-200. Match the tint family. Same for red.
+13. **Mixed-color icons in a grid.** If one icon is teal and another is black in the same grid, it looks like a mistake. Pick one color per grid.
+14. **Card-like containers with non-10px radii.** Every visually card-shaped element, stat cards, callouts (teal-50/red-50 and solid), dark emphasis containers, roadmap step cards, image panels in slide mockups, uses 0.10" radius. Don't use 4px or 6px on anything card-like. The eye registers radius inconsistencies as carelessness before it registers them as variety.
+15. **Logo on cover, closing, or content slides.** The Agenda/TOC carries the horizontal lockup; nothing else carries a logo. The per-slide corner bird mark was retired in v3.1 after its geometry collided with the Layout F2 band.
+16. **Filling chart with multiple colors.** Three series max for lines and bars: Teal, Slate, Black. More series = data density problem. Donut slices may walk down the slate ramp (see Pie / Donut rules).
+17. **Skipping font embed when sharing.** Always embed Futura and Avenir in shared `.pptx` files. ~200KB cost.
+18. **Two solid color callouts on one slide.** Use Layout M once per slide max.
+19. **Roadmap with 6+ steps.** 3-5 only. More is a checklist (Layout K), not a roadmap.
+20. **Empty "discussion notes" boxes on data slides (v3.1).** Retired. A blank box reads as an unfinished slide. Use the narrative + mini-trend band (Layout F2): interpret the numbers in business language and show the salient trend.
+21. **Ringing the red dot (v3.1).** No white outline on the bar+dot's dot, on any ground. Fix dim dots by adjusting the photo overlay, not by decorating the signature.
+22. **Section numbers anywhere but dividers (v3.2.1).** The 88pt divider number is the only section number in the deck; TOC cards are unnumbered. Content slides carry the red eyebrow label.
+23. **Em dashes (v3.3.0).** Banned in all deck copy: titles, body, labels, footnotes, chart annotations. Use a period, comma, colon, or parentheses.
+24. **Invented quotes (v3.3.0).** Quotation marks mean a real, attributed statement from a named person or cited source. An unattributed line in quotation marks is a fabrication and reads as one.
+25. **Slogan copy (v3.3.0).** Three-beat constructions, X-not-Y constructions, dramatic fragments, aphorisms, and personified methods are banned. See Section 9. The test: would the sentence read normally in an analyst's report.
 
 ---
 
 ## Changelog
+
+**v3.4.0 (August 2026)**: outline control
+- **New Section 4a: Outline Control.** Establishes the default rule that every shape ships with no outline unless the spec names it. Replaces the additive model (name what gets a border, stay silent on the rest), which only held if the authoring tool defaulted to no border. None of the four tools we use do.
+- **Four legal strokes, nothing else.** Slate-200 `E2E8F0` on white cards, teal-200 `A0DCE0` on teal-50 cards, red-200 `DD9AA3` on red-50 cards, slate-300 `CBD5E1` on reporting table row separators.
+- **`333333` banned.** The Google Slides and pptxgenjs default shape border. Not in the palette, never valid as stroke or fill.
+- **Theme-inherited strokes banned.** An `<a:lnRef>` with no explicit `<a:ln>` override picks up the Office theme's `lnStyleLst`, which carries a filled line at all three indices. This is PowerPoint's native default and affects hand-drawn shapes and python-pptx `add_shape()` alike.
+- **Per-tool suppression documented** for PowerPoint (hand-drawn and template), Google Slides and the Slides API (`outline.propertyState = NOT_RENDERED`), pptxgenjs (`line: { type: "none" }`, never `width: 0`), and python-pptx (`shape.line.fill.background()`, not `line.width = 0`).
+- **New guard: `scripts/validate_deck_outlines.py`.** Unzips a .pptx and fails on banned strokes, unsanctioned stroke colors, and unoverridden theme line references. Wired into the `validate` workflow.
+- **New Pre-Ship Checklist row (Outlines)** and **Common Mistake #8**. Prior mistakes #8 through #24 renumbered to #9 through #25.
+- Prompted by the 11x recap deck, built in Google Slides, which shipped with 50 unintended `333333` outlines on accent bars, bullet dots, chart bars, numbered circles, table rows, and full-bleed section grounds. The v2.4 border audit note ("only cards and tinted list rows get borders") was correct but lived in the changelog, not the rules body, and used pptxgenjs-specific phrasing.
 
 **v3.3.0 (July 2026)**: plain-language voice overhaul (founder call)
 - **Em dashes banned** in all deck copy and throughout this spec, the styleguide, and token comments. Replaced with periods, commas, colons, or parentheses. Double hyphens standing in for em dashes are covered by the same rule.

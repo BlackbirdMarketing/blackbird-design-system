@@ -2,6 +2,17 @@
 
 Repo-level history. The spec keeps its own detailed changelog in `spec/powerpoint-brand-skill.md`.
 
+## 3.4.0 (August 2026)
+
+- New spec Section 4a (Outline Control). Default rule: every shape ships with no outline unless the spec names it. Replaces the additive model, which only held if the authoring tool defaulted to no border; none of PowerPoint, Google Slides, pptxgenjs, or python-pptx do.
+- Four legal strokes only: slate-200 `E2E8F0` (white cards), teal-200 `A0DCE0` (teal-50 cards), red-200 `DD9AA3` (red-50 cards), slate-300 `CBD5E1` (reporting table row separators).
+- `333333` banned as a shape stroke. It is the Google Slides and pptxgenjs default shape border. It remains valid as the `dark-line` token, the fill of an internal divider rule on a dark slide, so the ban is scoped to `<a:ln>` blocks only.
+- Theme-inherited strokes banned: an `<a:lnRef>` with no explicit `<a:ln>` override picks up the Office theme `lnStyleLst`, which carries a filled line at all three indices.
+- Per-tool suppression documented for PowerPoint (hand-drawn and template), Google Slides and the Slides API, pptxgenjs, and python-pptx.
+- New guard `scripts/validate_deck_outlines.py`, wired into the validate workflow. Fails on banned strokes, unsanctioned stroke colors, and unoverridden theme line references.
+- New Pre-Ship Checklist row (Outlines) and Common Mistake #8; prior mistakes #8-#24 renumbered #9-#25.
+- Prompted by the 11x recap deck, which shipped from Google Slides with 50 unintended `333333` outlines on accent bars, bullet dots, chart bars, numbered circles, table rows, and section grounds.
+
 ## 3.3.0 (July 2026)
 
 - Plain-language voice overhaul (founder call). Em dashes are banned in all deck copy and in every file in this repo; the sweep removed them from the spec, index.html, tokens.css, and all docs.
